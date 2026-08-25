@@ -1,0 +1,94 @@
+{
+ "platform": "Samsung SmartThings",
+ "evidence": "documentation-derived (L2), SILENT on member Routines; NOT runtime-confirmed",
+ "carriers": {
+  "session": {
+   "audit_visible": false,
+   "names_principal": false
+  },
+  "automation": {
+   "audit_visible": true,
+   "names_principal": false
+  },
+  "foreign_automation": {
+   "audit_visible": true,
+   "names_principal": false
+  },
+  "grant": {
+   "audit_visible": true,
+   "names_principal": true
+  }
+ },
+ "capabilities": [
+  "operate_via_session",
+  "operate_via_automation"
+ ],
+ "chains": [
+  {
+   "cap": "operate_via_session",
+   "requires": [
+    "session"
+   ],
+   "trace": [
+    "stale_session(p)",
+    "direct control"
+   ]
+  },
+  {
+   "cap": "operate_via_automation",
+   "requires": [
+    "session",
+    "automation"
+   ],
+   "trace": [
+    "stale_session(p)",
+    "trigger event",
+    "member automation",
+    "service call"
+   ]
+  },
+  {
+   "cap": "operate_via_automation",
+   "requires": [
+    "automation"
+   ],
+   "trace": [
+    "schedule/sensor trigger",
+    "member automation (still armed)",
+    "service call"
+   ]
+  },
+  {
+   "cap": "operate_via_automation",
+   "requires": [
+    "foreign_automation"
+   ],
+   "trace": [
+    "trigger",
+    "automation authored by a current principal",
+    "service call"
+   ]
+  }
+ ],
+ "transitions": {
+  "evict_readingA_routines_die": {
+   "removes": [
+    "grant",
+    "automation"
+   ],
+   "denies": [
+    "operate_via_session",
+    "operate_via_automation"
+   ]
+  },
+  "evict_readingB_routines_survive": {
+   "removes": [
+    "grant"
+   ],
+   "denies": [
+    "operate_via_session",
+    "operate_via_automation"
+   ]
+  }
+ }
+}

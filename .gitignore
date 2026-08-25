@@ -1,0 +1,21 @@
+# The manuscript is deliberately not in this repository.
+manuscripts/
+tenantsafe_draft.pdf
+*.pdf
+
+# Coordinated-disclosure material. Held out on purpose: the Home Assistant
+# finding is UNDISCLOSED, and git history survives a later visibility change,
+# so committing this now would publish it if the repo is ever made public --
+# even if the file were deleted first.
+disclosure/
+
+# Generated. `./build_artifact.sh` reassembles artifact/ from the sources here.
+artifact/
+results/*.tar.gz
+
+# Local noise
+.DS_Store
+__pycache__/
+*.pyc
+.rka/
+cfg-*/

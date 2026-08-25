@@ -1,0 +1,220 @@
+theory TenantSafeBase
+begin
+
+/*
+  TENANTSAFE — M2 Stage 0 base model.
+  A transition calculus for HOUSEHOLD AUTHORITY, mechanized in Tamarin.
+
+  BOUNDARY (decision D3). FABRICPROOF (prj_01KY1JVKHYZW6MZJ6PQKNPTHZW) proves
+  properties of Matter fabrics, operational certificates and ACL entries at the
+  PROTOCOL layer. TENANTSAFE proves properties of principals, roles and
+  delegation across HOUSEHOLD events. Matter-layer facts are imported by
+  citation, never re-derived here.
+
+  SUBSTRATE REUSE. The persistent-vs-linear discipline is taken directly from
+  FABRICPROOF's matter_authz_base.spthy: persistent (!) facts carry immutable
+  identity and inert history; LINEAR facts carry revocable current validity and
+  are CONSUMED by the transition that revokes them. That is what makes
+  revocation-completeness a genuine theorem downstream rather than an assumption.
+
+  WHAT IS NEW HERE, and is the reason this is not a FABRICPROOF extension:
+  two effect paths that have no protocol-layer counterpart --
+    (a) Session   -- a credential minted from a grant that OUTLIVES the grant.
+    (b) Automation -- a rule AUTHORED by one principal that executes with
+        HOUSEHOLD authority and is triggered by an entity bound to the author.
+        No ACL names the author as an authorized subject. This is the deputy.
+
+  VALIDITY (decision D2, as superseded 2026-08-21). Transition semantics are
+  instantiated from DOCUMENTED platform behaviour, not observed implementation,
+  except for Home Assistant where source is ground truth. This file is the
+  PLATFORM-NEUTRAL base; per-platform instantiation is Stage 2.
+
+  STAGE 0 SCOPE: base model + executability lemmas only.
+  No property verdicts are claimed from this file.
+*/
+
+/* ------------------------------------------------------------ capability lattice
+   View < Operate < Manage < Administer. Shape follows FABRICPROOF's priv_order. */
+restriction cap_order:
+  "All held need #i. CapCheck(held, need) @ i ==>
+     ( held = need
+     | ( held = 'Administer' & need = 'Manage'   )
+     | ( held = 'Administer' & need = 'Operate'  )
+     | ( held = 'Administer' & need = 'View'     )
+     | ( held = 'Manage'     & need = 'Operate'  )
+     | ( held = 'Manage'     & need = 'View'     )
+     | ( held = 'Operate'    & need = 'View'     ) )"
+
+restriction valid_cap:
+  "All c #i. IsCap(c) @ i ==>
+     ( c = 'View' | c = 'Operate' | c = 'Manage' | c = 'Administer' )"
+
+/* ---- capability constants: bounds the search to the 4-element lattice.
+   Replaces In(cap), which let the adversary synthesise arbitrary capability
+   terms and made even exists-trace lemmas intractable (>3 min, no verdict). */
+rule DeclareCaps:
+  [ ]
+  --[ DeclareCaps() ]->
+  [ !Cap('View'), !Cap('Operate'), !Cap('Manage'), !Cap('Administer') ]
+
+restriction caps_once:
+  "All #i #j. DeclareCaps() @ i & DeclareCaps() @ j ==> #i = #j"
+
+/* ---------------------------------------------------------------- identities */
+
+rule CreateHome:
+  [ Fr(~h), Fr(~owner) ]
+  --[ CreateHome(~h, ~owner) ]->
+  [ !Home(~h, ~owner), !Principal(~owner), Member(~owner, ~h) ]
+
+rule CreatePrincipal:
+  [ Fr(~p) ]
+  --[ NewPrincipal(~p) ]->
+  [ !Principal(~p) ]
+
+rule AddDevice:
+  [ !Home(h, o), Member(o, h), Fr(~d) ]
+  --[ AddDevice(~d, h) ]->
+  [ !Home(h, o), Member(o, h), !Device(~d, h) ]
+
+/* ------------------------------------------------- membership: LINEAR, evictable
+   Member is consumed by Evict. Nothing reproduces it except the rules that
+   legitimately re-assert an unchanged membership. */
+
+rule AdmitMember:
+  [ !Home(h, o), Member(o, h), !Principal(p) ]
+  --[ Admit(h, o, p) ]->
+  [ !Home(h, o), Member(o, h), Member(p, h) ]
+
+/* ------------------------------------------------------- grants: LINEAR, revocable
+   depth is the re-delegation budget; 'zero' means may not be re-delegated. */
+
+rule GrantCap:
+  [ !Home(h, o), Member(o, h), !Device(d, h), !Principal(subj), !Cap(cap) ]
+  --[ GrantCap(h, o, subj, d, cap), IsCap(cap) ]->
+  [ !Home(h, o), Member(o, h), Grant(h, o, subj, d, cap, 'one') ]
+
+/* Re-delegation. Budget strictly decreases ('one' -> 'zero'); capability may only
+   narrow, enforced by CapCheck. Both together are delegation-non-amplification. */
+rule Delegate:
+  [ Grant(h, iss, subj, d, cap, 'one'), !Principal(sub2), !Cap(cap2) ]
+  --[ Delegate(h, subj, sub2, d, cap, cap2), CapCheck(cap, cap2), IsCap(cap2) ]->
+  [ Grant(h, iss, subj, d, cap, 'one'), Grant(h, subj, sub2, d, cap2, 'zero') ]
+
+/* ------------------------------------------- RESIDUE PATH (a): session outlives grant
+   A session is minted FROM a grant but is a separate linear fact. Revoking the
+   grant does not consume the session. This is A1 lines 4-6 of the design. */
+rule OpenSession:
+  [ Grant(h, iss, subj, d, cap, dep) ]
+  --[ OpenSession(h, subj, d, cap) ]->
+  [ Grant(h, iss, subj, d, cap, dep), Session(subj, d, cap) ]
+
+/* ------------------------------------ RESIDUE PATH (b): the deputy automation
+   Authored by p while p holds a grant. The automation is PERSISTENT (household
+   property, survives its author) and carries HOUSEHOLD authority. The trigger
+   entity is bound to p and is NOT consumed by eviction. No ACL names p as an
+   authorized subject of the automation's effect. */
+rule AuthorAutomation:
+  [ Member(p, h), Grant(h, iss, p, d, cap, dep) ]
+  --[ AuthorAutomation(h, p, d, cap) ]->
+  [ Member(p, h), Grant(h, iss, p, d, cap, dep)
+  , !Automation(h, p, d, cap), TriggerEntity(p, h) ]
+
+/* ------------------------------------------------------------- transition events */
+
+// EVICT consumes membership only -- exactly what platforms document.
+rule Evict:
+  [ !Home(h, o), Member(o, h), Member(p, h) ]
+  --[ Evict(h, p) ]->
+  [ !Home(h, o), Member(o, h) ]
+
+// The documented remediation: delete the ACL row naming the principal. BASELINE B1.
+rule RevokeGrant:
+  [ !Home(h, o), Member(o, h), Grant(h, iss, subj, d, cap, dep) ]
+  --[ RevokeGrant(h, subj, d, cap) ]->
+  [ !Home(h, o), Member(o, h) ]
+
+// The remediation NO platform documents: kill the live session.
+rule RevokeSession:
+  [ !Home(h, o), Member(o, h), Session(subj, d, cap) ]
+  --[ RevokeSession(h, subj, d, cap) ]->
+  [ !Home(h, o), Member(o, h) ]
+
+// The remediation NO platform documents: unbind the trigger entity.
+rule RemoveTrigger:
+  [ !Home(h, o), Member(o, h), TriggerEntity(p, h) ]
+  --[ RemoveTrigger(h, p) ]->
+  [ !Home(h, o), Member(o, h) ]
+
+/* ------------------------------------------------------------ EFFECT (design A1)
+   Three paths. Each emits Effect(p,d,need) plus a Via() marker naming the path,
+   so a counterexample trace says WHICH residue channel carried the authority. */
+
+// A1 lines 1-3: direct grant path. Requires CURRENT membership and a live grant.
+rule Effect_ViaGrant:
+  [ Member(p, h), Grant(h, iss, p, d, cap, dep), !Cap(need) ]
+  --[ Effect(p, d, need), Via('grant', p, d), CapCheck(cap, need), IsCap(need) ]->
+  [ Member(p, h), Grant(h, iss, p, d, cap, dep) ]
+
+// A1 lines 4-6: live-session path. NOTE: no membership requirement.
+rule Effect_ViaSession:
+  [ Session(p, d, cap), !Cap(need) ]
+  --[ Effect(p, d, need), Via('session', p, d), CapCheck(cap, need), IsCap(need) ]->
+  [ Session(p, d, cap) ]
+
+// A1 lines 7-10: deputy path. Authorization is checked against the AUTOMATION's
+// authority, never against p. p supplies only the trigger.
+rule Effect_ViaAutomation:
+  [ !Automation(h, author, d, cap), TriggerEntity(p, h), !Cap(need) ]
+  --[ Effect(p, d, need), Via('automation', p, d), Deputy(h, author, p, d)
+    , CapCheck(cap, need), IsCap(need) ]->
+  [ TriggerEntity(p, h) ]
+
+/* ============================================================================
+   STAGE 0 — EXECUTABILITY LEMMAS
+   Faithfulness gate (design C3): a model that cannot run the happy path proves
+   everything vacuously. 100% of these must pass before ANY property verdict is
+   recorded. No property lemmas appear in this file by design.
+   ============================================================================ */
+
+lemma exec_onboard_member_and_act:
+  exists-trace
+  "Ex h o p d #a #g #e.
+        Admit(h, o, p) @ a
+      & GrantCap(h, o, p, d, 'Operate') @ g
+      & Effect(p, d, 'Operate') @ e
+      & #a < #g & #g < #e"
+
+lemma exec_delegate_narrows:
+  exists-trace
+  "Ex h o p q d #g #dl #e.
+        GrantCap(h, o, p, d, 'Manage') @ g
+      & Delegate(h, p, q, d, 'Manage', 'Operate') @ dl
+      & Effect(q, d, 'Operate') @ e
+      & #g < #dl & #dl < #e"
+
+lemma exec_evict_blocks_direct_path:
+  exists-trace
+  "Ex h o p d #g #e #v.
+        GrantCap(h, o, p, d, 'Operate') @ g
+      & Effect(p, d, 'Operate') @ e
+      & Evict(h, p) @ v
+      & #g < #e & #e < #v"
+
+lemma exec_author_automation:
+  exists-trace
+  "Ex h o p d #g #au #e.
+        GrantCap(h, o, p, d, 'Operate') @ g
+      & AuthorAutomation(h, p, d, 'Operate') @ au
+      & Effect(p, d, 'Operate') @ e
+      & #g < #au & #au < #e"
+
+lemma exec_full_remediation_runs:
+  exists-trace
+  "Ex h o p d #g #v #r.
+        GrantCap(h, o, p, d, 'Operate') @ g
+      & Evict(h, p) @ v
+      & RevokeGrant(h, p, d, 'Operate') @ r
+      & #g < #v & #v < #r"
+
+end
