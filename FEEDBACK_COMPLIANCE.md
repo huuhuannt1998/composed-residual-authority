@@ -287,7 +287,9 @@ presented as the other.
 
 | Gate | Result |
 |---|---|
-| Pages | **13 of 13** (at limit — layout WARN, not a block) |
+| Pages | body **13/13**, total **15/18** — the CFP allows 13 body + 5 refs/appendices |
+| Document class | `[conference,compsoc]` — **corrected**, was missing `compsoc` |
+| Appendices | 3, using headroom the body limit does not charge for |
 | Overfull boxes > 10pt | **0** (was 5, worst 129.6pt) |
 | Undefined references / citations | **0** |
 | Provenance | **0 blocks** |

@@ -53,12 +53,14 @@ total** — not 13 total, which is what the layout audit was enforcing.
 | Measure | Value | Limit |
 |---|---|---|
 | Body pages | **13** | 13 |
-| Total pages | 14 | 18 |
-| References | pp. 13–14 | 5 allowed |
+| Appendices | p. 13 onward | — |
+| Total pages | 15 | 18 |
 
-The body sits exactly at the limit. Any addition must be paid for by a deletion.
-There is, however, **4 pages of unused headroom for appendices**, which is where
-additional tables or proofs should go rather than into the body.
+The body sits exactly at the limit, so any addition to it must be paid for by a
+deletion. The appendix headroom is now in use: three appendices carry the
+session-condition arms, the openHAB per-trial data, and the residue-search
+report, none of which competes with the body budget. Three pages of total
+headroom remain.
 
 Two tooling fixes were made so this stays honest: `manuscript.yaml` now records
 the CFP URL and an 18-page total cap, and `check_body_pages.py` locates the
@@ -72,7 +74,7 @@ measures only the total.
 | Gate | Result |
 |---|---|
 | Layout | 0 blocks, 1 warn (underfull spacing) |
-| Body / total pages | 13 / 14 — PASS |
+| Body / total pages | 13 / 15 — PASS |
 | Overfull boxes > 10pt | 0 |
 | Undefined references / citations | 0 |
 | Provenance | 0 blocks |
@@ -145,9 +147,6 @@ incomplete COI leads to immediate rejection.
 
 ## 7. Recommended before submission
 
-- Move the appendix-eligible material (the full mutation matrix, the per-platform
-  residue-finder output) into an appendix, using the 4 free pages rather than
-  competing with the body.
 - If an artifact repository is submitted, anonymize it via Anonymous GitHub or
   GitFront; the CFP requires the repository and account names not to identify
   authors, and artifacts cannot be updated after the deadline.
