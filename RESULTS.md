@@ -181,7 +181,23 @@ check costs **25.6 ns** amortized (the 83 ns per-op figure was 57 ns of timer).
 Defense A **22/22, 0 security and 0 functional regressions**. Baseline 20/22 with
 **2 security regressions**, at exactly the two deletion assertions.
 
-### 9.9 Automated residue finder
+### 9.9 Residual lifetime — no time-based expiry
+
+| Delay / event | socket | read | stream | actuation |
+|---|---|---|---|---|
+| pre-deletion control | 1 | 1 | 1 | 1 |
+| immediately … +6 hours | 1 | 1 | 1 | 1 |
+| after automation reload | 1 | 1 | 1 | 1 |
+| after integration reload | 1 | 1 | 1 | 1 |
+| after platform restart | **0** | **0** | **0** | **0** |
+
+Unchanged at every delay point out to six hours. The **+30 min** row is the
+informative one: access tokens carry a 30-minute lifetime and the connection
+outlives the credential that opened it, so validity is established once at setup
+and never revisited. Neither reload path — the two actions available from the
+interface — closes it. Only a full restart does, and incidentally.
+
+### 9.10 Automated residue finder
 `tools/residue_finder.py` reproduces CRD = 2 for Home Assistant from a
 declarative spec and **agrees with the Alloy verdicts on 10/10** path-level
 comparisons. The cross-validation found and fixed a real gap in the tool

@@ -61,7 +61,7 @@ per-platform signature is not an artifact of a tight bound.
 
 ---
 
-## 2. Home Assistant — 12 ✅ / 1 🟡
+## 2. Home Assistant — 13/13 ✅
 
 | # | Item | Status | Evidence |
 |---|---|---|---|
@@ -72,7 +72,7 @@ per-platform signature is not an artifact of a tight bound.
 | 5 | **Test multiple active sockets** | ✅ **[NEW]** | A1: **both** concurrent sockets survive deletion — residue is not per-socket |
 | 6 | Test administrator and ordinary user | ✅ | both roles, both transitions |
 | 7 | Run multi-version evaluation | ✅ | 2024.12 / 2026.6.4 / 2026.7.4 / 2026.8.3 — signature identical |
-| 8 | Measure residual lifetime | 🟡 | +0/+1min/+5min, automation reload, drop, restart done; **+6h/+24h not run** |
+| 8 | Measure residual lifetime | ✅ **[NEW]** | out to **+6 h**, unchanged on all four channels; survives automation *and* integration reload; ends only on platform restart |
 | 9 | **Test restart / network / token-revocation boundaries** | ✅ **[NEW]** | restart + drop (`p1e8`) and **explicit refresh-token revocation** (A4) |
 | 10 | Test multiple automation/deputy forms | ✅ | 6/6 families actuate post-removal |
 | 11 | Test household-authored automation | ✅ | all 6 owner-authored (review case A7) |
@@ -240,7 +240,7 @@ claims separated ✅ · **expand related work substantially ✅** (14 → 44 ref
 | P0 | 5 · Related-work / novelty validation | ✅ 14 → 44 refs, 12 areas, comparison table |
 | P1 | 6 · HA multi-version study | ✅ 4 versions |
 | P1 | 7 · Session×role×transition×operation matrix | ✅ 30/arm, deterministic |
-| P1 | 8 · Residual lifetime | 🟡 long-delay run in progress (schedule reaches +6h) |
+| P1 | 8 · Residual lifetime | ✅ **[NEW]** intact at +6 h; no time-based expiry |
 | P1 | 9 · Automation/deputy generality | ✅ 6/6, all owner-authored |
 | P1 | 10 · Compare two defenses | ✅ security + complexity |
 | P1 | 11 · Correct end-to-end benchmark | ✅ **[NEW]** no difference beyond noise |
@@ -255,14 +255,14 @@ claims separated ✅ · **expand related work substantially ✅** (14 → 44 ref
 
 ---
 
-## 9. Required results tables (review §23) — 6 ✅ / 1 pending data
+## 9. Required results tables (review §23) — 7/7 ✅
 
 | Table | Required | Status |
 |---|---|---|
 | A | Platform semantics | ✅ **[NEW]** `tab:determinacy`, 4×6 grid with code definitions |
 | B | HA full operation matrix | ✅ `tab:matrix`, 30 trials/arm |
 | C | Version study | ✅ `tab:versions` |
-| D | Residual lifetime | 🟡 long run in progress; short delays already reported |
+| D | Residual lifetime | ✅ **[NEW]** `tab:lifetime`, full series to +6 h plus termination events |
 | E | Composition ablation | ✅ `tab:support` |
 | F | Defense comparison | ✅ `tab:defenses` — now carries p50 latency per operation |
 | G | Alloy validation | ✅ `tab:alloyvalidation` — composition, depths 1–4, all 8 mutants |
@@ -289,7 +289,7 @@ presented as the other.
 |---|---|
 | Pages | body **13/13**, total **15/18** — the CFP allows 13 body + 5 refs/appendices |
 | Document class | `[conference,compsoc]` — **corrected**, was missing `compsoc` |
-| Appendices | 3, using headroom the body limit does not charge for |
+| Appendices | 4, using headroom the body limit does not charge for |
 | Overfull boxes > 10pt | **0** (was 5, worst 129.6pt) |
 | Undefined references / citations | **0** |
 | Provenance | **0 blocks** |
@@ -300,13 +300,8 @@ presented as the other.
 
 ## 12. What is left
 
-1. **Residual lifetime run** — in progress. Confirmed intact at +2 h; schedule
-   reaches +6 h, then the termination events. Table D and the §7 lifetime
-   paragraph get their final numbers from it.
-2. **Table A** — tabulate the platform-semantics summary currently carried as
-   prose in §6. Cosmetic; the content exists and is cited.
-
-Not actionable by me, and both standing:
+**Every experiment on the review's checklist is now run.** What remains is not
+mine to do:
 
 - **Independent second coder.** Needs a second human analyst. Everything around
   it is ready — codebook released, both passes exported, reliability computed and
