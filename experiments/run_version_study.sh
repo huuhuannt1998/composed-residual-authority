@@ -1,7 +1,7 @@
 #!/bin/bash
 # P1 Exp 6 driver: fresh unpatched instance per version.
-SP=/private/tmp/claude-501/-Users-huanbui-Research-TenantSafe-P11/6575cae6-deed-478b-b832-b915b1e5c495/scratchpad
-cd /Users/huanbui/Research/TenantSafe-P11/experiments
+SP="${TS_WORKDIR:-$(mktemp -d)}"   # per-version Home Assistant config roots
+cd "$(dirname "$0")"
 run() {
   VER=$1; PORT=$2; NAME="tsver-$(echo $VER | tr '.' '-')"
   echo "########## $VER on :$PORT ##########"

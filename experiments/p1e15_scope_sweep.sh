@@ -5,7 +5,10 @@
 # qualitative witness structure appears as the bound grows. This is a bounded
 # statement about the tested model, NOT a proof over unbounded systems.
 set -u
-SP=/private/tmp/claude-501/-Users-huanbui-Research-TenantSafe-P11/6575cae6-deed-478b-b832-b915b1e5c495/scratchpad
+# Directory containing alloy-dist/ (Alloy 6). Download from
+# https://github.com/AlloyTools/org.alloytools.alloy/releases
+: "${ALLOY_TOOLS_DIR:?set ALLOY_TOOLS_DIR to a directory containing alloy-dist/}"
+SP="$ALLOY_TOOLS_DIR"
 JAR=/tools/alloy-dist/Alloy.app/Contents/Resources/org.alloytools.alloy.dist.jar
 SRC=models/tenantsafe_platforms.als
 OUT=results/scope_sweep; mkdir -p $OUT
