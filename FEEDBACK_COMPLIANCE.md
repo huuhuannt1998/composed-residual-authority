@@ -289,7 +289,7 @@ presented as the other.
 |---|---|
 | Pages | body **13/13**, total **15/18** — the CFP allows 13 body + 5 refs/appendices |
 | Document class | `[conference,compsoc]` — **corrected**, was missing `compsoc` |
-| Appendices | 4, using headroom the body limit does not charge for |
+| Appendices | **5** (A–E, incl. Ethics Considerations), in headroom the body limit does not charge for |
 | Overfull boxes > 10pt | **0** (was 5, worst 129.6pt) |
 | Undefined references / citations | **0** |
 | Provenance | **0 blocks** |
@@ -300,8 +300,17 @@ presented as the other.
 
 ## 12. What is left
 
-**Every experiment on the review's checklist is now run.** What remains is not
-mine to do:
+**Every experiment on the review's checklist is now run, and the manuscript has
+had a full coherence pass.** What remains is not mine to do:
+
+A note on what that pass found, because it is a recurring failure mode worth
+naming. After the new results landed, §1, §8, §9 and §11 still described the
+project as it stood beforehand — and three of them credited the *incomplete*
+defense with closing the residue, contradicting §8's own table. The provenance
+gate could not catch this: it verifies that cited entities are current, not that
+prose written against an earlier evidence state was rewritten when the evidence
+moved. After any result that changes a claim, the sections that *assert* that
+claim must be re-read, not merely re-verified.
 
 - **Independent second coder.** Needs a second human analyst. Everything around
   it is ready — codebook released, both passes exported, reliability computed and

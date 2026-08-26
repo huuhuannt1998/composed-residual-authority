@@ -53,7 +53,7 @@ total** — not 13 total, which is what the layout audit was enforcing.
 | Measure | Value | Limit |
 |---|---|---|
 | Body pages | **13** | 13 |
-| Appendices | p. 13 onward | — |
+| Appendices | A–E, p. 13 onward | — |
 | Total pages | 15 | 18 |
 
 The body sits exactly at the limit, so any addition to it must be paid for by a
@@ -150,5 +150,8 @@ incomplete COI leads to immediate rejection.
 - If an artifact repository is submitted, anonymize it via Anonymous GitHub or
   GitFront; the CFP requires the repository and account names not to identify
   authors, and artifacts cannot be updated after the deadline.
-- Add a dedicated **Ethics Considerations** section for camera-ready. It does not
-  count toward the page limit. Content already exists in §10.
+- ~~Add a dedicated Ethics Considerations section~~ — **done**, Appendix E. It
+  covers the four areas the CFP names: human subjects (none), live and
+  third-party systems (none touched), disclosure status, and the misuse
+  potential of the released tools. §10 now points to it rather than duplicating
+  it, which also returned space to the body.
