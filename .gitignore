@@ -19,3 +19,11 @@ __pycache__/
 *.pyc
 .rka/
 cfg-*/
+
+# Live credentials. The SmartThings personal access token grants control of a
+# real account; git history survives a visibility change, so this must never be
+# committed even once.
+.env
+.env.*
+*.pat
+smartthings-token*
