@@ -13,6 +13,10 @@ disclosure/
 artifact/
 results/*.tar.gz
 
+# Agent workspace: contains a nested git worktree, which cannot be committed
+# into an outer repository and would not clone correctly.
+.claude/
+
 # Local noise
 .DS_Store
 __pycache__/
