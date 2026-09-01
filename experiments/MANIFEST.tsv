@@ -1,0 +1,27 @@
+# TenantSafe experiment registry. Read by run_all.sh.
+# tier      : 0=formal (no containers) 1=short runtime 2=long runtime
+# peak_ctr  : maximum containers alive AT ONCE for this experiment
+# est_min   : wall-clock estimate in minutes, measured from prior runs
+# resumable : y = safe to re-run from scratch after an interruption
+#
+# id	script	tier	peak_ctr	est_min	resumable	outputs	description
+alloy_crd	MODELS:tenantsafe_crd.als	0	1	1	y	results/tenantsafe_crd	composition depth, repaired definition
+alloy_mutants	MODELS:tenantsafe_mutants.als	0	1	1	y	results/tenantsafe_mutants	8 mutated revocation semantics
+alloy_depth	MODELS:tenantsafe_depth.als	0	1	1	y	results/tenantsafe_depth	synthetic depths 1-4
+alloy_platforms	MODELS:tenantsafe_platforms.als	0	1	1	y	results/tenantsafe_platforms	per-platform residue signature
+scope_sweep	p1e15_scope_sweep.sh	0	1	3	y	results/scope_sweep	scope/budget sensitivity S1-S4
+micro	p1e11b_micro.py	0	0	1	y	/tmp/p1e11_micro.json	authorization-check microbenchmark
+severity	p2e19_severity.py	0	0	1	y	/tmp/p2e19_severity.json	severity classification (needs matrix first)
+residue_finder	TOOL:residue_finder	0	0	1	y	-	residue search vs Alloy cross-validation
+matrix	p1e7_matrix.py	1	1	28	y	/tmp/matrix_p1e7.json	role x transition x operation, 30 trials/arm
+sessions	p1e7b_sessions.py	1	1	4	y	/tmp/p1e7b.json	session conditions
+regression_base	p1e12_regression.py	1	1	4	y	/tmp/p1e12_8141.json	lifecycle suite, unpatched baseline
+regression_defA	p1e12_regression.py	1	1	4	y	/tmp/p1e12_8142.json	lifecycle suite, Defense A
+capability_matrix	p0e3_capability_matrix.py	1	1	6	y	-	defense completeness 8/2/0
+deputy_generality	p1e9_deputy_generality.py	1	1	6	y	-	6 automation families
+version_study	run_version_study.sh	1	1	12	y	-	4 HA releases, one container at a time
+openhab_request	p2e16_openhab.py	1	1	5	y	/tmp/p2e16_openhab.json	openHAB request path
+openhab_sse	p2e16b_openhab_sse.py	1	1	4	y	/tmp/p2e16b_sse.json	openHAB persistent connection
+openhab_reps	p2e16c_openhab_reps.py	1	1	9	y	/tmp/p2e16c_reps.json	openHAB, 5 independent trials
+benchmark	p1e11_benchmark.py	2	3	14	y	/tmp/p1e11_bench.json	PEAK FOOTPRINT: 3 concurrent instances by design
+lifetime_long	p1e8b_lifetime_long.py	2	1	400	n	/tmp/p1e8b_rows.json	LONGEST: schedule reaches +6h then termination events

@@ -7,9 +7,9 @@
 set -u
 # Directory containing alloy-dist/ (Alloy 6). Download from
 # https://github.com/AlloyTools/org.alloytools.alloy/releases
-: "${ALLOY_TOOLS_DIR:?set ALLOY_TOOLS_DIR to a directory containing alloy-dist/}"
+: "${ALLOY_TOOLS_DIR:=$HOME/.tenantsafe/tools}"
 SP="$ALLOY_TOOLS_DIR"
-JAR=/tools/alloy-dist/Alloy.app/Contents/Resources/org.alloytools.alloy.dist.jar
+JAR=/tools/alloy.jar
 SRC=models/tenantsafe_platforms.als
 OUT=results/scope_sweep; mkdir -p $OUT
 BASE='for 4 but 3 Principal, 2 Device, 3 Grant, 2 Session, 2 Auto, 10 steps'

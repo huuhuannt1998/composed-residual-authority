@@ -1,0 +1,4 @@
+  per-op    (incl. timer): median 83 ns  p95 84  p99 125  sd 5.7
+  amortized (loop-calibrated): median 25.9 ns  p95 27.2  p99 27.5  sd 1.3
+  batches 30 x 33,333 = 999,990 lookups; 38,667,489/s
+  timer overhead implied: 57.1 ns per measured op

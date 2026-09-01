@@ -1,0 +1,6 @@
+00. run   R1_pair_sufficient       0    1/1     SAT
+01. run   R2a_session_alone_actuates     0       UNSAT
+02. run   R2b_automation_alone_actuates     0       UNSAT
+03. check R3_no_smaller_sufficient_support     0       UNSAT
+04. run   R4_read_is_depth_one     0    1/1     SAT
+05. run   R5_grant_is_depth_one     0    1/1     SAT
