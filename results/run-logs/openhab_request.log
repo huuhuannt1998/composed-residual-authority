@@ -1,0 +1,20 @@
+
+=== openHAB 4.3.2 : second runtime ecosystem ===
+
+  rule create -> http 201
+  pre-removal control                read=1  direct=1  deputy=1   (http 200/200/200)
+
+  --- transition: openhab:users remove ohmember ---
+  openhab> logout
+  after users remove                 read=0  direct=0  deputy=0   (http 401/401/401)
+
+  --- explicit teardown: clearSessions (already-removed user) ---
+  after clearSessions                read=0  direct=0  deputy=0   (http 401/401/401)
+
+  --- control: administrator token still works? ---
+  admin token (control)              read=1  direct=1  deputy=1   (http 200/200/200)
+
+=== VERDICT ===
+  read     pre=1 post=0  -> closed
+  direct   pre=1 post=0  -> closed
+  deputy   pre=1 post=0  -> closed

@@ -73,8 +73,14 @@ import aiohttp, websockets
 PY
 
 # --- alloy ----------------------------------------------------------------
-if [ -n "$ALLOY_TOOLS_DIR" ] && [ -d "$ALLOY_TOOLS_DIR/alloy-dist" ]; then ok "ALLOY_TOOLS_DIR set"
-else note "ALLOY_TOOLS_DIR unset - formal experiments will be skipped"; fi
+: "${ALLOY_TOOLS_DIR:=$HOME/.tenantsafe/tools}"
+if [ -f "$ALLOY_TOOLS_DIR/alloy.jar" ]; then
+  ok "Alloy $(cat "$ALLOY_TOOLS_DIR/alloy.version" 2>/dev/null || echo '?') at $ALLOY_TOOLS_DIR"
+elif [ -d "$ALLOY_TOOLS_DIR/alloy-dist" ]; then
+  ok "Alloy (legacy app-bundle layout) at $ALLOY_TOOLS_DIR"
+else
+  note "no Alloy jar under $ALLOY_TOOLS_DIR - formal experiments will skip; run ./prepare.sh"
+fi
 
 # --- rka ------------------------------------------------------------------
 curl -s -m 3 -o /dev/null http://localhost:9712/api/health 2>/dev/null \

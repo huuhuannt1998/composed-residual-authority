@@ -1,0 +1,13 @@
+       done in 2m  ->  ../results/run-logs/openhab_reps.log
+           valid trials              : 5/5
+           residual after remove     : 5/5
+           still residual after clearSessions : 5/5
+
+[1m==> lifetime_long  (~400 min)  17:56:11[0m
+       done in 362m  ->  ../results/run-logs/lifetime_long.log
+         [23:57:30]   after integration reload     1/1/1/1
+         [23:58:17]   after container restart      0/0/0/0 (no socket)
+         [23:58:17] DONE
+
+./run_all.sh: line 260: --: command not found
+[1m==> capability_base  (~6 min)  23:58:21[0m

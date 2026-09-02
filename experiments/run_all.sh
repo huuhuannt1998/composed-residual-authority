@@ -57,11 +57,29 @@ fi
 
 # ---------------------------------------------------------------- helpers
 mem_gb() { vm_stat 2>/dev/null | awk '/page size of/{ps=$8} /Pages free/{f=$3} /Pages inactive/{i=$3} END{gsub(/\./,"",f);gsub(/\./,"",i);print int((f+i)*ps/1073741824)}'; }
+# Docker runs in its own VM with a fixed memory cap. Host free memory can look
+# healthy while the VM is full, and containers are OOM-killed inside it. Check
+# both; the VM is usually the binding constraint.
+docker_free_gb() {
+  docker stats --no-stream --format '{{.MemUsage}}' 2>/dev/null | awk -F'/' '
+    { u=$1; t=$2
+      gsub(/[^0-9.A-Za-z]/,"",u); gsub(/[^0-9.A-Za-z]/,"",t)
+      uv=u+0; if (u ~ /MiB/) uv/=1024; if (u ~ /KiB/) uv/=1048576
+      tv=t+0; if (t ~ /MiB/) tv/=1024
+      su+=uv; if (tv>cap) cap=tv }
+    END { if (cap>0) printf "%d", cap-su }'
+}
 guard() {
-  local g; g=$(mem_gb)
+  local g d; g=$(mem_gb); d=$(docker_free_gb)
   if [ -n "$g" ] && [ "$g" -lt "$MIN_FREE_GB" ]; then
-    say "STOPPING: free memory ${g} GB fell below ${MIN_FREE_GB} GB."
+    say "STOPPING: host free memory ${g} GB fell below ${MIN_FREE_GB} GB."
     info "Nothing is lost - re-run with --resume once memory frees up."
+    ./teardown.sh; exit 3
+  fi
+  if [ -n "$d" ] && [ "$d" -lt 2 ]; then
+    say "STOPPING: only ${d} GB free inside the Docker VM."
+    info "Containers would be OOM-killed. Stop other projects' containers,"
+    info "or raise Docker Desktop's memory limit, then re-run with --resume."
     ./teardown.sh; exit 3
   fi
 }
@@ -77,6 +95,18 @@ wait_http() { # port, expected-codes, timeout-steps
   return 1
 }
 
+wait_auth() { # port [tries] - poll until the auth provider actually answers
+  local p=$1 n=${2:-40} body
+  for i in $(seq 1 "$n"); do
+    body=$(curl -s -m 5 -X POST "http://localhost:$p/auth/login_flow" \
+      -H 'Content-Type: application/json' \
+      -d "{\"client_id\":\"http://localhost:$p/\",\"handler\":[\"homeassistant\",null],\"redirect_uri\":\"http://localhost:$p/\",\"type\":\"authorize\"}" 2>/dev/null)
+    case "$body" in *flow_id*) return 0;; esac
+    sleep 3
+  done
+  return 1
+}
+
 up_ha() { # name port [version]
   local name=$1 port=$2 ver=${3:-2026.8.3}
   docker rm -f "$name" >/dev/null 2>&1
@@ -84,7 +114,7 @@ up_ha() { # name port [version]
   docker run -d --name "$name" -p "$port":8123 -v "$WORK/cfg-$name":/config \
     -e TZ=UTC "homeassistant/home-assistant:$ver" >/dev/null || return 1
   wait_http "$port" "302 200" || { info "$name did not come up on :$port"; return 1; }
-  sleep 10   # settle: the auth provider is not ready the instant HTTP answers
+  wait_auth "$port" || { info "$name auth provider never became ready on :$port"; return 1; }
 }
 
 patch_ha() { # name A|B
@@ -93,6 +123,7 @@ patch_ha() { # name A|B
   docker cp "$ROOT/models/$f" "$name":/tmp/ >/dev/null 2>&1
   docker exec "$name" python3 /tmp/"$f" >/dev/null 2>&1
   docker restart "$name" >/dev/null 2>&1
+  sleep 5                      # let the old process actually stop answering
 }
 
 ohab_console() { docker exec tsohab bash -c "printf '%s\nlogout\n' \"$1\" | /openhab/runtime/bin/client -p habopen 2>/dev/null" | sed 's/\x1b\[[0-9;]*m//g'; }
@@ -115,6 +146,24 @@ up_ohab() {
   OH_MEM=$(ohab_console "openhab:users addApiToken ohmember memtok user" | grep -oE 'oh\.memtok\.[A-Za-z0-9]+' | head -1)
   [ -n "$OH_ADM" ] && [ -n "$OH_MEM" ] || { info "openHAB token minting failed"; return 1; }
   export OH_ADM OH_MEM
+  # Every openHAB arm gets a FRESH instance, so the item and rule that
+  # p2e16_openhab.py creates do not survive to the later arms. Without them the
+  # SSE arms have nothing to toggle, the pre-removal control delivers zero
+  # events, and the run reports INVALID. Create the fixture here so every arm
+  # starts from a complete environment.
+  curl -s -X PUT "http://localhost:8150/rest/items/TsProbe" \
+    -H "Authorization: Bearer $OH_ADM" -H "Content-Type: application/json" \
+    -d '{"type":"Switch","name":"TsProbe","label":"TenantSafe probe"}' >/dev/null
+  sleep 2
+  curl -s -X POST "http://localhost:8150/rest/rules" \
+    -H "Authorization: Bearer $OH_ADM" -H "Content-Type: application/json" \
+    -d '{"uid":"tsdeputy","name":"ts deputy","triggers":[],"conditions":[],
+         "actions":[{"id":"a1","type":"core.ItemCommandAction",
+                     "configuration":{"itemName":"TsProbe","command":"ON"}}]}' >/dev/null
+  sleep 2
+  local st
+  st=$(curl -s -H "Authorization: Bearer $OH_ADM" http://localhost:8150/rest/items/TsProbe | head -c 60)
+  case "$st" in *TsProbe*) ;; *) info "openHAB fixture not created"; return 1;; esac
 }
 
 alloy() { # model-file out-dir
@@ -149,9 +198,16 @@ run_one() {
     matrix)           up_ha tsmatrix 8136 && python3 p1e7_matrix.py 8136 "${REPS:-30}" ;;
     sessions)         up_ha tssess 8137 && python3 p1e7b_sessions.py 8137 ;;
     regression_base)  up_ha tsreg 8141 && python3 p1e12_regression.py 8141 "baseline (unpatched)" ;;
-    regression_defA)  up_ha tsregA 8142 && patch_ha tsregA A && wait_http 8142 "302 200" \
-                        && sleep 8 && python3 p1e12_regression.py 8142 "Defense A" ;;
-    capability_matrix) up_ha tscap 8124 && python3 p0e3_capability_matrix.py 8124 ;;
+    regression_defA)  up_ha tsregA 8142 && patch_ha tsregA A \
+                        && wait_http 8142 "302 200" && wait_auth 8142 \
+                        && python3 p1e12_regression.py 8142 "Defense A" ;;
+    capability_base)  up_ha tscap 8124 && python3 p0e3_capability_matrix.py baseline ;;
+    capability_defB)  up_ha tscap 8124 && patch_ha tscap B \
+                        && wait_http 8124 "302 200" && wait_auth 8124 \
+                        && python3 p0e3_capability_matrix.py defenseB ;;
+    capability_defA)  up_ha tscap 8124 && patch_ha tscap A \
+                        && wait_http 8124 "302 200" && wait_auth 8124 \
+                        && python3 p0e3_capability_matrix.py defenseA ;;
     deputy_generality) up_ha tsdep 8135 && python3 p1e9_deputy_generality.py 8135 ;;
     version_study)    ./run_version_study.sh ;;
     openhab_request)  up_ohab && python3 p2e16_openhab.py "$OH_ADM" "$OH_MEM" ;;
@@ -165,7 +221,8 @@ run_one() {
                         && patch_ha tsbenchA A && patch_ha tsbenchB B \
                         && docker restart tsbench0 >/dev/null \
                         && wait_http 8141 "302 200" && wait_http 8142 "302 200" && wait_http 8143 "302 200" \
-                        && sleep 10 && python3 p1e11_benchmark.py ;;
+                        && wait_auth 8141 && wait_auth 8142 && wait_auth 8143 \
+                        && python3 p1e11_benchmark.py ;;
     lifetime_long)    up_ha tslife 8138 && python3 p1e8b_lifetime_long.py ;;
     *) echo "no runner defined for '$id'"; return 2;;
   esac

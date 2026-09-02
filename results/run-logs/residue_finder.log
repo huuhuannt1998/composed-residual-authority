@@ -1,0 +1,252 @@
+--- alexa.json
+Transition: evict_AA_grants_and_sessions(Amazon Alexa)
+Survivors:  {}
+
+  operate_via_session: no residual capability
+
+  operate_via_automation: no residual capability
+
+  revocation complete: no denied capability remains induced
+
+====================================================================
+Transition: evict_AB_grants_only(Amazon Alexa)
+Survivors:  {session}
+
+Residual capability: operate_via_session
+Witness:
+  stale_session(p)
+  -> direct control
+
+Minimal support:
+  {session}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+    (none)
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+  operate_via_automation: no residual capability
+
+====================================================================
+Transition: evict_BA_sessions_only(Amazon Alexa)
+Survivors:  {grant}
+
+  operate_via_session: no residual capability
+
+  operate_via_automation: no residual capability
+
+  revocation complete: no denied capability remains induced
+
+====================================================================
+Transition: evict_BB_neither(Amazon Alexa)
+Survivors:  {session, grant}
+
+Residual capability: operate_via_session
+Witness:
+  stale_session(p)
+  -> direct control
+
+Minimal support:
+  {session}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+    (none)
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+  operate_via_automation: no residual capability
+
+====================================================================
+--- google_home.json
+Transition: evict_readingA_sessions_terminate(Google Home)
+Survivors:  {automation}
+
+  operate_via_session: no residual capability
+
+Residual capability: operate_via_automation
+Witness:
+  schedule/sensor trigger
+  -> member automation (still armed)
+  -> service call
+
+Minimal support:
+  {automation}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+  {automation}
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+====================================================================
+Transition: evict_readingB_sessions_persist(Google Home)
+Survivors:  {session, automation}
+
+Residual capability: operate_via_session
+Witness:
+  stale_session(p)
+  -> direct control
+
+Minimal support:
+  {session}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+    (none)
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+Residual capability: operate_via_automation
+Witness:
+  schedule/sensor trigger
+  -> member automation (still armed)
+  -> service call
+
+Minimal support:
+  {automation}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+  {automation}
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+====================================================================
+--- home_assistant.json
+Transition: delete_user(Home Assistant)
+Survivors:  {stale_socket, automation_7}
+
+Residual capability: read
+Witness:
+  stale_socket(alice)
+  -> get_states
+  -> state of light.kitchen
+
+Minimal support:
+  {stale_socket}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+    (none)
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+Residual capability: operate
+Witness:
+  stale_socket(alice)
+  -> fire_event("x")
+  -> automation_7
+  -> service_call(light.turn_on)
+
+Minimal support:
+  {automation_7, stale_socket}
+
+CRD:
+  2   [composed]
+
+Audit-visible objects in support:
+  {automation_7}
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+====================================================================
+Transition: deactivate_user(Home Assistant)
+Survivors:  {automation_7}
+
+  read: no residual capability
+
+  operate: no residual capability
+
+  revocation complete: no denied capability remains induced
+
+====================================================================
+--- smartthings.json
+Transition: evict_readingA_routines_die(Samsung SmartThings)
+Survivors:  {session, foreign_automation}
+
+Residual capability: operate_via_session
+Witness:
+  stale_session(p)
+  -> direct control
+
+Minimal support:
+  {session}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+    (none)
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+Residual capability: operate_via_automation
+Witness:
+  trigger
+  -> automation authored by a current principal
+  -> service call
+
+Minimal support:
+  {foreign_automation}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+  {foreign_automation}
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+====================================================================
+Transition: evict_readingB_routines_survive(Samsung SmartThings)
+Survivors:  {session, automation, foreign_automation}
+
+Residual capability: operate_via_session
+Witness:
+  stale_session(p)
+  -> direct control
+
+Minimal support:
+  {session}
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+    (none)
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+Residual capability: operate_via_automation
+Witness:
+  schedule/sensor trigger
+  -> member automation (still armed)
+  -> service call
+
+Minimal support:
+  {automation}
+  (also minimal: {foreign_automation})
+
+CRD:
+  1   [ordinary, depth 1]
+
+Audit-visible objects in support:
+  {automation}
+Objects naming the principal:
+    (none)  -> HIDDEN residue
+
+====================================================================

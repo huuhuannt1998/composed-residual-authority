@@ -9,7 +9,7 @@ harm.
 The mapping is declared here, once, ahead of the data - it is not chosen after
 seeing which cells survived.
 """
-import json, sys
+import json, os, sys, time
 LATTICE=["View","Operate","Manage","Administer"]
 RANK={c:i for i,c in enumerate(LATTICE)}
 # --- predeclared mapping (review section 19, P2 Experiment 19) ---------------
@@ -27,7 +27,14 @@ NICE={"read":"state read","existing_stream":"live event stream","new_subscribe":
       "indirect_actuate":"indirect actuation","direct_actuate":"direct actuation",
       "script_exec":"script execution","event_fire":"event firing","user_enum":"user enumeration"}
 def main():
-    m=json.load(open("/tmp/matrix_p1e7.json"))
+    src="/tmp/matrix_p1e7.json"
+    if not os.path.exists(src):
+        sys.exit(f"missing {src} - run the matrix experiment first (./run_all.sh --only matrix)")
+    age_h=(time.time()-os.path.getmtime(src))/3600
+    if age_h > 24:
+        sys.exit(f"{src} is {age_h:.0f} h old. Severity must be derived from the CURRENT\n"
+                 f"matrix run, not a stale one; re-run the matrix experiment first.")
+    m=json.load(open(src))
     print("PREDECLARED CAPABILITY MAPPING")
     for k in MAP: print(f"  {NICE[k]:22s} -> {MAP[k]}")
     print("\nHIGHEST SURVIVING CAPABILITY PER TRANSITION")

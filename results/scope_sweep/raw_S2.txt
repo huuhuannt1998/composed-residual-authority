@@ -1,0 +1,21 @@
+[main] ERROR kodkod.solvers.api.NativeCode - findPlatform unknown Linux aarch64
+00. run   GHA_sess_act             0       UNSAT
+01. run   GHB_sess_act             0    1/1     SAT
+02. run   GHA_auto_act             0    1/1     SAT
+03. run   GHB_auto_act             0    1/1     SAT
+04. run   ALXAA_sess_act           0       UNSAT
+05. run   ALXAB_sess_act           0    1/1     SAT
+06. run   ALXBA_sess_act           0       UNSAT
+07. run   ALXBB_sess_act           0    1/1     SAT
+08. run   STA_auto_act             0    1/1     SAT
+09. run   STA_foreign_act          0    1/1     SAT
+10. run   STB_auto_act             0    1/1     SAT
+11. run   HA_sess_read             0    1/1     SAT
+12. run   HA_sess_act              0       UNSAT
+13. run   HA_auto_act              0    1/1     SAT
+14. run   HA_auto_scope6           0    1/1     SAT
+15. run   HA_auto_scope8           0    1/1     SAT
+16. run   HA_sessact_scope8        0       UNSAT
+real 6.37
+user 0.01
+sys 0.01

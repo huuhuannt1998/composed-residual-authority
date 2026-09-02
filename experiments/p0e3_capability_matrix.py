@@ -16,6 +16,20 @@ ARM=sys.argv[1] if len(sys.argv)>1 else "run"
 log=lambda m: print(m, flush=True)
 async def tokc(s,c):
     async with s.post(f"{BASE}/auth/token",data={"grant_type":"authorization_code","code":c,"client_id":CID}) as r: return await r.json()
+async def onboard(s):
+    """The runner hands us a FRESH instance, so create the owner rather than
+    assuming one exists. Previously this script logged in blind and died with
+    invalid_auth against a clean container."""
+    async with s.post(f"{BASE}/api/onboarding/users",json={"client_id":CID,"name":"TS Owner",
+        "username":OWNER[0],"password":OWNER[1],"language":"en"}) as r:
+        if r.status!=200: return None
+        code=(await r.json())["auth_code"]
+    t=(await tokc(s,code))["access_token"]
+    for st in ("core_config","analytics"):
+        async with s.post(f"{BASE}/api/onboarding/{st}",headers={"Authorization":f"Bearer {t}"}) as r:
+            await r.text()
+    return t
+
 async def login(s,u,p):
     async with s.post(f"{BASE}/auth/login_flow",json={"client_id":CID,"handler":["homeassistant",None],"redirect_uri":CID,"type":"authorize"}) as r: f=(await r.json())["flow_id"]
     async with s.post(f"{BASE}/auth/login_flow/{f}",json={"client_id":CID,"username":u,"password":p}) as r:
@@ -87,7 +101,12 @@ async def probes(m, owner, phase):
 
 async def main():
     async with aiohttp.ClientSession() as s:
-        otok=await login(s,*OWNER); owner,_=await conn(otok)
+        otok=await onboard(s) or await login(s,*OWNER)
+        owner,_=await conn(otok)
+        # the probe entity must exist before any capability is measured
+        try: await owner.cmd(type="input_boolean/create",name="ts probe")
+        except Exception: pass
+        await asyncio.sleep(1.2)
         auto={"alias":"ts deputy probe","trigger":[{"platform":"event","event_type":"ts_deputy_trigger"}],
               "action":[{"service":"input_boolean.turn_on","target":{"entity_id":EID}}],"mode":"single"}
         async with s.post(f"{BASE}/api/config/automation/config/tsdeputy",
@@ -95,11 +114,28 @@ async def main():
         await owner.cmd(type="call_service",domain="automation",service="reload"); await asyncio.sleep(2)
         await owner.cmd(type="call_service",domain="automation",service="turn_on",target={"entity_id":"automation.ts_deputy_probe"})
         await asyncio.sleep(1)
-        u=f"matrix_{ARM}"
+        # Home Assistant rejects non-lowercase usernames. The arm label is used
+        # for display, so normalise it rather than constraining what callers pass.
+        u=f"matrix_{ARM}".lower()
         r=await owner.cmd(type="config/auth/create",name=f"Matrix {ARM}",group_ids=["system-admin"],local_only=False)
+        if not r.get("success"):
+            sys.exit(f"FATAL: config/auth/create was refused: {r.get('error')}")
         uid=r["result"]["user"]["id"]
-        await owner.cmd(type="config/auth_provider/homeassistant/create",user_id=uid,username=u,password=PW)
-        mtok=await login(s,u,PW); m,_=await conn(mtok)
+        # Both defences patch code on the admin path, and config/* is gated by
+        # require_admin. An unchecked credential-create silently leaves the user
+        # with no password, and the next line then fails with a misleading
+        # invalid_auth. Check it, and say what actually went wrong.
+        cr=await owner.cmd(type="config/auth_provider/homeassistant/create",
+                           user_id=uid,username=u,password=PW)
+        if not cr.get("success"):
+            sys.exit(f"FATAL: credential creation refused under arm '{ARM}': {cr.get('error')}\n"
+                     f"       The defence patch is rejecting an admin operation the\n"
+                     f"       experiment needs for SETUP, which is a patch bug rather\n"
+                     f"       than a measurement.")
+        mtok=await login(s,u,PW)
+        if not mtok:
+            sys.exit(f"FATAL: login as '{u}' failed even though the credential was created")
+        m,_=await conn(mtok)
         pre=await probes(m,owner,"pre")
         await owner.cmd(type="config/auth/delete",user_id=uid); await asyncio.sleep(2)
         # A terminated socket is a RESULT, not an error: under session-termination

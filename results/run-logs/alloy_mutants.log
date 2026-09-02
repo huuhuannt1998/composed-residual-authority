@@ -1,0 +1,15 @@
+00. run   M1_actuate_full          0    1/1     SAT
+01. run   M1_actuate_single        0    1/1     SAT
+02. run   M2_read_full             0    1/1     SAT
+03. run   M2_actuate_full          0       UNSAT
+04. run   M3_read_full             0    1/1     SAT
+05. run   M3_actuate_full          0       UNSAT
+06. run   M3_expired_alone         0       UNSAT
+07. run   M4_actuate_full          0    1/1     SAT
+08. run   M4_actuate_single        0    1/1     SAT
+09. run   M5_actuate_full          0    1/1     SAT
+10. run   M5_actuate_single        0       UNSAT
+11. run   M6_residue_any           0       UNSAT
+12. run   M7_actuate_full          0    1/1     SAT
+13. run   M7_actuate_single        0    1/1     SAT
+14. check M8_direct_call_denied     0       UNSAT

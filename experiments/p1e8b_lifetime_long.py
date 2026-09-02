@@ -65,8 +65,21 @@ async def probe(label,m,owner):
     if m is None: rows.append(v); save(); log(f"  {label:28s} 0/0/0/0 (no socket)"); return v
     try:
         r=await m.cmd(type="get_states"); v["socket"]=True; v["read"]=len(r.get("result") or [])>0
-    except Exception:
-        rows.append(v); save(); log(f"  {label:28s} 0/0/0/0 (socket dead)"); return v
+    except Exception as e:
+        # A dead socket is only a finding if we know WHY it died. Capture the
+        # close code and reason, and the platform's own log, before anything
+        # tears the container down and destroys the evidence.
+        cc=getattr(m.ws,"close_code",None); cr=getattr(m.ws,"close_reason",None)
+        v["close_code"]=cc; v["close_reason"]=str(cr) if cr else None
+        v["exception"]=f"{type(e).__name__}: {e}"
+        try:
+            lg=subprocess.run(["docker","logs","--tail","40","tslife"],
+                              capture_output=True,text=True,timeout=20)
+            v["container_log_tail"]=(lg.stdout+lg.stderr)[-3000:]
+        except Exception: pass
+        rows.append(v); save()
+        log(f"  {label:28s} 0/0/0/0 (socket dead: close_code={cc} reason={cr!r} {type(e).__name__})")
+        return v
     try:
         await owner.cmd(type="call_service",domain="input_boolean",service="toggle",target={"entity_id":EID})
         v["stream"]=any(e.get("type")=="event" for e in await m.drain(1.8))
@@ -111,8 +124,12 @@ async def main():
         await owner.cmd(type="config/auth/delete",user_id=uid)
         log("subject DELETED; entering delay schedule")
         await asyncio.sleep(2)
+        # Hourly from +2h. The previous schedule jumped +2h -> +6h, so when the
+        # socket died somewhere in that window there was no way to say when or
+        # why. A four-hour blind spot is not a measurement.
         sched=[("immediately",0),("+1 min",58),("+5 min",240),("+30 min",1500),
-               ("+1 hour",1800),("+2 hours",3600),("+6 hours",14400)]
+               ("+1 hour",1800),("+2 hours",3600),("+3 hours",3600),
+               ("+4 hours",3600),("+5 hours",3600),("+6 hours",3600)]
         for label,wait in sched:
             if wait: await asyncio.sleep(wait)
             if owner is None or True:

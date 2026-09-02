@@ -1,0 +1,100 @@
+[1mplan: 6 experiment(s), about 7.2 h, one at a time[0m
+       capability_base          6 min  defense completeness, unpatched baseline (expect 8)
+       capability_defB          7 min  defense completeness, re-resolution (expect 2)
+       capability_defA          7 min  defense completeness, session termination (expect 0)
+       openhab_sse              4 min  openHAB persistent connection
+       openhab_reps             9 min  openHAB, 5 independent trials
+       lifetime_long          400 min  LONGEST: schedule reaches +6h then termination events
+
+=== preflight ===
+  [32mok[0m    docker daemon responding
+  [33mWARN[0m  containers from OTHER research projects are running:
+          hpr-monitor
+          hpr-hass
+          hpr-devices
+          hpr-broker
+          hpr-anchord
+  [33mWARN[0m  each Home Assistant instance costs 0.5-1 GB. Running TenantSafe
+  [33mWARN[0m  alongside these is what crashed the machine. Stop them first.
+  [32mok[0m    RKA infrastructure up (rka-server, rka-worker)
+  [32mok[0m    no leftover TenantSafe containers
+  [32mok[0m    free memory 4 GB (need 4)
+  [32mok[0m    free disk 89 GB
+  [32mok[0m    image homeassistant/home-assistant:2026.8.3
+  [32mok[0m    image homeassistant/home-assistant:2026.7.4
+  [32mok[0m    image homeassistant/home-assistant:2026.6.4
+  [32mok[0m    image homeassistant/home-assistant:2024.12
+  [32mok[0m    image openhab/openhab:4.3.2
+  [32mok[0m    image eclipse-temurin:21-jre
+  [32mok[0m    all experiment ports free
+  ok    python deps (aiohttp, websockets)
+  [32mok[0m    Alloy v6.2.0 at /Users/huanbui/.tenantsafe/tools
+  [32mok[0m    RKA API reachable
+
+[32mREADY[0m - 0 blocking, 3 advisory
+Advisories do not block, but read the foreign-container warning before starting.
+
+[1m==> capability_base  (~6 min)  17:50:25[0m
+       done in 0m  ->  ../results/run-logs/capability_base.log
+           deputy_actuation                        True         True   <== RESIDUAL
+         
+           residual capabilities: 8  ['state_read', 'entity_enum', 'user_enum', 'event_firing', 'subscribe_trigger', 'new_subscription', 'existing_subscription_delivery', 'deputy_actuation']
+
+[1m==> capability_defB  (~7 min)  17:51:07[0m
+       FAILED rc=1 after 0m  ->  ../results/run-logs/capability_defB.log
+         login matrix_defenseB: {'type': 'form', 'flow_id': '26f306b392b7566a39e8f9d859c49ddb', 'handler': ['homeassistant', None], 'data_schema': [{'type': 'string', 'name': 'username', 'required': True}, {'type': 'string', 'name': 'password', 'required': True}], 'errors': {'base': 'invalid_auth'}, 'description_placeholders': None, 'last_step': None, 'preview': None, 'step_id': 'init'}
+       continuing; re-run this one alone with: ./run_all.sh --only capability_defB
+
+[1m==> capability_defA  (~7 min)  17:51:57[0m
+       FAILED rc=1 after 0m  ->  ../results/run-logs/capability_defA.log
+         login matrix_defenseA: {'type': 'form', 'flow_id': '7f2e3d34d5d3fa7b71b7f5582aa9468a', 'handler': ['homeassistant', None], 'data_schema': [{'type': 'string', 'name': 'username', 'required': True}, {'type': 'string', 'name': 'password', 'required': True}], 'errors': {'base': 'invalid_auth'}, 'description_placeholders': None, 'last_step': None, 'preview': None, 'step_id': 'init'}
+       continuing; re-run this one alone with: ./run_all.sh --only capability_defA
+
+[1m==> openhab_sse  (~4 min)  17:52:46[0m
+       done in 0m  ->  ../results/run-logs/openhab_sse.log
+         === VERDICT ===
+           RESIDUAL: the established SSE stream kept delivering 4 events after removal.
+           openHAB reproduces the Home Assistant pattern on the persistent-connection path.
+
+[1m==> openhab_reps  (~9 min)  17:53:39[0m
+       done in 2m  ->  ../results/run-logs/openhab_reps.log
+           valid trials              : 5/5
+           residual after remove     : 5/5
+           still residual after clearSessions : 5/5
+
+[1m==> lifetime_long  (~400 min)  17:56:11[0m
+       done in 362m  ->  ../results/run-logs/lifetime_long.log
+         [23:57:30]   after integration reload     1/1/1/1
+         [23:58:17]   after container restart      0/0/0/0 (no socket)
+         [23:58:17] DONE
+
+./run_all.sh: line 260: --: command not found
+[1m==> capability_base  (~6 min)  23:58:21[0m
+       done in 0m  ->  ../results/run-logs/capability_base.log
+           deputy_actuation                        True         True   <== RESIDUAL
+         
+           residual capabilities: 8  ['state_read', 'entity_enum', 'user_enum', 'event_firing', 'subscribe_trigger', 'new_subscription', 'existing_subscription_delivery', 'deputy_actuation']
+
+[1m==> capability_defB  (~7 min)  23:59:03[0m
+       FAILED rc=1 after 0m  ->  ../results/run-logs/capability_defB.log
+         login matrix_defenseB: {'type': 'form', 'flow_id': '87eb0fd55707011771784deeabc7cd14', 'handler': ['homeassistant', None], 'data_schema': [{'type': 'string', 'name': 'username', 'required': True}, {'type': 'string', 'name': 'password', 'required': True}], 'errors': {'base': 'invalid_auth'}, 'description_placeholders': None, 'last_step': None, 'preview': None, 'step_id': 'init'}
+       continuing; re-run this one alone with: ./run_all.sh --only capability_defB
+
+[1m==> capability_defA  (~7 min)  23:59:53[0m
+       FAILED rc=1 after 0m  ->  ../results/run-logs/capability_defA.log
+         login matrix_defenseA: {'type': 'form', 'flow_id': 'fd0db5189081ed14fde0f0354557bf27', 'handler': ['homeassistant', None], 'data_schema': [{'type': 'string', 'name': 'username', 'required': True}, {'type': 'string', 'name': 'password', 'required': True}], 'errors': {'base': 'invalid_auth'}, 'description_placeholders': None, 'last_step': None, 'preview': None, 'step_id': 'init'}
+       continuing; re-run this one alone with: ./run_all.sh --only capability_defA
+
+[1m==> openhab_sse  (~4 min)  00:00:42[0m
+       done in 0m  ->  ../results/run-logs/openhab_sse.log
+         === VERDICT ===
+           RESIDUAL: the established SSE stream kept delivering 4 events after removal.
+           openHAB reproduces the Home Assistant pattern on the persistent-connection path.
+
+[1m==> openhab_reps  (~9 min)  00:01:36[0m
+       done in 2m  ->  ../results/run-logs/openhab_reps.log
+           valid trials              : 5/5
+           residual after remove     : 5/5
+           still residual after clearSessions : 5/5
+
+[1m==> lifetime_long  (~400 min)  00:04:08[0m

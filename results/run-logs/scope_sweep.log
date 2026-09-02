@@ -1,0 +1,12 @@
+### scope S1 :: for 4 but 3 Principal, 2 Device, 3 Grant, 2 Session, 2 Auto, 10 steps
+    real 0.54
+
+### scope S2 :: for 5 but 4 Principal, 3 Device, 4 Grant, 3 Session, 3 Auto, 12 steps
+    real 0.43
+
+### scope S3 :: for 6 but 5 Principal, 4 Device, 5 Grant, 4 Session, 4 Auto, 14 steps
+    real 0.82
+
+### scope S4 :: for 7 but 6 Principal, 4 Device, 6 Grant, 5 Session, 5 Auto, 16 steps
+    real 0.84
+
