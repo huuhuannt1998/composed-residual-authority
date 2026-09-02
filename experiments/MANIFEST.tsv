@@ -27,3 +27,20 @@ openhab_sse	p2e16b_openhab_sse.py	1	1	4	y	/tmp/p2e16b_sse.json	openHAB persisten
 openhab_reps	p2e16c_openhab_reps.py	1	1	9	y	/tmp/p2e16c_reps.json	openHAB, 5 independent trials
 benchmark	p1e11_benchmark.py	2	3	14	y	/tmp/p1e11_bench.json	PEAK FOOTPRINT: 3 concurrent instances by design
 lifetime_long	p1e8b_lifetime_long.py	2	1	400	n	/tmp/p1e8b_rows.json	LONGEST: schedule reaches +6h then termination events
+alloy_base	MODELS:tenantsafe.als	0	1	2	y	results/tenantsafe	execution traces; tool-choice evidence
+alloy_channels	MODELS:tenantsafe_channels.als	0	1	2	y	results/tenantsafe_channels	Google Home documented channels + E6.6 ablation
+alloy_time_transfer	MODELS:tenantsafe_time_transfer.als	0	1	2	y	results/tenantsafe_time_transfer	guest-time-bounding and no-residual-after-transfer
+tamarin_dna	TAMARIN:tenantsafe_dna.spthy	0	0	15	y	results/dna_proof.spthy	delegation-non-amplification, inductive
+necessity	e34_necessity.py	1	1	6	y	-	E3.4 counterfactual necessity of each witness element
+deputy_confirm	e76_deputy.py	1	1	6	y	-	E7.6 deputy path confirmed at actuation
+admin_surface	e76b_admin_surface.py	1	1	6	y	-	E7.6b admin-surface blast radius
+closure	e63_closure.py	1	1	7	y	-	E6.3 monitor closes both residues (needs Defense B)
+false_positive	e66_false_positive.py	1	1	7	y	-	E6.6 monitor denies nothing legitimate (needs Defense B)
+#
+# DELIBERATELY NOT RUN, with reasons:
+#   p1e6_version_study.py   invoked by run_version_study.sh, which is an entry above
+#   p1e8_lifetime.py        strict subset of p1e8b (delays +1m/+5m and 2 of 3 events)
+#   r3_probe.py             strict subset of matrix (get_states, call_service; single-shot)
+#   r3_read_probe.py        strict subset of matrix (adds subscribe_events; single-shot)
+#   tenantsafe_base.spthy   intractable BY DESIGN; cited as the tool-choice evidence
+#                           that the base model does not terminate in Tamarin

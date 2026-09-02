@@ -17,6 +17,20 @@ log=lambda m: print(m, flush=True)
 async def tok_from_code(s,c):
     async with s.post(f"{BASE}/auth/token", data={"grant_type":"authorization_code","code":c,"client_id":CID}) as r:
         return await r.json()
+async def onboard(s):
+    """The runner supplies a FRESH instance, so create the owner rather than
+    assuming one exists. Logging in blind against a clean container fails with
+    invalid_auth, which reads as an auth defect rather than missing setup."""
+    async with s.post(f"{BASE}/api/onboarding/users",json={"client_id":CID,"name":"TS Owner",
+        "username":OWNER[0],"password":OWNER[1],"language":"en"}) as r:
+        if r.status!=200: return None
+        code=(await r.json())["auth_code"]
+    t=(await tok_from_code(s,code))["access_token"]
+    for st in ("core_config","analytics"):
+        async with s.post(f"{BASE}/api/onboarding/{st}",headers={"Authorization":f"Bearer {t}"}) as r:
+            await r.text()
+    return t
+
 async def login(s,u,p):
     async with s.post(f"{BASE}/auth/login_flow", json={"client_id":CID,"handler":["homeassistant",None],"redirect_uri":CID,"type":"authorize"}) as r:
         f=(await r.json())["flow_id"]
@@ -45,8 +59,15 @@ async def state(c,eid):
 
 async def main():
     async with aiohttp.ClientSession() as s:
-        otok=(await login(s,*OWNER))["access_token"]
+        otok=await onboard(s) or (await login(s,*OWNER))["access_token"]
         owner,_=await conn(otok); log("owner connected")
+        # These scripts were written against an instance where an earlier
+        # experiment had already created the probe entity. On a fresh container
+        # it does not exist, actuation cannot be observed, and the result reads
+        # as "no residue" rather than "no measurement". Create it here.
+        try: await owner.cmd(type="input_boolean/create",name="ts probe")
+        except Exception: pass
+        await asyncio.sleep(1.2)
 
         # --- install a household automation triggered by a custom event ---
         auto={"alias":"ts deputy probe","trigger":[{"platform":"event","event_type":"ts_deputy_trigger"}],

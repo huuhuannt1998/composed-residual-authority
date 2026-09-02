@@ -166,6 +166,14 @@ up_ohab() {
   case "$st" in *TsProbe*) ;; *) info "openHAB fixture not created"; return 1;; esac
 }
 
+tamarin() { # model-file out-file
+  command -v tamarin-prover >/dev/null 2>&1 || { info "tamarin-prover not installed - skipped"; return 9; }
+  local m=$1 o=$2
+  mkdir -p "$(dirname "$ROOT/$o")"
+  tamarin-prover --prove "$ROOT/models/$m" 2>&1 | tee "$ROOT/$o" | tail -25
+  grep -qE 'verified|falsified' "$ROOT/$o" || { info "tamarin produced no verdict"; return 1; }
+}
+
 alloy() { # model-file out-dir
   : "${ALLOY_TOOLS_DIR:=$HOME/.tenantsafe/tools}"
   local jar=/tools/alloy.jar
@@ -190,6 +198,19 @@ run_one() {
     alloy_mutants)    alloy tenantsafe_mutants.als   results/tenantsafe_mutants ;;
     alloy_depth)      alloy tenantsafe_depth.als     results/tenantsafe_depth ;;
     alloy_platforms)  alloy tenantsafe_platforms.als results/tenantsafe_platforms ;;
+    alloy_base)          alloy tenantsafe.als               results/tenantsafe ;;
+    alloy_channels)      alloy tenantsafe_channels.als      results/tenantsafe_channels ;;
+    alloy_time_transfer) alloy tenantsafe_time_transfer.als results/tenantsafe_time_transfer ;;
+    tamarin_dna)         tamarin tenantsafe_dna.spthy       results/dna_proof.txt ;;
+    necessity)        up_ha tsn 8124 && python3 e34_necessity.py ;;
+    deputy_confirm)   up_ha tsn 8124 && python3 e76_deputy.py ;;
+    admin_surface)    up_ha tsn 8124 && python3 e76b_admin_surface.py ;;
+    closure)          up_ha tsn 8124 && patch_ha tsn B \
+                        && wait_http 8124 "302 200" && wait_auth 8124 \
+                        && python3 e63_closure.py ;;
+    false_positive)   up_ha tsn 8124 && patch_ha tsn B \
+                        && wait_http 8124 "302 200" && wait_auth 8124 \
+                        && python3 e66_false_positive.py ;;
     scope_sweep)      ./p1e15_scope_sweep.sh ;;
     micro)            python3 p1e11b_micro.py ;;
     severity)         python3 p2e19_severity.py ;;

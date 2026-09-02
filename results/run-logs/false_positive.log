@@ -1,0 +1,14 @@
+
+=== LEGITIMATE WORKFLOWS [run] ===
+  PASS  W1_onboard_member
+  PASS  W2_member_authenticates
+  PASS  W3_current_member_reads
+  PASS  W4_current_member_actuates
+  PASS  W5_current_admin_fire_event
+  PASS  W5_current_admin_config_list
+  PASS  W6_current_member_subscribes
+  PASS  W7_deactivate_succeeds
+  PASS  W8_remove_succeeds
+  PASS  W9_owner_unaffected
+
+  10/10 legitimate operations succeeded

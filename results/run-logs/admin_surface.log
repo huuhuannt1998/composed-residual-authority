@@ -1,0 +1,15 @@
+admin member connected (uid=447c448cb0e044eb983a946105f97eba)
+  [CONTROL pre-removal]
+      execute_script         success=True entity=on  <== ACTUATED
+      subscribe_trigger      success=True err=None
+      config/auth/list       success=True n=3
+  DELETE success=True
+  [POST-REMOVAL (orphaned socket)]
+      execute_script         success=False entity=off
+      subscribe_trigger      success=True err=None
+      config/auth/list       success=True n=2
+
+  SUMMARY  command              pre-removal -> post-removal
+    execute_script         success=True entity=on  <== ACTUATED  ->  success=False entity=off
+    subscribe_trigger      success=True err=None  ->  success=True err=None
+    config/auth/list       success=True n=3  ->  success=True n=2
