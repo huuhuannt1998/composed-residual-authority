@@ -1,0 +1,325 @@
+[1mplan: 36 experiment(s), about 3.5 h, one at a time[0m
+       alloy_crd                1 min  composition depth, repaired definition
+       alloy_mutants            1 min  8 mutated revocation semantics
+       alloy_depth              1 min  synthetic depths 1-4
+       alloy_platforms          1 min  per-platform residue signature
+       scope_sweep              3 min  scope/budget sensitivity S1-S4
+       micro                    1 min  authorization-check microbenchmark
+       residue_finder           1 min  residue search vs Alloy cross-validation
+       matrix                  28 min  role x transition x operation, 30 trials/arm
+       severity                 1 min  severity classification; consumes the matrix output
+       sessions                 4 min  session conditions
+       regression_base          4 min  lifecycle suite, unpatched baseline
+       regression_defA          4 min  lifecycle suite, Defense A
+       capability_base          6 min  defense completeness, unpatched baseline (expect 8)
+       capability_defB          7 min  defense completeness, re-resolution (expect 2)
+       capability_defA          7 min  defense completeness, session termination (expect 0)
+       deputy_generality        6 min  6 automation families
+       version_study           12 min  4 HA releases, one container at a time
+       openhab_request          5 min  openHAB request path
+       openhab_sse              4 min  openHAB persistent connection
+       openhab_reps             9 min  openHAB, 5 independent trials
+       benchmark               14 min  PEAK FOOTPRINT: 3 concurrent instances by design
+       alloy_base               2 min  execution traces; tool-choice evidence
+       alloy_channels           2 min  Google Home documented channels + E6.6 ablation
+       alloy_time_transfer      2 min  guest-time-bounding and no-residual-after-transfer
+       tamarin_dna             15 min  delegation-non-amplification, inductive
+       necessity                6 min  E3.4 counterfactual necessity of each witness element
+       deputy_confirm           6 min  E7.6 deputy path confirmed at actuation
+       admin_surface            6 min  E7.6b admin-surface blast radius
+       closure                  7 min  E6.3 monitor closes both residues (needs Defense B)
+       false_positive           7 min  E6.6 monitor denies nothing legitimate (needs Defense B)
+       subscribe_control        5 min  member-cell control: does the cell measure role or removal
+       restart_modes            6 min  in-UI restart vs container restart as termination events
+       thirdparty_carrier       5 min  long-lived token held outside the platform (negative result)
+       homebridge               8 min  Homebridge UI request path and socket.io (negative result)
+       openhab_ws               6 min  openHAB established websocket: direct and composed arms
+       openhab_ws_reps          8 min  openHAB websocket residue, 5 trials with both controls
+
+=== preflight ===
+  [32mok[0m    docker daemon responding
+  [32mok[0m    no competing-project containers running
+  [32mok[0m    RKA infrastructure up (rka-server, rka-worker)
+  [32mok[0m    no leftover TenantSafe containers
+  [32mok[0m    free memory 5 GB (need 4)
+  [32mok[0m    free disk 70 GB
+  [32mok[0m    image homeassistant/home-assistant:2026.8.3
+  [32mok[0m    image homeassistant/home-assistant:2026.7.4
+  [32mok[0m    image homeassistant/home-assistant:2026.6.4
+  [32mok[0m    image homeassistant/home-assistant:2024.12
+  [32mok[0m    image openhab/openhab:4.3.2
+  [32mok[0m    image eclipse-temurin:21-jre
+  [32mok[0m    all experiment ports free
+  ok    python deps (aiohttp, websockets)
+  [32mok[0m    Alloy v6.2.0 at ~/.tenantsafe/tools
+  [32mok[0m    RKA API reachable
+
+[32mREADY[0m - 0 blocking, 0 advisory
+
+[1m==> alloy_crd  (~1 min)  16:29:47[0m
+       done in 0m  ->  ../results/run-logs/alloy_crd.log
+         03. check R3_no_smaller_sufficient_support     0       UNSAT
+         04. run   R4_read_is_depth_one     0    1/1     SAT
+         05. run   R5_grant_is_depth_one     0    1/1     SAT
+
+[1m==> alloy_mutants  (~1 min)  16:29:52[0m
+       done in 0m  ->  ../results/run-logs/alloy_mutants.log
+         12. run   M7_actuate_full          0    1/1     SAT
+         13. run   M7_actuate_single        0    1/1     SAT
+         14. check M8_direct_call_denied     0       UNSAT
+
+[1m==> alloy_depth  (~1 min)  16:29:56[0m
+       done in 0m  ->  ../results/run-logs/alloy_depth.log
+         11. run   D4_no_binding            0       UNSAT
+         12. run   D4_no_trigger            0       UNSAT
+         13. check depths_are_distinct      0       UNSAT
+
+[1m==> alloy_platforms  (~1 min)  16:30:01[0m
+       done in 0m  ->  ../results/run-logs/alloy_platforms.log
+         14. run   HA_auto_scope6           0    1/1     SAT
+         15. run   HA_auto_scope8           0    1/1     SAT
+         16. run   HA_sessact_scope8        0       UNSAT
+
+[1m==> scope_sweep  (~3 min)  16:30:09[0m
+       done in 1m  ->  ../results/run-logs/scope_sweep.log
+             real 60.68
+             -> 17 verdicts
+         
+
+[1m==> micro  (~1 min)  16:31:39[0m
+       done in 0m  ->  ../results/run-logs/micro.log
+           amortized (loop-calibrated): median 49.8 ns  p95 52.0  p99 52.3  sd 0.86
+           batches 30 x 33,333 = 999,990 lookups; 20,068,031/s
+           timer overhead implied: 33.2 ns per measured op
+
+[1m==> residue_finder  (~1 min)  16:31:43[0m
+       done in 0m  ->  ../results/run-logs/residue_finder.log
+             (none)  -> HIDDEN residue
+         
+         ====================================================================
+
+[1m==> matrix  (~28 min)  16:31:47[0m
+       done in 14m  ->  ../results/run-logs/matrix.log
+             script_exec           30         0   0.000  [0.000, 0.114]
+             event_fire            30         0   0.000  [0.000, 0.114]
+             indirect_actuate      30         0   0.000  [0.000, 0.114]
+
+[1m==> severity  (~1 min)  16:46:46[0m
+       done in 0m  ->  ../results/run-logs/severity.log
+           denied. Severity therefore scales with the role held at the moment of removal,
+           and the highest surviving capability separates the two arms that a binary
+           residue flag would report identically.
+
+[1m==> sessions  (~4 min)  16:46:49[0m
+       done in 0m  ->  ../results/run-logs/sessions.log
+           A4 refresh-token revoked (killed=err:received 1000 (OK); then sent 1000 (OK))        1/1/1          0/0/0
+           A5 deactivate / original socket                       1/1/1          0/0/0
+           A5 deactivate / fresh socket [auth_invalid]           1/1/1          0/0/0
+
+[1m==> regression_base  (~4 min)  16:47:28[0m
+       done in 0m  ->  ../results/run-logs/regression_base.log
+           0 functional regressions
+             -> security regression: 5 deletion / session closes / ops denied (expected deny, got allow) 
+             -> security regression: 5 deletion / indirect actuation denied (expected deny, got allow) 
+
+[1m==> regression_defA  (~4 min)  16:47:52[0m
+       done in 0m  ->  ../results/run-logs/regression_defA.log
+           22 passed
+           0 security regressions
+           0 functional regressions
+
+[1m==> capability_base  (~6 min)  16:48:22[0m
+       done in 0m  ->  ../results/run-logs/capability_base.log
+           deputy_actuation                        True         True   <== RESIDUAL
+         
+           residual capabilities: 8  ['state_read', 'entity_enum', 'user_enum', 'event_firing', 'subscribe_trigger', 'new_subscription', 'existing_subscription_delivery', 'deputy_actuation']
+
+[1m==> capability_defB  (~7 min)  16:48:54[0m
+       done in 0m  ->  ../results/run-logs/capability_defB.log
+           deputy_actuation                        True        False
+         
+           residual capabilities: 2  ['new_subscription', 'existing_subscription_delivery']
+
+[1m==> capability_defA  (~7 min)  16:49:32[0m
+       done in 0m  ->  ../results/run-logs/capability_defA.log
+           deputy_actuation                        True        False
+         
+           residual capabilities: 0  []
+
+[1m==> deputy_generality  (~6 min)  16:50:12[0m
+       done in 0m  ->  ../results/run-logs/deputy_generality.log
+           families reachable after removal: 6/6
+           NOTE: the removed principal authored none of these automations;
+                 every automation names the owner, who remains authorized.
+
+[1m==> version_study  (~12 min)  16:50:47[0m
+       done in 2m  ->  ../results/run-logs/version_study.log
+           new_stream           pre=True  post=True    RESIDUAL
+           indirect_actuation   pre=True  post=True    RESIDUAL
+         ########## VERSION STUDY COMPLETE ##########
+
+[1m==> openhab_request  (~5 min)  16:53:10[0m
+       done in 0m  ->  ../results/run-logs/openhab_request.log
+           read     pre=1 post=0  -> closed
+           direct   pre=1 post=0  -> closed
+           deputy   pre=1 post=0  -> closed
+
+[1m==> openhab_sse  (~4 min)  16:54:11[0m
+       done in 0m  ->  ../results/run-logs/openhab_sse.log
+         === VERDICT ===
+           RESIDUAL: the established SSE stream kept delivering 3 events after removal.
+           openHAB reproduces the Home Assistant pattern on the persistent-connection path.
+
+[1mSTOPPING: host free memory 3 GB fell below 4 GB.[0m
+       Nothing is lost - re-run with --resume once memory frees up.
+  removed 1 TenantSafe container(s)
+  rka-* infrastructure left running (required)
+[1mplan: 18 experiment(s), about 2.0 h, one at a time[0m
+       regression_defB          4 min  lifecycle suite, Defense B (re-resolution)
+       openhab_reps             9 min  openHAB, 5 independent trials
+       benchmark               14 min  PEAK FOOTPRINT: 3 concurrent instances by design
+       alloy_base               2 min  execution traces; tool-choice evidence
+       alloy_channels           2 min  Google Home documented channels + E6.6 ablation
+       alloy_time_transfer      2 min  guest-time-bounding and no-residual-after-transfer
+       tamarin_dna             15 min  delegation-non-amplification, inductive
+       necessity                6 min  E3.4 counterfactual necessity of each witness element
+       deputy_confirm           6 min  E7.6 deputy path confirmed at actuation
+       admin_surface            6 min  E7.6b admin-surface blast radius
+       closure                  7 min  E6.3 monitor closes both residues (needs Defense B)
+       false_positive           7 min  E6.6 monitor denies nothing legitimate (needs Defense B)
+       subscribe_control        5 min  member-cell control: does the cell measure role or removal
+       restart_modes            6 min  in-UI restart vs container restart as termination events
+       thirdparty_carrier       5 min  long-lived token held outside the platform (negative result)
+       homebridge               8 min  Homebridge UI request path and socket.io (negative result)
+       openhab_ws               6 min  openHAB established websocket: direct and composed arms
+       openhab_ws_reps          8 min  openHAB websocket residue, 5 trials with both controls
+
+=== preflight ===
+  [32mok[0m    docker daemon responding
+  [32mok[0m    no competing-project containers running
+  [32mok[0m    RKA infrastructure up (rka-server, rka-worker)
+  [32mok[0m    no leftover TenantSafe containers
+  [32mok[0m    free memory 4 GB (need 3)
+  [32mok[0m    free disk 70 GB
+  [32mok[0m    image homeassistant/home-assistant:2026.8.3
+  [32mok[0m    image homeassistant/home-assistant:2026.7.4
+  [32mok[0m    image homeassistant/home-assistant:2026.6.4
+  [32mok[0m    image homeassistant/home-assistant:2024.12
+  [32mok[0m    image openhab/openhab:4.3.2
+  [32mok[0m    image eclipse-temurin:21-jre
+  [32mok[0m    all experiment ports free
+  ok    python deps (aiohttp, websockets)
+  [32mok[0m    Alloy v6.2.0 at ~/.tenantsafe/tools
+  [32mok[0m    RKA API reachable
+
+[32mREADY[0m - 0 blocking, 0 advisory
+
+[1m==> regression_defB  (~4 min)  16:56:27[0m
+       done in 0m  ->  ../results/run-logs/regression_defB.log
+           1 security regressions
+           0 functional regressions
+             -> security regression: 5 deletion / session closes / ops denied (expected deny, got allow) 
+
+[1m==> openhab_reps  (~9 min)  16:56:57[0m
+       done in 2m  ->  ../results/run-logs/openhab_reps.log
+           valid trials              : 5/5
+           residual after remove     : 5/5
+           still residual after clearSessions : 5/5
+
+[1m==> benchmark  (~14 min)  16:59:29[0m
+       done in 1m  ->  ../results/run-logs/benchmark.log
+         [17:01:10]   ws round trip   defense B   -> CI overlaps baseline; no difference claimed
+         [17:01:10] 
+         written /tmp/p1e11_bench.json
+
+[1m==> alloy_base  (~2 min)  17:01:15[0m
+       done in 0m  ->  ../results/run-logs/alloy_base.log
+         01. run   exec_author_automation     0    1/1     SAT
+         02. run   exec_evict_runs          0    1/1     SAT
+         03. run   exec_full_remediation     0    1/1     SAT
+
+[1m==> alloy_channels  (~2 min)  17:01:20[0m
+       done in 0m  ->  ../results/run-logs/alloy_channels.log
+         03. run   E66_binding_cascaded     0       UNSAT
+         04. run   E66_both_cascaded_pc     0       UNSAT
+         05. run   E66_both_cascaded_bind     0       UNSAT
+
+[1m==> alloy_time_transfer  (~2 min)  17:01:26[0m
+       done in 0m  ->  ../results/run-logs/alloy_time_transfer.log
+         03. run   NRT_A_priorOwner_no_wipe     0    1/1     SAT
+         04. run   NRT_B_history_wipes      0       UNSAT
+         05. run   NRT_B_history_no_wipe     0    1/1     SAT
+
+[1m==> tamarin_dna  (~15 min)  17:01:49[0m
+       done in 0m  ->  ../results/run-logs/tamarin_dna.log
+           exec_two_step_chain (exists-trace): verified (12 steps)
+         
+         ==============================================================================
+
+[1m==> necessity  (~6 min)  17:01:55[0m
+       done in 0m  ->  ../results/run-logs/necessity.log
+           collapses without automation: True
+         
+           >>> A5 NECESSITY: PASS   CRD = 2 confirmed: True
+
+[1m==> deputy_confirm  (~6 min)  17:02:29[0m
+       done in 0m  ->  ../results/run-logs/deputy_confirm.log
+           >>> E7.6 POST-REMOVAL: fire_event success=True err=None
+           >>> E7.6 input_boolean.ts_probe = on   ==> DEPUTY RESIDUE: True
+           >>> E7.8 long-lived token after REMOVAL: rejected(auth_invalid)
+
+[1m==> admin_surface  (~6 min)  17:02:51[0m
+       done in 0m  ->  ../results/run-logs/admin_surface.log
+             execute_script         success=True entity=on  <== ACTUATED  ->  success=False entity=off
+             subscribe_trigger      success=True err=None  ->  success=True err=None
+             config/auth/list       success=True n=3  ->  success=True n=2
+
+[1m==> closure  (~7 min)  17:03:08[0m
+       done in 0m  ->  ../results/run-logs/closure.log
+           >>> E6.3 READ   residue closed : True
+         
+           E6.4 fire_event latency WITH TSMON (n=300): median=0.324 ms  p99=0.644 ms  min=0.248
+
+[1m==> false_positive  (~7 min)  17:03:38[0m
+       done in 0m  ->  ../results/run-logs/false_positive.log
+           PASS  W9_owner_unaffected
+         
+           10/10 legitimate operations succeeded
+
+[1m==> subscribe_control  (~5 min)  17:03:59[0m
+       done in 0m  ->  ../results/run-logs/subscribe_control.log
+           the custom type. Table 7's member new_subscribe cell therefore measures a
+           pre-existing role restriction, and its pre-transition control was taken on a
+           different operation (state_changed), so it was never like-for-like.
+
+[1m==> restart_modes  (~6 min)  17:04:20[0m
+       done in 0m  ->  ../results/run-logs/restart_modes.log
+           VERDICT: the in-UI restart ENDS the residue. The remedy is one the
+           interface offers, and Section 7.9 must say so: the exposure window is
+           bounded by the next core restart, not by the next container restart.
+
+[1m==> thirdparty_carrier  (~5 min)  17:05:21[0m
+       done in 0m  ->  ../results/run-logs/thirdparty_carrier.log
+           VERDICT: the long-lived token IS revoked on deletion. The third-party
+           carrier does not survive, so this is not a second composed witness, and
+           the paper should say that the residue is confined to the live connection.
+
+[1m==> homebridge  (~8 min)  17:05:36[0m
+       FAILED rc=1 after 1m  ->  ../results/run-logs/homebridge.log
+                homebridge admin login never succeeded
+       continuing; re-run this one alone with: ./run_all.sh --only homebridge
+
+[1m==> openhab_ws  (~6 min)  17:07:37[0m
+       done in 1m  ->  ../results/run-logs/openhab_ws.log
+           composed  pre=1 post=1 -> RESIDUAL
+         
+           DEPTH ONE on openHAB: the direct effect still lands. Not a composed witness.
+
+[1m==> openhab_ws_reps  (~8 min)  17:08:59[0m
+       done in 1m  ->  ../results/run-logs/openhab_ws_reps.log
+           direct actuation residual    : 5/5
+           REST refused on removed token: 5/5
+           new websocket refused        : 5/5
+
+[1mrun complete  (14 min total)[0m
+       state: .run_state   logs: ../results/run-logs

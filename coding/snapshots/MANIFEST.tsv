@@ -1,0 +1,11 @@
+url	http	bytes	sha256	retrieved_utc
+https://support.google.com/googlehome/answer/9155535?hl=en	200	1614500	61cd07d7373006073bc3f07176b13bc1b416fdefe84665be2cab495dcf7d40ad	2026-08-22T11:13:19Z
+https://support.google.com/googlehome/answer/7177221?hl=en	200	1583363	3eaa21361741859cd2c680eb0f01e113c7043525da70dc7bcab4d95b40202881	2026-08-22T11:13:19Z
+https://support.google.com/googlehome/answer/10042812?hl=en	200	1594237	61fbcc235190f38a7e6b0dcf521f65134b97e9ae8ebdce335329f4abce2ebd07	2026-08-22T11:13:20Z
+https://support.google.com/googlehome/answer/11151047?hl=en	200	1599011	b4e4eb959347e259ac4bedb030b3bb1da4f613800d2d08a19cd83eff30600a95	2026-08-22T11:13:21Z
+https://www.amazon.com/gp/help/customer/display.html?nodeId=TkhKFt9yxp5myHXvmK	200	110769	e98db3ade4469315a8d2f2b96c2a0a4f17814b9082ee1f4a6f2a5ea75e41071f	2026-08-22T11:13:21Z
+https://www.amazon.com/gp/help/customer/display.html?nodeId=GMA7DTL7BABZ6Z5A	200	109207	fd0fa83eaa937977b98551c022fe02e7c2bfbb63fb0fd93bb182b267b2eb8a3f	2026-08-22T11:13:22Z
+https://support.smartthings.com/hc/en-us/articles/360051931312-Share-Control-of-your-Smart-Devices	403	5953	5601f9f69e52b4ec9d447ce2a2245237b521284b6cd61d9eacd6b44ad040b088	2026-08-22T11:13:22Z
+https://www.samsung.com/us/support/answer/ANS10002634/	200	194020	bf7242f5fb253fff9e1081fea971806f7a2ac856cc94acbf493d7a0ea943cec2	2026-08-22T11:13:23Z
+https://www.home-assistant.io/docs/authentication/	403	5770	2fb0cad82b2afd0dc2661e8954610cb4c996f54187bf04fcf79303460700b778	2026-08-22T11:13:23Z
+https://developers.home-assistant.io/docs/auth_permissions/	403	5783	f5c8979c743bd35862c449e680c6d4b1d7dc25cdb3bd5f665b3cd85fe66954da	2026-08-22T11:13:23Z

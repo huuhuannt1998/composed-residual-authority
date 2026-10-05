@@ -1,0 +1,78 @@
+{
+ "principal": "4e4559ac639d4e7ea244cbb23c60e3b2",
+ "resolved_user_id": null,
+ "resolved_name": "4e4559ac639d4e7ea244cbb23c60e3b2",
+ "named": [],
+ "carriers": [
+  {
+   "kind": "automation",
+   "id": "tsdeputy",
+   "alias": "ts deputy probe",
+   "trigger": "event",
+   "names_principal": false,
+   "note": "fires on an event any authenticated client may emit"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41Q7FJSRCMCC4XK76JNW1DY",
+   "alias": "Sun",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41Q7FM73B74JR32G9Y7HKSG",
+   "alias": "go2rtc",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41Q7FM72YHW5HFQW7K4B095",
+   "alias": "Analytics",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41Q7FM9SY810CACAP8PCWW5",
+   "alias": "Backup",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41Q7HH74DHQNJ0K4NDH97TJ",
+   "alias": "Shopping list",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41Q7HHAH0N1WXXHP7VC3WKR",
+   "alias": "Google Translate text-to-speech",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41Q7HJK5D9GT4PPH3PZ0KZ2",
+   "alias": "Radio Browser",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  }
+ ],
+ "unseen": [
+  {
+   "kind": "websocket session",
+   "note": "authenticated at connection setup; not represented in any file under the configuration directory, so no configuration audit can enumerate it"
+  }
+ ]
+}

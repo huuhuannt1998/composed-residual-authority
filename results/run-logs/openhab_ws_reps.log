@@ -1,0 +1,14 @@
+
+=== openHAB established-websocket residue, 5 independent trials ===
+
+  trial   pre   post-remove   read   REST  newconn   reading
+  1      1         1        1      401  refused   RESIDUAL
+  2      1         1        1      401  refused   RESIDUAL
+  3      1         1        1      401  refused   RESIDUAL
+  4      1         1        1      401  refused   RESIDUAL
+  5      1         1        1      401  refused   RESIDUAL
+
+  valid trials                 : 5/5
+  direct actuation residual    : 5/5
+  REST refused on removed token: 5/5
+  new websocket refused        : 5/5

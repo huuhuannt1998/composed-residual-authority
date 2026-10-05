@@ -1,0 +1,14 @@
+00. run   D1_size1_sufficient      0    1/1     SAT
+01. check D1_no_smaller            0       UNSAT
+02. run   D2_size2_sufficient      0    1/1     SAT
+03. check D2_no_smaller            0       UNSAT
+04. run   D3_size3_sufficient      0    1/1     SAT
+05. check D3_no_smaller_than_3     0       UNSAT
+06. run   D3_pair_session_automation     0       UNSAT
+07. run   D3_pair_session_binding     0       UNSAT
+08. run   D4_chain_sufficient      0    1/1     SAT
+09. check D4_no_smaller            0       UNSAT
+10. run   D4_session_automation_only     0       UNSAT
+11. run   D4_no_binding            0       UNSAT
+12. run   D4_no_trigger            0       UNSAT
+13. check depths_are_distinct      0       UNSAT

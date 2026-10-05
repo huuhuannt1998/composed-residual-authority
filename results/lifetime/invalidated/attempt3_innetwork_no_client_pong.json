@@ -1,0 +1,97 @@
+[
+ {
+  "label": "pre-deletion control",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "immediately",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+30 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 hour",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent"
+ },
+ {
+  "label": "+2 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent"
+ },
+ {
+  "label": "+3 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent"
+ },
+ {
+  "label": "+4 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent"
+ },
+ {
+  "label": "+5 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent"
+ },
+ {
+  "label": "+6 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent"
+ }
+]

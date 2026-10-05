@@ -1,0 +1,45 @@
+########## 2024.12 on :8131 ##########
+  up after 10s
+
+=== 2024.12 ===
+  socket survives delete : True
+  read                 pre=True  post=True    RESIDUAL
+  user_enum            pre=True  post=True    RESIDUAL
+  service_call         pre=True  post=False
+  event_fire           pre=True  post=True    RESIDUAL
+  new_stream           pre=True  post=True    RESIDUAL
+  indirect_actuation   pre=True  post=True    RESIDUAL
+########## 2026.6.4 on :8132 ##########
+  up after 10s
+
+=== 2026.6.4 ===
+  socket survives delete : True
+  read                 pre=True  post=True    RESIDUAL
+  user_enum            pre=True  post=True    RESIDUAL
+  service_call         pre=True  post=False
+  event_fire           pre=True  post=True    RESIDUAL
+  new_stream           pre=True  post=True    RESIDUAL
+  indirect_actuation   pre=True  post=True    RESIDUAL
+########## 2026.7.4 on :8133 ##########
+  up after 10s
+
+=== 2026.7.4 ===
+  socket survives delete : True
+  read                 pre=True  post=True    RESIDUAL
+  user_enum            pre=True  post=True    RESIDUAL
+  service_call         pre=True  post=False
+  event_fire           pre=True  post=True    RESIDUAL
+  new_stream           pre=True  post=True    RESIDUAL
+  indirect_actuation   pre=True  post=True    RESIDUAL
+########## 2026.8.3 on :8134 ##########
+  up after 10s
+
+=== 2026.8.3 ===
+  socket survives delete : True
+  read                 pre=True  post=True    RESIDUAL
+  user_enum            pre=True  post=True    RESIDUAL
+  service_call         pre=True  post=False
+  event_fire           pre=True  post=True    RESIDUAL
+  new_stream           pre=True  post=True    RESIDUAL
+  indirect_actuation   pre=True  post=True    RESIDUAL
+########## VERSION STUDY COMPLETE ##########

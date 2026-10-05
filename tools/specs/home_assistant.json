@@ -1,0 +1,27 @@
+{
+  "platform": "Home Assistant",
+  "evidence": "L3 runtime-confirmed (2026.8.3); see EXPERIMENTS.md E7.6 and p1e7_matrix.py",
+  "carriers": {
+    "stale_socket":  {"audit_visible": false, "names_principal": false},
+    "automation_7":  {"audit_visible": true,  "names_principal": false},
+    "acl_row":       {"audit_visible": true,  "names_principal": true},
+    "cloud_binding": {"audit_visible": true,  "names_principal": true}
+  },
+  "capabilities": ["read", "operate"],
+  "chains": [
+    {"cap": "read", "requires": ["stale_socket"],
+     "trace": ["stale_socket(alice)", "get_states", "state of light.kitchen"]},
+    {"cap": "read", "requires": ["acl_row"],
+     "trace": ["acl_row(alice)", "get_states"]},
+    {"cap": "operate", "requires": ["stale_socket", "automation_7"],
+     "trace": ["stale_socket(alice)", "fire_event(\"x\")", "automation_7", "service_call(light.turn_on)"]},
+    {"cap": "operate", "requires": ["acl_row"],
+     "trace": ["acl_row(alice)", "service_call(light.turn_on)"]},
+    {"cap": "operate", "requires": ["cloud_binding"],
+     "trace": ["cloud_binding(alice)", "remote dispatch", "service_call(light.turn_on)"]}
+  ],
+  "transitions": {
+    "delete_user": {"removes": ["acl_row", "cloud_binding"], "denies": ["read", "operate"]},
+    "deactivate_user": {"removes": ["acl_row", "cloud_binding", "stale_socket"], "denies": ["read", "operate"]}
+  }
+}

@@ -1,0 +1,10 @@
+owner connected (TSMON active)
+  automation.ts_deputy_probe = on
+  CONTROL pre-removal : fire_event=True entity=on get_states n=19
+  POST-REMOVAL        : fire_event success=False err=unauthorized
+  POST-REMOVAL        : input_boolean.ts_probe=off   get_states n=0
+
+  >>> E6.3 DEPUTY residue closed : True
+  >>> E6.3 READ   residue closed : True
+
+  E6.4 fire_event latency WITH TSMON (n=300): median=0.324 ms  p99=0.644 ms  min=0.248

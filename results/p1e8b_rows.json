@@ -1,0 +1,79 @@
+[
+ {
+  "label": "pre-deletion control",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "immediately",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+30 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 hour",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+2 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+6 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "after automation reload",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "after integration reload",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "after container restart",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false
+ }
+]

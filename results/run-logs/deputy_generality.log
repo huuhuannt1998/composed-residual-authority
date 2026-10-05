@@ -1,0 +1,13 @@
+
+=== DEPUTY GENERALITY (all automations authored by the OWNER) ===
+  family                    pre  post-removal
+  A1_input_boolean         True          True   RESIDUAL
+  A2_light_like            True          True   RESIDUAL
+  A3_script                True          True   RESIDUAL
+  A4_scene                 True          True   RESIDUAL
+  A5_logging               True          True   RESIDUAL
+  A6_multistep             True          True   RESIDUAL
+
+  families reachable after removal: 6/6
+  NOTE: the removed principal authored none of these automations;
+        every automation names the owner, who remains authorized.

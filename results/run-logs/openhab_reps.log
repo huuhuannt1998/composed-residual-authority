@@ -1,0 +1,13 @@
+
+=== openHAB persistent connection, 5 independent trials ===
+
+  trial   pre  post-remove  post-clearSessions  reading
+  0         4            3                   3  RESIDUAL
+  1         4            4                   3  RESIDUAL
+  2         3            4                   4  RESIDUAL
+  3         3            3                   4  RESIDUAL
+  4         4            3                   3  RESIDUAL
+
+  valid trials              : 5/5
+  residual after remove     : 5/5
+  still residual after clearSessions : 5/5

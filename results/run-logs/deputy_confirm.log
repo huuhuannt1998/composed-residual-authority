@@ -1,0 +1,10 @@
+owner connected
+  automation installed: HTTP 200
+  member connected (uid=6a0fcbeff1e3405ba9a72e93eae8765a)
+  member long-lived token minted: True
+  CONTROL pre-removal long-lived token: ACCEPTED
+  CONTROL pre-removal: fire_event success=True -> input_boolean.ts_probe=on
+  DELETE user: success=True
+  >>> E7.6 POST-REMOVAL: fire_event success=True err=None
+  >>> E7.6 input_boolean.ts_probe = on   ==> DEPUTY RESIDUE: True
+  >>> E7.8 long-lived token after REMOVAL: rejected(auth_invalid)

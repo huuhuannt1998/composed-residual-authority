@@ -1,0 +1,10 @@
+https://support.google.com/googlehome/answer/9155535?hl=en
+https://support.google.com/googlehome/answer/7177221?hl=en
+https://support.google.com/googlehome/answer/10042812?hl=en
+https://support.google.com/googlehome/answer/11151047?hl=en
+https://www.amazon.com/gp/help/customer/display.html?nodeId=TkhKFt9yxp5myHXvmK
+https://www.amazon.com/gp/help/customer/display.html?nodeId=GMA7DTL7BABZ6Z5A
+https://support.smartthings.com/hc/en-us/articles/360051931312-Share-Control-of-your-Smart-Devices
+https://www.samsung.com/us/support/answer/ANS10002634/
+https://www.home-assistant.io/docs/authentication/
+https://developers.home-assistant.io/docs/auth_permissions/

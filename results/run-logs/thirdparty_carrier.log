@@ -1,0 +1,14 @@
+  long-lived token minted by the administrator (len 183)
+
+  arm                                                  result
+  ---------------------------------------------------- ------------------------
+  third-party token, direct call, BEFORE removal       HTTP 200, entity=on
+
+  administrator DELETED
+
+  third-party token, direct call, AFTER removal        HTTP 401, entity=off
+  control: the removed admin websocket still reads     True
+
+  VERDICT: the long-lived token IS revoked on deletion. The third-party
+  carrier does not survive, so this is not a second composed witness, and
+  the paper should say that the residue is confined to the live connection.

@@ -1,0 +1,16 @@
+
+=== POST-REMOVAL CAPABILITY MATRIX [defenseB] ===
+  capability                        pre-delete  post-delete
+  state_read                              True        False
+  entity_enum                             True        False
+  user_enum                               True        False
+  direct_service_call                     True        False
+  script_execution                        True        False
+  event_firing                            True        False
+  subscribe_trigger                       True        False
+  automation_admin                       False        False
+  new_subscription                        True         True   <== RESIDUAL
+  existing_subscription_delivery          True         True   <== RESIDUAL
+  deputy_actuation                        True        False
+
+  residual capabilities: 2  ['new_subscription', 'existing_subscription_delivery']

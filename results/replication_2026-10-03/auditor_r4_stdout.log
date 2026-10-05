@@ -1,0 +1,15 @@
+[2026-10-03T20:34:07Z] P1E21 auditor re-run; HA image homeassistant/home-assistant:2026.8.3; port 8197; config ~/.tenantsafe/work/rep-2026-10-03/cfg-tsrepaud
+[2026-10-03T20:34:07Z] python 3.13.11, websockets 10.4, aiohttp 3.13.3
+[2026-10-03T20:34:08Z]   owner-authored deputy automation saved: HTTP 200
+[2026-10-03T20:34:11Z]   subject auditsubj created in system-admin (user_id c1402079b0164dd4ac403877de004c29); websocket established and subscribed
+[2026-10-03T20:34:15Z]   pre-deletion control           1/1/1/1   (fire_event success=True, off -> on)
+[2026-10-03T20:34:27Z]   AUDIT before  principal=c1402079b0164dd4ac403877de004c29 resolved=c1402079b0164dd4ac403877de004c29 named=3 carriers=8 unseen=1
+[2026-10-03T20:34:27Z]       named  user           c1402079b0164dd4ac403877de004c29  user record 'audit subj' still present
+[2026-10-03T20:34:27Z]       named  refresh_token  7e47b3b0dcc04414846dfa54527e05c2  normal token, client=None
+[2026-10-03T20:34:27Z]       named  credential     abf710063bd049f1938ac5da406e4bc5  homeassistant
+[2026-10-03T20:34:27Z]   subject DELETED (config/auth/delete)
+[2026-10-03T20:34:43Z]   after deletion, before audit   1/1/1/1   (fire_event success=True, off -> on)
+[2026-10-03T20:34:43Z]   AUDIT after   principal=c1402079b0164dd4ac403877de004c29 resolved=None named=0 carriers=8 unseen=1
+[2026-10-03T20:34:43Z]   AUDIT after_by_name principal=auditsubj resolved=None named=0 carriers=8 unseen=1
+[2026-10-03T20:34:47Z]   after deletion, after audit    1/1/1/1   (fire_event success=True, off -> on)
+[2026-10-03T20:34:47Z] DONE

@@ -1,0 +1,13 @@
+[00:02:44]   pre-deletion control         1/1/1/1
+[00:02:44] subject DELETED; entering delay schedule
+[00:02:50]   immediately                  1/1/1/1
+[00:03:52]   +1 min                       1/1/1/1
+[00:07:55]   +5 min                       1/1/1/1
+[00:32:59]   +30 min                      1/1/1/1
+[01:03:03]   +1 hour                      1/1/1/1
+[02:03:07]   +2 hours                     1/1/1/1
+[03:03:11]   +3 hours                     1/1/1/1
+[04:03:15]   +4 hours                     1/1/1/1
+[05:03:19]   +5 hours                     1/1/1/1
+[06:03:19]   +6 hours                     0/0/0/0 (socket dead: close_code=1006 reason='' ConnectionClosedError)
+[07:03:19]   +7 hours                     0/0/0/0 (socket dead: close_code=1006 reason='' ConnectionClosedError)

@@ -1,0 +1,97 @@
+{
+ "base": "http://localhost:8191",
+ "window_s": 30.0,
+ "subject_role": "non-admin member",
+ "homebridge_installed_version": "2.4.0",
+ "status_ns_connected": true,
+ "log_ns_connected": true,
+ "priming_events": {
+  "status": 1,
+  "log": 3
+ },
+ "pre_request_response_ack": true,
+ "pre_request_path_http": 200,
+ "pre_stimulus_http": 200,
+ "pre_delivered": {
+  "status": 4,
+  "log": 20
+ },
+ "delete_http": 200,
+ "post_request_path_http": 401,
+ "post_alive_before_stimulus": {
+  "status": true,
+  "log": true
+ },
+ "post_stimulus_http": 200,
+ "post_delivered": {
+  "status": 4,
+  "log": 20
+ },
+ "post_alive_after_stimulus": {
+  "status": true,
+  "log": true
+ },
+ "post_status_payload_keys": [
+  [
+   "consolePort",
+   "hap",
+   "matter",
+   "packageVersion",
+   "paired",
+   "pin",
+   "port",
+   "setupUri",
+   "status"
+  ]
+ ],
+ "post_request_response_ack": false,
+ "post_alive_after_incoming": {
+  "status": false,
+  "log": true
+ },
+ "secret_learned_before_removal": true,
+ "content_pre": {
+  "status": {
+   "events": 4,
+   "with_setup_code": 4,
+   "with_setup_uri": 4,
+   "matching_code_pattern": 4,
+   "matching_uri_pattern": 4,
+   "status_pin_nonempty": 4,
+   "status_pin_equals_code": 4
+  },
+  "log": {
+   "events": 20,
+   "with_setup_code": 1,
+   "with_setup_uri": 1,
+   "matching_code_pattern": 1,
+   "matching_uri_pattern": 1,
+   "status_pin_nonempty": 0,
+   "status_pin_equals_code": 0
+  }
+ },
+ "content_post": {
+  "status": {
+   "events": 4,
+   "with_setup_code": 4,
+   "with_setup_uri": 4,
+   "matching_code_pattern": 4,
+   "matching_uri_pattern": 4,
+   "status_pin_nonempty": 4,
+   "status_pin_equals_code": 4
+  },
+  "log": {
+   "events": 20,
+   "with_setup_code": 1,
+   "with_setup_uri": 1,
+   "matching_code_pattern": 1,
+   "matching_uri_pattern": 1,
+   "status_pin_nonempty": 0,
+   "status_pin_equals_code": 0
+  }
+ },
+ "verdict": {
+  "status": "DELIVERS AFTER REMOVAL",
+  "log": "DELIVERS AFTER REMOVAL"
+ }
+}

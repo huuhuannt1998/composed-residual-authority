@@ -1,0 +1,89 @@
+theory TenantSafeDNA
+begin
+
+/*
+  TENANTSAFE — delegation-non-amplification (DNA), Tamarin arm.
+
+  WHY A SEPARATE, MUCH SMALLER THEORY. The full base model (tenantsafe_base.spthy)
+  proved intractable in Tamarin: five exists-trace lemmas ran >4 min without a
+  verdict, before and after bounding capability terms. Diagnosis: the base model
+  is a state-transition system with unbounded object creation and NO cryptographic
+  structure, so Tamarin's constraint solving has nothing to anchor on. The same
+  workflows are SAT in Alloy in under a second. That is empirical support for the
+  design's tool split rather than a rationalisation of it, and it narrows Tamarin's
+  role to the one property that genuinely needs it.
+
+  WHY DNA STILL NEEDS TAMARIN: it is a safety invariant over UNBOUNDED delegation
+  chains. Finite scope cannot establish it; induction can.
+
+  MODELLING NOTE THAT MATTERS. On a TOTAL ORDER of capabilities, DNA is trivial by
+  transitivity and proves nothing interesting. Real platform scope is
+  MULTI-DIMENSIONAL -- (device, capability) at minimum -- so a delegation can
+  NARROW the capability while WIDENING the device set. That is where amplification
+  can actually hide, so scope is modelled as a pair and DNA must hold on both
+  dimensions jointly.
+*/
+
+restriction cap_order:
+  "All held need #i. CapCheck(held, need) @ i ==>
+     ( held = need
+     | ( held = 'Administer' & need = 'Manage'   )
+     | ( held = 'Administer' & need = 'Operate'  )
+     | ( held = 'Administer' & need = 'View'     )
+     | ( held = 'Manage'     & need = 'Operate'  )
+     | ( held = 'Manage'     & need = 'View'     )
+     | ( held = 'Operate'    & need = 'View'     ) )"
+
+rule DeclareCaps:
+  [ ] --[ DeclareCaps() ]-> [ !Cap('View'), !Cap('Operate'), !Cap('Manage'), !Cap('Administer') ]
+restriction caps_once:
+  "All #i #j. DeclareCaps() @ i & DeclareCaps() @ j ==> #i = #j"
+
+rule DeclareDevices:
+  [ ] --[ DeclareDevs() ]-> [ !Dev('d1'), !Dev('d2') ]
+restriction devs_once:
+  "All #i #j. DeclareDevs() @ i & DeclareDevs() @ j ==> #i = #j"
+
+/* Root of a delegation chain: an owner-issued grant over ONE device. */
+rule RootGrant:
+  [ Fr(~p), !Cap(c), !Dev(d) ]
+  --[ RootGrant(~p, d, c), Held(~p, d, c), OnDev(~p, d) ]->
+  [ !Chain(~p, d, c) ]
+
+/* Delegation. The DEVICE dimension is deliberately UNCONSTRAINED here: the
+   delegator may name any device. Only the capability dimension is checked, which
+   is what a platform that validates privilege-but-not-scope would do. If DNA is
+   falsifiable, the counterexample lives in this gap. */
+rule DelegateStep:
+  [ !Chain(p, d, c), Fr(~q), !Cap(c2), !Dev(d2) ]
+  --[ DelegateStep(p, ~q, d, d2, c, c2), CapCheck(c, c2), Held(~q, d2, c2), OnDev(~q, d2) ]->
+  [ !Chain(~q, d2, c2) ]
+
+/* DNA, capability dimension: every held capability is dominated by SOME root.
+   Inductive over chain length. */
+lemma dna_capability_never_widens [use_induction]:
+  "All q d c #i. Held(q, d, c) @ i ==>
+     ( Ex p d0 c0 #j. RootGrant(p, d0, c0) @ j & #j < #i
+        & ( c = c0
+          | ( c0 = 'Administer' )
+          | ( c0 = 'Manage'     & not(c = 'Administer') )
+          | ( c0 = 'Operate'    & ( c = 'View' | c = 'Operate' ) ) ) )
+     | ( Ex #j. RootGrant(q, d, c) @ j & #j = #i )"
+
+/* DNA, DEVICE dimension: a delegate should not reach a device the delegator
+   never held. Expected to FALSIFY on this model -- and the counterexample is the
+   point, because it shows privilege-only validation is insufficient. */
+lemma dna_device_never_widens:
+  "All p q d d2 c c2 #i. DelegateStep(p, q, d, d2, c, c2) @ i ==> d = d2"
+
+/* Executability (design C3): the chain must actually run, or the lemmas above
+   are vacuous. */
+lemma exec_two_step_chain:
+  exists-trace
+  "Ex p q r d c1 c2 c3 #i #j #k.
+       RootGrant(p, d, c1) @ i
+     & DelegateStep(p, q, d, d, c1, c2) @ j
+     & DelegateStep(q, r, d, d, c2, c3) @ k
+     & #i < #j & #j < #k"
+
+end

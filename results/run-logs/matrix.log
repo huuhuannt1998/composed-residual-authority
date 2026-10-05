@@ -1,0 +1,50 @@
+  finished user/delete: n=30
+  finished user/deactivate: n=30
+  finished admin/delete: n=30
+  finished admin/deactivate: n=30
+
+=== ROLE x TRANSITION x OPERATION MATRIX ===
+
+  user/delete  (n=30 independent runs)
+    operation            pre  residual    prop  95% CI
+    read                  30        30   1.000  [0.886, 1.000]
+    new_subscribe         30         0   0.000  [0.000, 0.114]
+    existing_stream       30        30   1.000  [0.886, 1.000]
+    user_enum              0         -     n/a  (never available pre-transition)
+    direct_actuate        30         0   0.000  [0.000, 0.114]
+    script_exec            0         -     n/a  (never available pre-transition)
+    event_fire             0         -     n/a  (never available pre-transition)
+    indirect_actuate       0         -     n/a  (never available pre-transition)
+
+  user/deactivate  (n=30 independent runs)
+    operation            pre  residual    prop  95% CI
+    read                  30         0   0.000  [0.000, 0.114]
+    new_subscribe         30         0   0.000  [0.000, 0.114]
+    existing_stream       30         0   0.000  [0.000, 0.114]
+    user_enum              0         -     n/a  (never available pre-transition)
+    direct_actuate        30         0   0.000  [0.000, 0.114]
+    script_exec            0         -     n/a  (never available pre-transition)
+    event_fire             0         -     n/a  (never available pre-transition)
+    indirect_actuate       0         -     n/a  (never available pre-transition)
+
+  admin/delete  (n=30 independent runs)
+    operation            pre  residual    prop  95% CI
+    read                  30        30   1.000  [0.886, 1.000]
+    new_subscribe         30        30   1.000  [0.886, 1.000]
+    existing_stream       30        30   1.000  [0.886, 1.000]
+    user_enum             30        30   1.000  [0.886, 1.000]
+    direct_actuate        30         0   0.000  [0.000, 0.114]
+    script_exec           30         0   0.000  [0.000, 0.114]
+    event_fire            30        30   1.000  [0.886, 1.000]
+    indirect_actuate      30        30   1.000  [0.886, 1.000]
+
+  admin/deactivate  (n=30 independent runs)
+    operation            pre  residual    prop  95% CI
+    read                  30         0   0.000  [0.000, 0.114]
+    new_subscribe         30         0   0.000  [0.000, 0.114]
+    existing_stream       30         0   0.000  [0.000, 0.114]
+    user_enum             30         0   0.000  [0.000, 0.114]
+    direct_actuate        30         0   0.000  [0.000, 0.114]
+    script_exec           30         0   0.000  [0.000, 0.114]
+    event_fire            30         0   0.000  [0.000, 0.114]
+    indirect_actuate      30         0   0.000  [0.000, 0.114]

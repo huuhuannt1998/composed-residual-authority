@@ -1,0 +1,44 @@
+{
+ "rows": [
+  {
+   "label": "pre-deletion control",
+   "time": "2026-10-03T20:34:11Z",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true,
+   "read_entity_count": 19,
+   "state_before_fire": "off",
+   "fire_event_success": true,
+   "state_after_fire": "on"
+  },
+  {
+   "label": "after deletion, before audit",
+   "time": "2026-10-03T20:34:39Z",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true,
+   "read_entity_count": 19,
+   "state_before_fire": "off",
+   "fire_event_success": true,
+   "state_after_fire": "on"
+  },
+  {
+   "label": "after deletion, after audit",
+   "time": "2026-10-03T20:34:43Z",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true,
+   "read_entity_count": 19,
+   "state_before_fire": "off",
+   "fire_event_success": true,
+   "state_after_fire": "on"
+  }
+ ],
+ "subject_user_id": "c1402079b0164dd4ac403877de004c29",
+ "audit_before_named": 3,
+ "audit_after_named": 0,
+ "audit_after_by_name_named": 0
+}

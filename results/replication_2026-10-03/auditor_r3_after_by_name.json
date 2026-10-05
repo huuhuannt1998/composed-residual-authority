@@ -1,0 +1,78 @@
+{
+ "principal": "auditsubj",
+ "resolved_user_id": null,
+ "resolved_name": "auditsubj",
+ "named": [],
+ "carriers": [
+  {
+   "kind": "automation",
+   "id": "tsdeputy",
+   "alias": "ts deputy probe",
+   "trigger": "event",
+   "names_principal": false,
+   "note": "fires on an event any authenticated client may emit"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QEX6RJZ48DDZR41VY3FCG",
+   "alias": "Sun",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QEXGD1NJTNRVYK7BH3VRZ",
+   "alias": "go2rtc",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QEXGDMK2Q70YP9S3AV42M",
+   "alias": "Analytics",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QEXGF0EDY86BDHMB3SDKD",
+   "alias": "Backup",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QEZDHVKFR9AEJK2ZYFHCK",
+   "alias": "Shopping list",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QEZFFJHEKQRTQNC4KGFV8",
+   "alias": "Radio Browser",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QEZFR5N2ZBJV4K7QACNG9",
+   "alias": "Google Translate text-to-speech",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  }
+ ],
+ "unseen": [
+  {
+   "kind": "websocket session",
+   "note": "authenticated at connection setup; not represented in any file under the configuration directory, so no configuration audit can enumerate it"
+  }
+ ]
+}

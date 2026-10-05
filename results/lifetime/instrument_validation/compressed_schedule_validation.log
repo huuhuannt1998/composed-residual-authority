@@ -1,0 +1,35 @@
+[08:08:05]   pre-deletion control         1/1/1/1
+[08:08:05] subject DELETED; entering delay schedule
+[08:08:11]   immediately                  1/1/1/1
+[08:08:15]   +1 min                       1/1/1/1
+[08:08:19]   +5 min                       1/1/1/1
+[08:08:25]   +30 min                      1/1/1/1
+[08:08:30]   +1 hour                      1/1/1/1
+[08:08:38]   +2 hours                     1/1/1/1
+[08:08:45]   +3 hours                     1/1/1/1
+[08:08:52]   +4 hours                     1/1/1/1
+[08:09:00]   +5 hours                     1/1/1/1
+[08:09:07]   +6 hours                     1/1/1/1
+[08:09:15]   +7 hours                     1/1/1/1
+[08:09:22]   +8 hours                     1/1/1/1
+[08:09:30]   +9 hours                     1/1/1/1
+[08:09:37]   +10 hours                    1/1/1/1
+[08:09:45]   +11 hours                    1/1/1/1
+[08:09:52]   +12 hours                    1/1/1/1
+[08:10:17]   +18 hours                    1/1/1/1
+[08:10:43]   +24 hours                    1/1/1/1
+[08:11:08]   +30 hours                    1/1/1/1
+[08:11:34]   +36 hours                    1/1/1/1
+[08:11:59]   +42 hours                    1/1/1/1
+[08:12:25]   +48 hours                    1/1/1/1
+[08:12:50]   +54 hours                    1/1/1/1
+[08:13:15]   +60 hours                    1/1/1/1
+[08:13:41]   +66 hours                    1/1/1/1
+[08:14:06]   +72 hours                    1/1/1/1
+[08:14:06] delay schedule complete; termination events
+[08:14:13]   after automation reload      1/1/1/1
+[08:14:23]   after integration reload     1/1/1/1
+[08:14:38]   after in-UI core restart     0/0/0/0 (socket dead: close_code=1000 reason='' ConnectionClosedOK)
+[08:14:40] SCHEDULE COMPLETE
+[08:15:25]   after container restart      0/0/0/0 (no socket)
+[08:15:25] DONE

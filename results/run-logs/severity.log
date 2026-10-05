@@ -1,0 +1,24 @@
+PREDECLARED CAPABILITY MAPPING
+  state read             -> View
+  live event stream      -> View
+  new subscription       -> View
+  indirect actuation     -> Operate
+  direct actuation       -> Operate
+  script execution       -> Manage
+  event firing           -> Manage
+  user enumeration       -> Administer
+
+HIGHEST SURVIVING CAPABILITY PER TRANSITION
+  arm                     n  highest surviving   surviving operations
+  user/delete            30  View                state read, live event stream
+  user/deactivate        30  none                (none)
+  admin/delete           30  Administer          state read, live event stream, new subscription, indirect actuation, event firing, user enumeration
+  admin/deactivate       30  none                (none)
+
+READING
+  An ordinary member's removal leaves View. An administrator's removal leaves
+  Administer - the top of the lattice - because user enumeration survives, and
+  it leaves Operate through the composed deputy path while DIRECT actuation is
+  denied. Severity therefore scales with the role held at the moment of removal,
+  and the highest surviving capability separates the two arms that a binary
+  residue flag would report identically.

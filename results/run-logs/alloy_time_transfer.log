@@ -1,0 +1,6 @@
+00. run   GTB_holds_when_expiry_cascades     0       UNSAT
+01. run   GTB_fails_when_no_cascade     0    1/1     SAT
+02. run   NRT_A_priorOwner_wipes     0       UNSAT
+03. run   NRT_A_priorOwner_no_wipe     0    1/1     SAT
+04. run   NRT_B_history_wipes      0       UNSAT
+05. run   NRT_B_history_no_wipe     0    1/1     SAT

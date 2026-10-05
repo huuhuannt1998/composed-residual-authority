@@ -1,0 +1,25 @@
+
+/* All wellformedness checks were successful. */
+
+/*
+Generated from:
+Tamarin version 1.12.0
+Maude version 3.5.1
+Git revision: UNKNOWN, branch: UNKNOWN
+Compiled at: 2026-03-08 09:49:47.765662 UTC
+*/
+
+end
+
+==============================================================================
+summary of summaries:
+
+analyzed: <artifact-root>/models/tenantsafe_dna.spthy
+
+  processing time: 1.03s
+  
+  dna_capability_never_widens (all-traces): verified (543 steps)
+  dna_device_never_widens (all-traces): falsified - found trace (8 steps)
+  exec_two_step_chain (exists-trace): verified (12 steps)
+
+==============================================================================

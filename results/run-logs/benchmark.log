@@ -1,0 +1,38 @@
+[17:00:06] microbenchmark: 1,000,000 authorization-check lookups
+[17:00:07]   median 83 ns  p95 125 ns  p99 125 ns  sd 9.7 ns  5,951,806/s over 0.17s
+[17:00:09] warm-up: 300 ops per arm per operation
+[17:00:09] run 1/5  arm order: ['baseline', 'defense A', 'defense B']
+[17:00:24] run 2/5  arm order: ['defense A', 'defense B', 'baseline']
+[17:00:35] run 3/5  arm order: ['defense B', 'baseline', 'defense A']
+[17:00:47] run 4/5  arm order: ['baseline', 'defense A', 'defense B']
+[17:00:59] run 5/5  arm order: ['defense A', 'defense B', 'baseline']
+[17:01:10] 
+[17:01:10] === END-TO-END LATENCY (ms) ===
+[17:01:10]   operation       arm              p50      p95      p99    thru/s   95% CI of per-run medians
+[17:01:10]   state read      baseline       0.296    0.386    0.664    3139.2   [0.294, 0.297]
+[17:01:10]   state read      defense A      0.292    0.471    0.887    3097.7   [0.287, 0.298]
+[17:01:10]   state read      defense B      0.292    0.386    0.676    3223.1   [0.286, 0.297]
+[17:01:10] 
+[17:01:10]   event fire      baseline       0.316    0.465    0.800    2898.6   [0.311, 0.322]
+[17:01:10]   event fire      defense A      0.314    0.481    0.885    2920.3   [0.301, 0.332]
+[17:01:10]   event fire      defense B      0.316    0.555    1.164    2761.7   [0.293, 0.351]
+[17:01:10] 
+[17:01:10]   service call    baseline       0.457    0.885    1.419    1839.2   [0.410, 0.506]
+[17:01:10]   service call    defense A      0.438    0.791    1.219    2064.4   [0.391, 0.487]
+[17:01:10]   service call    defense B      0.437    0.783    1.413    1949.0   [0.390, 0.490]
+[17:01:10] 
+[17:01:10]   ws round trip   baseline       0.259    0.964    1.508    2536.9   [0.251, 0.270]
+[17:01:10]   ws round trip   defense A      0.305    1.395    2.141    1859.7   [0.288, 0.335]
+[17:01:10]   ws round trip   defense B      0.272    1.164    1.941    2380.4   [0.258, 0.290]
+[17:01:10] 
+[17:01:10] === IS ANY DIFFERENCE LARGER THAN NOISE? ===
+[17:01:10]   state read      defense A   -> CI overlaps baseline; no difference claimed
+[17:01:10]   state read      defense B   -> CI overlaps baseline; no difference claimed
+[17:01:10]   event fire      defense A   -> CI overlaps baseline; no difference claimed
+[17:01:10]   event fire      defense B   -> CI overlaps baseline; no difference claimed
+[17:01:10]   service call    defense A   -> CI overlaps baseline; no difference claimed
+[17:01:10]   service call    defense B   -> CI overlaps baseline; no difference claimed
+[17:01:10]   ws round trip   defense A   -> CI SEPARATED from baseline
+[17:01:10]   ws round trip   defense B   -> CI overlaps baseline; no difference claimed
+[17:01:10] 
+written /tmp/p1e11_bench.json

@@ -1,0 +1,99 @@
+[1mplan: 9 experiment(s), about 0.9 h, one at a time[0m
+       alloy_base               2 min  execution traces; tool-choice evidence
+       alloy_channels           2 min  Google Home documented channels + E6.6 ablation
+       alloy_time_transfer      2 min  guest-time-bounding and no-residual-after-transfer
+       tamarin_dna             15 min  delegation-non-amplification, inductive
+       necessity                6 min  E3.4 counterfactual necessity of each witness element
+       deputy_confirm           6 min  E7.6 deputy path confirmed at actuation
+       admin_surface            6 min  E7.6b admin-surface blast radius
+       closure                  7 min  E6.3 monitor closes both residues (needs Defense B)
+       false_positive           7 min  E6.6 monitor denies nothing legitimate (needs Defense B)
+
+=== preflight ===
+  [32mok[0m    docker daemon responding
+  [33mWARN[0m  containers from OTHER research projects are running:
+          hpr-monitor
+          hpr-hass
+          hpr-devices
+          hpr-broker
+          hpr-anchord
+  [33mWARN[0m  each Home Assistant instance costs 0.5-1 GB. Running TenantSafe
+  [33mWARN[0m  alongside these is what crashed the machine. Stop them first.
+  [32mok[0m    RKA infrastructure up (rka-server, rka-worker)
+  [32mok[0m    no leftover TenantSafe containers
+  [32mok[0m    free memory 6 GB (need 4)
+  [32mok[0m    free disk 87 GB
+  [32mok[0m    image homeassistant/home-assistant:2026.8.3
+  [32mok[0m    image homeassistant/home-assistant:2026.7.4
+  [32mok[0m    image homeassistant/home-assistant:2026.6.4
+  [32mok[0m    image homeassistant/home-assistant:2024.12
+  [32mok[0m    image openhab/openhab:4.3.2
+  [32mok[0m    image eclipse-temurin:21-jre
+  [32mok[0m    all experiment ports free
+  ok    python deps (aiohttp, websockets)
+  [32mok[0m    Alloy v6.2.0 at ~/.tenantsafe/tools
+  [32mok[0m    RKA API reachable
+
+[32mREADY[0m - 0 blocking, 3 advisory
+Advisories do not block, but read the foreign-container warning before starting.
+
+[1m==> alloy_base  (~2 min)  08:49:00[0m
+       done in 0m  ->  ../results/run-logs/alloy_base.log
+         01. run   exec_author_automation     0    1/1     SAT
+         02. run   exec_evict_runs          0    1/1     SAT
+         03. run   exec_full_remediation     0    1/1     SAT
+
+[1m==> alloy_channels  (~2 min)  08:49:05[0m
+       done in 0m  ->  ../results/run-logs/alloy_channels.log
+         Warning
+           0. line 39, column 30 (39,33), filename=/w/models/tenantsafe_channels.als Implicit in-line conjunction between two formulas:
+         (Owner !in Evicted) and (always (Cascades)' = Cascades)
+
+[1m==> alloy_time_transfer  (~2 min)  08:49:10[0m
+       done in 0m  ->  ../results/run-logs/alloy_time_transfer.log
+         03. run   NRT_A_priorOwner_no_wipe     0    1/1     SAT
+         04. run   NRT_B_history_wipes      0       UNSAT
+         05. run   NRT_B_history_no_wipe     0    1/1     SAT
+
+[1m==> tamarin_dna  (~15 min)  08:49:31[0m
+       done in 0m  ->  ../results/run-logs/tamarin_dna.log
+           exec_two_step_chain (exists-trace): verified (12 steps)
+         
+         ==============================================================================
+
+[1m==> necessity  (~6 min)  08:49:37[0m
+       done in 0m  ->  ../results/run-logs/necessity.log
+           collapses without automation: True
+         
+           >>> A5 NECESSITY: FAIL   CRD = 2 confirmed: False
+
+[1m==> deputy_confirm  (~6 min)  08:50:09[0m
+       FAILED rc=1 after 0m  ->  ../results/run-logs/deputy_confirm.log
+             otok=await onboard(s) or (await login(s,*OWNER))["access_token"]
+                  ^^^^^^^^^^^^^^^^
+           File "<artifact-root>/experiments/e76_deputy.py", line 28, in onboard
+             t=(await tokc(s,code))["access_token"]
+                      ^^^^
+         NameError: name 'tokc' is not defined
+       continuing; re-run this one alone with: ./run_all.sh --only deputy_confirm
+
+[1m==> admin_surface  (~6 min)  08:50:19[0m
+       done in 0m  ->  ../results/run-logs/admin_surface.log
+             execute_script         success=True entity=None  ->  success=False entity=None
+             subscribe_trigger      success=True err=None  ->  success=True err=None
+             config/auth/list       success=True n=3  ->  success=True n=2
+
+[1m==> closure  (~7 min)  08:50:35[0m
+       done in 0m  ->  ../results/run-logs/closure.log
+           >>> E6.3 READ   residue closed : True
+         
+           E6.4 fire_event latency WITH TSMON (n=300): median=0.304 ms  p99=0.504 ms  min=0.235
+
+[1m==> false_positive  (~7 min)  08:51:14[0m
+       done in 0m  ->  ../results/run-logs/false_positive.log
+           PASS  W9_owner_unaffected
+         
+           9/10 legitimate operations succeeded
+
+[1mrun complete  (2 min total)[0m
+       state: .run_state   logs: ../results/run-logs

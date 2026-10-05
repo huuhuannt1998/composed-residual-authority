@@ -1,0 +1,92 @@
+[
+ {
+  "label": "pre-deletion control",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "immediately",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+30 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 hour",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+2 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+3 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+4 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+6 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received"
+ },
+ {
+  "label": "+7 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received"
+ }
+]

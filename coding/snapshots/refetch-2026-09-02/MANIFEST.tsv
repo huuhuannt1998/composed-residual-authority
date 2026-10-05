@@ -1,0 +1,5 @@
+url	http	bytes	sha256	retrieved_utc	note
+https://www.home-assistant.io/docs/authentication/	200	56807	f1b8f15e1beef8c2416d60d58918bf295bdbe8aa756f99403fda0e607342bd69	2026-09-02T18:39:43Z	recovered: the harvest 403 was a user-agent block, not access control
+https://developers.home-assistant.io/docs/auth_permissions/	200	96806	4bbeee36ddcd6cf21f670740bfa530c46093a6d9645890d924fd8796b2d146c7	2026-09-02T18:39:43Z	recovered: same cause
+https://web.archive.org/web/20251009171031/https://support.smartthings.com/hc/en-us/articles/360051931312-Share-Control-of-your-Smart-Devices	200	39673	bca00cf1b78881a4a37c41ed8e9e4d633e874ffe1288cfc102b7dd9989d99cd4	2026-09-02T18:39:43Z	origin still Cloudflare-403 on 2026-09-02; Wayback capture 2025-10-09 substituted
+https://support.google.com/googlehome/answer/15962877?hl=en	200	1543033	55d3502c3b254ead9c5bff393d4f8fce41ffba429806a519888469a63d1ce1d9	2026-09-02T18:39:43Z	smart-lock passcode disclaimer cited in Sec 6; absent from the original harvest

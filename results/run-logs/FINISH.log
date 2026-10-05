@@ -1,0 +1,48 @@
+waiting for the in-flight run to finish...
+in-flight run finished at 17:45:01; starting the remainder
+[1mplan: 6 experiment(s), about 0.6 h, one at a time[0m
+       scope_sweep              3 min  scope/budget sensitivity S1-S4
+       capability_base          6 min  defense completeness, unpatched baseline (expect 8)
+       capability_defB          7 min  defense completeness, re-resolution (expect 2)
+       capability_defA          7 min  defense completeness, session termination (expect 0)
+       openhab_sse              4 min  openHAB persistent connection
+       openhab_reps             9 min  openHAB, 5 independent trials
+
+=== preflight ===
+  [32mok[0m    docker daemon responding
+  [33mWARN[0m  containers from OTHER research projects are running:
+          hpr-monitor
+          hpr-hass
+          hpr-devices
+          hpr-broker
+          hpr-anchord
+  [33mWARN[0m  each Home Assistant instance costs 0.5-1 GB. Running TenantSafe
+  [33mWARN[0m  alongside these is what crashed the machine. Stop them first.
+  [32mok[0m    RKA infrastructure up (rka-server, rka-worker)
+  [33mWARN[0m  1 leftover TenantSafe container(s) - ./experiments/teardown.sh clears them
+  [32mok[0m    free memory 4 GB (need 4)
+  [32mok[0m    free disk 90 GB
+  [32mok[0m    image homeassistant/home-assistant:2026.8.3
+  [32mok[0m    image homeassistant/home-assistant:2026.7.4
+  [32mok[0m    image homeassistant/home-assistant:2026.6.4
+  [32mok[0m    image homeassistant/home-assistant:2024.12
+  [32mok[0m    image openhab/openhab:4.3.2
+  [32mok[0m    image eclipse-temurin:21-jre
+  [33mWARN[0m  ports in use: 8138
+  ok    python deps (aiohttp, websockets)
+  [32mok[0m    Alloy v6.2.0 at ~/.tenantsafe/tools
+  [32mok[0m    RKA API reachable
+
+[32mREADY[0m - 0 blocking, 5 advisory
+Advisories do not block, but read the foreign-container warning before starting.
+
+[1m==> scope_sweep  (~3 min)  17:45:07[0m
+       done in 0m  ->  ../results/run-logs/scope_sweep.log
+         ### scope S4 :: for 7 but 6 Principal, 4 Device, 6 Grant, 5 Session, 5 Auto, 16 steps
+             real 0.84
+         
+
+[1mSTOPPING: host free memory 3 GB fell below 4 GB.[0m
+       Nothing is lost - re-run with --resume once memory frees up.
+  removed 0 TenantSafe container(s)
+  rka-* infrastructure left running (required)

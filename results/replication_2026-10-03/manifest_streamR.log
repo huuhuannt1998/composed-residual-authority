@@ -1,0 +1,49 @@
+[2026-10-03T20:36:20Z] stream R start, reps=5, image homeassistant/home-assistant:2026.8.3
+[2026-10-03T20:36:20Z] image id sha256:14931c6b13756317849f46da1d01b45937a1150db66c081cfe529d48215943fe
+[2026-10-03T20:36:20Z] python Python 3.13.11; websockets 10.4 aiohttp 3.13.3
+[2026-10-03T20:36:20Z] rep 1 regression base: start
+[2026-10-03T20:36:49Z] rep 1 regression base: rc=0
+[2026-10-03T20:36:50Z] rep 1 regression defB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:37:25Z] rep 1 regression defB: rc=0
+[2026-10-03T20:37:26Z] rep 1 regression defA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:38:02Z] rep 1 regression defA: rc=0
+[2026-10-03T20:38:02Z] rep 2 regression defB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:38:38Z] rep 2 regression defB: rc=0
+[2026-10-03T20:38:38Z] rep 2 regression defA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:39:14Z] rep 2 regression defA: rc=0
+[2026-10-03T20:39:14Z] rep 2 regression base: start
+[2026-10-03T20:39:43Z] rep 2 regression base: rc=0
+[2026-10-03T20:39:44Z] rep 3 regression defA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:40:19Z] rep 3 regression defA: rc=0
+[2026-10-03T20:40:19Z] rep 3 regression base: start
+[2026-10-03T20:40:49Z] rep 3 regression base: rc=0
+[2026-10-03T20:40:49Z] rep 3 regression defB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:41:25Z] rep 3 regression defB: rc=0
+[2026-10-03T20:41:25Z] rep 4 regression base: start
+[2026-10-03T20:41:54Z] rep 4 regression base: rc=0
+[2026-10-03T20:41:55Z] rep 4 regression defB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:42:31Z] rep 4 regression defB: rc=0
+[2026-10-03T20:42:31Z] rep 4 regression defA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:43:07Z] rep 4 regression defA: rc=0
+[2026-10-03T20:43:07Z] rep 5 regression defB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:43:43Z] rep 5 regression defB: rc=0
+[2026-10-03T20:43:43Z] rep 5 regression defA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:44:19Z] rep 5 regression defA: rc=0
+[2026-10-03T20:44:19Z] rep 5 regression base: start
+[2026-10-03T20:44:48Z] rep 5 regression base: rc=0
+[2026-10-03T20:44:49Z] stream R done

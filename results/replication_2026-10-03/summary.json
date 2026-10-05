@@ -1,0 +1,1335 @@
+{
+ "auditor": {
+  "runs": [
+   {
+    "file": "auditor_r1_probe.log",
+    "named": [
+     3,
+     0,
+     0
+    ],
+    "carriers": [
+     8,
+     8,
+     8
+    ],
+    "unseen": [
+     1,
+     1,
+     1
+    ],
+    "probe": [
+     "1/1/1/1",
+     "1/1/1/1",
+     "1/1/1/1"
+    ]
+   },
+   {
+    "file": "auditor_r2_probe.log",
+    "named": [
+     3,
+     0,
+     0
+    ],
+    "carriers": [
+     8,
+     8,
+     8
+    ],
+    "unseen": [
+     1,
+     1,
+     1
+    ],
+    "probe": [
+     "1/1/1/1",
+     "1/1/1/1",
+     "1/1/1/1"
+    ]
+   },
+   {
+    "file": "auditor_r3_probe.log",
+    "named": [
+     3,
+     0,
+     0
+    ],
+    "carriers": [
+     8,
+     8,
+     8
+    ],
+    "unseen": [
+     1,
+     1,
+     1
+    ],
+    "probe": [
+     "1/1/1/1",
+     "1/1/1/1",
+     "1/1/1/1"
+    ]
+   },
+   {
+    "file": "auditor_r4_probe.log",
+    "named": [
+     3,
+     0,
+     0
+    ],
+    "carriers": [
+     8,
+     8,
+     8
+    ],
+    "unseen": [
+     1,
+     1,
+     1
+    ],
+    "probe": [
+     "1/1/1/1",
+     "1/1/1/1",
+     "1/1/1/1"
+    ]
+   },
+   {
+    "file": "auditor_r5_probe.log",
+    "named": [
+     3,
+     0,
+     0
+    ],
+    "carriers": [
+     8,
+     8,
+     8
+    ],
+    "unseen": [
+     1,
+     1,
+     1
+    ],
+    "probe": [
+     "1/1/1/1",
+     "1/1/1/1",
+     "1/1/1/1"
+    ]
+   }
+  ],
+  "original": "p1e21_auditor_rerun_2026-10-02_probe.log: named 3/0/0, carriers 8, unseen 1, probe 1/1/1/1 x3",
+  "all_match_original": true
+ },
+ "capability": {
+  "baseline": {
+   "runs": [
+    {
+     "file": "capability_baseline_r1.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "deputy_actuation",
+      "entity_enum",
+      "event_firing",
+      "existing_subscription_delivery",
+      "new_subscription",
+      "state_read",
+      "subscribe_trigger",
+      "user_enum"
+     ]
+    },
+    {
+     "file": "capability_baseline_r2.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "deputy_actuation",
+      "entity_enum",
+      "event_firing",
+      "existing_subscription_delivery",
+      "new_subscription",
+      "state_read",
+      "subscribe_trigger",
+      "user_enum"
+     ]
+    },
+    {
+     "file": "capability_baseline_r3.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "deputy_actuation",
+      "entity_enum",
+      "event_firing",
+      "existing_subscription_delivery",
+      "new_subscription",
+      "state_read",
+      "subscribe_trigger",
+      "user_enum"
+     ]
+    },
+    {
+     "file": "capability_baseline_r4.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "deputy_actuation",
+      "entity_enum",
+      "event_firing",
+      "existing_subscription_delivery",
+      "new_subscription",
+      "state_read",
+      "subscribe_trigger",
+      "user_enum"
+     ]
+    },
+    {
+     "file": "capability_baseline_r5.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "deputy_actuation",
+      "entity_enum",
+      "event_firing",
+      "existing_subscription_delivery",
+      "new_subscription",
+      "state_read",
+      "subscribe_trigger",
+      "user_enum"
+     ]
+    }
+   ],
+   "original_residual": [
+    "deputy_actuation",
+    "entity_enum",
+    "event_firing",
+    "existing_subscription_delivery",
+    "new_subscription",
+    "state_read",
+    "subscribe_trigger",
+    "user_enum"
+   ],
+   "all_match_original": true
+  },
+  "defenseB": {
+   "runs": [
+    {
+     "file": "capability_defenseB_r1.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "existing_subscription_delivery",
+      "new_subscription"
+     ]
+    },
+    {
+     "file": "capability_defenseB_r2.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "existing_subscription_delivery",
+      "new_subscription"
+     ]
+    },
+    {
+     "file": "capability_defenseB_r3.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "existing_subscription_delivery",
+      "new_subscription"
+     ]
+    },
+    {
+     "file": "capability_defenseB_r4.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "existing_subscription_delivery",
+      "new_subscription"
+     ]
+    },
+    {
+     "file": "capability_defenseB_r5.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": [
+      "existing_subscription_delivery",
+      "new_subscription"
+     ]
+    }
+   ],
+   "original_residual": [
+    "existing_subscription_delivery",
+    "new_subscription"
+   ],
+   "all_match_original": true
+  },
+  "defenseA": {
+   "runs": [
+    {
+     "file": "capability_defenseA_r1.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": []
+    },
+    {
+     "file": "capability_defenseA_r2.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": []
+    },
+    {
+     "file": "capability_defenseA_r3.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": []
+    },
+    {
+     "file": "capability_defenseA_r4.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": []
+    },
+    {
+     "file": "capability_defenseA_r5.json",
+     "held_pre": 10,
+     "probed": 11,
+     "residual": []
+    }
+   ],
+   "original_residual": [],
+   "all_match_original": true
+  }
+ },
+ "regression": {
+  "base": {
+   "runs": [
+    {
+     "file": "regression_base_r1.json",
+     "tests": 22,
+     "passed": 20,
+     "security_regressions": 2,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_base_r2.json",
+     "tests": 22,
+     "passed": 20,
+     "security_regressions": 2,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_base_r3.json",
+     "tests": 22,
+     "passed": 20,
+     "security_regressions": 2,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_base_r4.json",
+     "tests": 22,
+     "passed": 20,
+     "security_regressions": 2,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_base_r5.json",
+     "tests": 22,
+     "passed": 20,
+     "security_regressions": 2,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    }
+   ],
+   "original_passed_sec_func": [
+    20,
+    2,
+    0
+   ],
+   "all_match_original": true
+  },
+  "defB": {
+   "runs": [
+    {
+     "file": "regression_defB_r1.json",
+     "tests": 22,
+     "passed": 21,
+     "security_regressions": 1,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defB_r2.json",
+     "tests": 22,
+     "passed": 21,
+     "security_regressions": 1,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defB_r3.json",
+     "tests": 22,
+     "passed": 21,
+     "security_regressions": 1,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defB_r4.json",
+     "tests": 22,
+     "passed": 21,
+     "security_regressions": 1,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defB_r5.json",
+     "tests": 22,
+     "passed": 21,
+     "security_regressions": 1,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "security regression",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    }
+   ],
+   "original_passed_sec_func": [
+    21,
+    1,
+    0
+   ],
+   "all_match_original": true
+  },
+  "defA": {
+   "runs": [
+    {
+     "file": "regression_defA_r1.json",
+     "tests": 22,
+     "passed": 22,
+     "security_regressions": 0,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defA_r2.json",
+     "tests": 22,
+     "passed": 22,
+     "security_regressions": 0,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defA_r3.json",
+     "tests": 22,
+     "passed": 22,
+     "security_regressions": 0,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defA_r4.json",
+     "tests": 22,
+     "passed": 22,
+     "security_regressions": 0,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    },
+    {
+     "file": "regression_defA_r5.json",
+     "tests": 22,
+     "passed": 22,
+     "security_regressions": 0,
+     "functional_regressions": 0,
+     "outcomes": [
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+     ]
+    }
+   ],
+   "original_passed_sec_func": [
+    22,
+    0,
+    0
+   ],
+   "all_match_original": true
+  }
+ },
+ "sessions": {
+  "runs": [
+   {
+    "file": "sessions_r1.log",
+    "cells": [
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ]
+    ]
+   },
+   {
+    "file": "sessions_r2.log",
+    "cells": [
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ]
+    ]
+   },
+   {
+    "file": "sessions_r3.log",
+    "cells": [
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ]
+    ]
+   },
+   {
+    "file": "sessions_r4.log",
+    "cells": [
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ]
+    ]
+   },
+   {
+    "file": "sessions_r5.log",
+    "cells": [
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "1/1/1"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ],
+     [
+      "1/1/1",
+      "0/0/0"
+     ]
+    ]
+   }
+  ],
+  "original_cells": [
+   [
+    "1/1/1",
+    "1/1/1"
+   ],
+   [
+    "1/1/1",
+    "1/1/1"
+   ],
+   [
+    "1/1/1",
+    "0/0/0"
+   ],
+   [
+    "1/1/1",
+    "1/1/1"
+   ],
+   [
+    "1/1/1",
+    "0/0/0"
+   ],
+   [
+    "1/1/1",
+    "0/0/0"
+   ],
+   [
+    "1/1/1",
+    "0/0/0"
+   ],
+   [
+    "1/1/1",
+    "0/0/0"
+   ]
+  ],
+  "all_match_original": true
+ },
+ "thirdparty": {
+  "runs": [
+   {
+    "file": "thirdparty_r1.log",
+    "result": [
+     [
+      "HTTP 200",
+      "on"
+     ],
+     [
+      "HTTP 401",
+      "off"
+     ],
+     "True"
+    ]
+   },
+   {
+    "file": "thirdparty_r2.log",
+    "result": [
+     [
+      "HTTP 200",
+      "on"
+     ],
+     [
+      "HTTP 401",
+      "off"
+     ],
+     "True"
+    ]
+   },
+   {
+    "file": "thirdparty_r3.log",
+    "result": [
+     [
+      "HTTP 200",
+      "on"
+     ],
+     [
+      "HTTP 401",
+      "off"
+     ],
+     "True"
+    ]
+   },
+   {
+    "file": "thirdparty_r4.log",
+    "result": [
+     [
+      "HTTP 200",
+      "on"
+     ],
+     [
+      "HTTP 401",
+      "off"
+     ],
+     "True"
+    ]
+   },
+   {
+    "file": "thirdparty_r5.log",
+    "result": [
+     [
+      "HTTP 200",
+      "on"
+     ],
+     [
+      "HTTP 401",
+      "off"
+     ],
+     "True"
+    ]
+   }
+  ],
+  "original": [
+   [
+    "HTTP 200",
+    "on"
+   ],
+   [
+    "HTTP 401",
+    "off"
+   ],
+   "True"
+  ],
+  "all_match_original": true
+ },
+ "homebridge": {
+  "trials": [
+   {
+    "file": "homebridge_r1.json",
+    "pre_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "post_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "pre_request_path_http": 200,
+    "post_request_path_http": 401,
+    "pre_request_response_ack": true,
+    "post_request_response_ack": false,
+    "post_alive_after_stimulus": {
+     "status": true,
+     "log": true
+    },
+    "post_alive_after_incoming": {
+     "status": false,
+     "log": true
+    },
+    "verdict": {
+     "status": "DELIVERS AFTER REMOVAL",
+     "log": "DELIVERS AFTER REMOVAL"
+    },
+    "post_status_payload_keys": [
+     [
+      "consolePort",
+      "hap",
+      "matter",
+      "packageVersion",
+      "paired",
+      "pin",
+      "port",
+      "setupUri",
+      "status"
+     ]
+    ]
+   },
+   {
+    "file": "homebridge_r2.json",
+    "pre_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "post_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "pre_request_path_http": 200,
+    "post_request_path_http": 401,
+    "pre_request_response_ack": true,
+    "post_request_response_ack": false,
+    "post_alive_after_stimulus": {
+     "status": true,
+     "log": true
+    },
+    "post_alive_after_incoming": {
+     "status": false,
+     "log": true
+    },
+    "verdict": {
+     "status": "DELIVERS AFTER REMOVAL",
+     "log": "DELIVERS AFTER REMOVAL"
+    },
+    "post_status_payload_keys": [
+     [
+      "consolePort",
+      "hap",
+      "matter",
+      "packageVersion",
+      "paired",
+      "pin",
+      "port",
+      "setupUri",
+      "status"
+     ]
+    ]
+   },
+   {
+    "file": "homebridge_r3.json",
+    "pre_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "post_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "pre_request_path_http": 200,
+    "post_request_path_http": 401,
+    "pre_request_response_ack": true,
+    "post_request_response_ack": false,
+    "post_alive_after_stimulus": {
+     "status": true,
+     "log": true
+    },
+    "post_alive_after_incoming": {
+     "status": false,
+     "log": true
+    },
+    "verdict": {
+     "status": "DELIVERS AFTER REMOVAL",
+     "log": "DELIVERS AFTER REMOVAL"
+    },
+    "post_status_payload_keys": [
+     [
+      "consolePort",
+      "hap",
+      "matter",
+      "packageVersion",
+      "paired",
+      "pin",
+      "port",
+      "setupUri",
+      "status"
+     ]
+    ]
+   },
+   {
+    "file": "homebridge_r4.json",
+    "pre_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "post_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "pre_request_path_http": 200,
+    "post_request_path_http": 401,
+    "pre_request_response_ack": true,
+    "post_request_response_ack": false,
+    "post_alive_after_stimulus": {
+     "status": true,
+     "log": true
+    },
+    "post_alive_after_incoming": {
+     "status": false,
+     "log": true
+    },
+    "verdict": {
+     "status": "DELIVERS AFTER REMOVAL",
+     "log": "DELIVERS AFTER REMOVAL"
+    },
+    "post_status_payload_keys": [
+     [
+      "consolePort",
+      "hap",
+      "matter",
+      "packageVersion",
+      "paired",
+      "pin",
+      "port",
+      "setupUri",
+      "status"
+     ]
+    ]
+   },
+   {
+    "file": "homebridge_r5.json",
+    "pre_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "post_delivered": {
+     "status": 4,
+     "log": 20
+    },
+    "pre_request_path_http": 200,
+    "post_request_path_http": 401,
+    "pre_request_response_ack": true,
+    "post_request_response_ack": false,
+    "post_alive_after_stimulus": {
+     "status": true,
+     "log": true
+    },
+    "post_alive_after_incoming": {
+     "status": false,
+     "log": true
+    },
+    "verdict": {
+     "status": "DELIVERS AFTER REMOVAL",
+     "log": "DELIVERS AFTER REMOVAL"
+    },
+    "post_status_payload_keys": [
+     [
+      "consolePort",
+      "hap",
+      "matter",
+      "packageVersion",
+      "paired",
+      "pin",
+      "port",
+      "setupUri",
+      "status"
+     ]
+    ]
+   }
+  ],
+  "pilots": [
+   {
+    "file": "homebridge_pilot1.json",
+    "pre_stimulus_http": 415,
+    "verdict": {
+     "status": "INVALID (no delivered-event baseline)",
+     "log": "INVALID (no delivered-event baseline)"
+    }
+   },
+   {
+    "file": "homebridge_pilot21.json",
+    "pre_stimulus_http": 200,
+    "verdict": {
+     "status": "DELIVERS AFTER REMOVAL",
+     "log": "DELIVERS AFTER REMOVAL"
+    }
+   }
+  ],
+  "original": "run-logs/homebridge_probe.log: request path 200 -> 401; socket 'events' 1 before (the connect callback) and 0 after; no delivered-event baseline"
+ }
+}

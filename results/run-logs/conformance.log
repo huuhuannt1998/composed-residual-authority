@@ -1,0 +1,35 @@
+# E0.7 cross-encoding conformance on the shared fragment
+# run 2026-09-02T14:13:04Z
+=== SHARED-FRAGMENT CONFORMANCE (amended C7) ===
+  Alloy   `dominates`  : 10 pairs
+  Tamarin `cap_order`  : 10 pairs
+  only in Alloy        : none
+  only in Tamarin      : none
+
+  test                                alloy  tamarin  ok
+  dominates(View,View)                 True     True  PASS
+  dominates(View,Operate)             False    False  PASS
+  dominates(View,Manage)              False    False  PASS
+  dominates(View,Administer)          False    False  PASS
+  dominates(Operate,View)              True     True  PASS
+  dominates(Operate,Operate)           True     True  PASS
+  dominates(Operate,Manage)           False    False  PASS
+  dominates(Operate,Administer)       False    False  PASS
+  dominates(Manage,View)               True     True  PASS
+  dominates(Manage,Operate)            True     True  PASS
+  dominates(Manage,Manage)             True     True  PASS
+  dominates(Manage,Administer)        False    False  PASS
+  dominates(Administer,View)           True     True  PASS
+  dominates(Administer,Operate)        True     True  PASS
+  dominates(Administer,Manage)         True     True  PASS
+  dominates(Administer,Administer)     True     True  PASS
+  chain Administer->Manage->Operate    True     True  PASS
+  chain Administer->Manage->View       True     True  PASS
+  chain Manage->Operate->View          True     True  PASS
+  chain Administer->Operate->View      True     True  PASS
+
+  RESULT: 20/20 agree  ->  PASS
+  Scope limitation: conformance covers the capability lattice + delegation
+  narrowing ONLY. Residue channels (session, automation) exist solely in Alloy;
+  unbounded chain induction exists solely in Tamarin. Neither is cross-checked.
+exit=0

@@ -1,0 +1,18 @@
+/private/tmp/ts-venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+  member created (id=2) and authenticated
+
+  arm                                          result
+  -------------------------------------------- ----------------------
+  request path, before removal                 HTTP 200
+  socket.io opened before removal              connected
+  socket events received before removal        1
+
+  DELETE /api/users/2 -> HTTP 200
+
+  request path, after removal                  HTTP 401
+  socket.io still connected                    True
+  socket events received after removal         0
+
+  VERDICT: the socket object stayed open but delivered nothing after removal.
+  Report as connection-open-but-silent; not equivalent to the HA residue.

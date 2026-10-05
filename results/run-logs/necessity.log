@@ -1,0 +1,11 @@
+E3.4 COUNTERFACTUAL NECESSITY — each arm removes ONE witness element
+
+  FULL witness (socket + automation)           fire=True     entity=on    RESIDUE=True
+  minus orphaned socket                        fire=socket dead (ConnectionClosedOK) entity=off   RESIDUE=False
+  minus automation (disabled)                  fire=True     entity=off   RESIDUE=False
+
+  full residue present : True
+  collapses without socket    : True
+  collapses without automation: True
+
+  >>> A5 NECESSITY: PASS   CRD = 2 confirmed: True

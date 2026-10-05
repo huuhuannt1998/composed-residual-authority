@@ -1,0 +1,17 @@
+[00:04:32]   pre-deletion control         1/1/1/1
+[00:04:32] subject DELETED; entering delay schedule
+[00:04:38]   immediately                  1/1/1/1
+[00:05:40]   +1 min                       1/1/1/1
+[00:09:44]   +5 min                       1/1/1/1
+[00:34:48]   +30 min                      1/1/1/1
+[01:04:51]   +1 hour                      1/1/1/1
+[02:04:55]   +2 hours                     1/1/1/1
+[03:04:59]   +3 hours                     1/1/1/1
+[04:05:03]   +4 hours                     1/1/1/1
+[05:05:07]   +5 hours                     1/1/1/1
+[06:05:11]   +6 hours                     1/1/1/1
+[06:05:11] delay schedule complete; termination events
+[06:05:17]   after automation reload      1/1/1/1
+[06:05:27]   after integration reload     1/1/1/1
+[06:06:14]   after container restart      0/0/0/0 (no socket)
+[06:06:14] DONE
