@@ -1,0 +1,22 @@
+
+=== openHAB 4.3.2 : established websocket, composed path ===
+
+  rule create -> http 201
+  member websocket established BEFORE the transition
+  pre-removal control        read=1 direct=1 composed=1   (acks success/None)
+
+  --- transition: openhab:users remove ohmember ---
+  users list now: openhab> logout
+  after users remove         read=1 direct=1 composed=1   (acks success/None)
+
+  --- explicit teardown: clearSessions ---
+  after clearSessions        read=1 direct=1 composed=1   (acks success/None)
+
+  control: NEW websocket on the removed token -> refused (InvalidStatus)
+
+=== VERDICT ===
+  read      pre=1 post=1 -> RESIDUAL
+  direct    pre=1 post=1 -> RESIDUAL
+  composed  pre=1 post=1 -> RESIDUAL
+
+  DEPTH ONE on openHAB: the direct effect still lands. Not a composed witness.

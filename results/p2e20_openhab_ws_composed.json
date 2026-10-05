@@ -1,0 +1,30 @@
+[
+ {
+  "label": "pre-removal control",
+  "read": true,
+  "direct_ack": "success",
+  "direct": true,
+  "composed_ack": null,
+  "composed": true
+ },
+ {
+  "label": "after users remove",
+  "read": true,
+  "direct_ack": "success",
+  "direct": true,
+  "composed_ack": null,
+  "composed": true
+ },
+ {
+  "label": "after clearSessions",
+  "read": true,
+  "direct_ack": "success",
+  "direct": true,
+  "composed_ack": null,
+  "composed": true
+ },
+ {
+  "label": "new websocket on removed token",
+  "result": "refused (InvalidStatus)"
+ }
+]

@@ -1,0 +1,184 @@
+{
+ "label": "Defense B",
+ "tests": [
+  {
+   "group": "1 onboarding",
+   "test": "create user",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "1 onboarding",
+   "test": "activate user",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "1 onboarding",
+   "test": "authenticate",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "1 onboarding",
+   "test": "establish session",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "2 normal member",
+   "test": "state read",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "2 normal member",
+   "test": "state subscription",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "2 normal member",
+   "test": "direct device operation",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "2 normal member",
+   "test": "script exec (admin-gated)",
+   "expect": "deny",
+   "got": "deny",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "3 normal admin",
+   "test": "list users",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "3 normal admin",
+   "test": "fire events",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "3 normal admin",
+   "test": "modify configuration",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "4 deactivation",
+   "test": "session closes",
+   "expect": "deny",
+   "got": "deny",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "4 deactivation",
+   "test": "reconnect denied",
+   "expect": "deny",
+   "got": "deny",
+   "kind": "pass",
+   "detail": "auth_invalid"
+  },
+  {
+   "group": "5 deletion",
+   "test": "session closes / ops denied",
+   "expect": "deny",
+   "got": "allow",
+   "kind": "security regression",
+   "detail": ""
+  },
+  {
+   "group": "5 deletion",
+   "test": "indirect actuation denied",
+   "expect": "deny",
+   "got": "deny",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "5 deletion",
+   "test": "reconnect denied",
+   "expect": "deny",
+   "got": "deny",
+   "kind": "pass",
+   "detail": "auth_invalid"
+  },
+  {
+   "group": "6 owner after removal",
+   "test": "owner state read",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "6 owner after removal",
+   "test": "owner service call",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "6 owner after removal",
+   "test": "owner list users",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "6 owner after removal",
+   "test": "owner create user",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "7 automation",
+   "test": "legitimate automation triggers",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  },
+  {
+   "group": "7 automation",
+   "test": "authorized principal trigger path",
+   "expect": "allow",
+   "got": "allow",
+   "kind": "pass",
+   "detail": ""
+  }
+ ],
+ "passed": 21,
+ "security_regressions": 1,
+ "functional_regressions": 0
+}

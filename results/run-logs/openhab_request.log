@@ -1,7 +1,7 @@
 
 === openHAB 4.3.2 : second runtime ecosystem ===
 
-  rule create -> http 201
+  rule create -> http 409
   pre-removal control                read=1  direct=1  deputy=1   (http 200/200/200)
 
   --- transition: openhab:users remove ohmember ---

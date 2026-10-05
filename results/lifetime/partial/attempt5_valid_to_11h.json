@@ -1,0 +1,114 @@
+[
+ {
+  "label": "pre-deletion control",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "immediately",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+30 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 hour",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+2 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+3 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+4 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+6 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+7 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+8 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+9 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+10 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+11 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ }
+]

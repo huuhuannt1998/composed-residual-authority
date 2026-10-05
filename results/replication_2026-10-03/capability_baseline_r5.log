@@ -1,0 +1,16 @@
+
+=== POST-REMOVAL CAPABILITY MATRIX [baseline] ===
+  capability                        pre-delete  post-delete
+  state_read                              True         True   <== RESIDUAL
+  entity_enum                             True         True   <== RESIDUAL
+  user_enum                               True         True   <== RESIDUAL
+  direct_service_call                     True        False
+  script_execution                        True        False
+  event_firing                            True         True   <== RESIDUAL
+  subscribe_trigger                       True         True   <== RESIDUAL
+  automation_admin                       False        False
+  new_subscription                        True         True   <== RESIDUAL
+  existing_subscription_delivery          True         True   <== RESIDUAL
+  deputy_actuation                        True         True   <== RESIDUAL
+
+  residual capabilities: 8  ['state_read', 'entity_enum', 'user_enum', 'event_firing', 'subscribe_trigger', 'new_subscription', 'existing_subscription_delivery', 'deputy_actuation']

@@ -147,6 +147,14 @@ pred P_SmartThings_B { Cascades = CascGrants }                 // reading B: Rou
 // Home Assistant: DETERMINED at L2 and CONFIRMED at L3. Tokens invalid for NEW auth,
 // but the already-open socket survives read-only.
 pred P_HomeAssistant { Cascades = CascGrants + SessReadOnly }
+// openHAB: DETERMINED at L3 (p2e20/p2e20b, 5/5 trials on 4.3.2 and on current
+// stable 5.2.1). Same shape as Home Assistant on the request path -- the API
+// token is refused 401 after removal and a NEW websocket is refused -- but the
+// ALREADY-ESTABLISHED websocket keeps FULL command authority, not read-only.
+// So openHAB gets the same grant cascade as Home Assistant and NOT the
+// SessReadOnly flag, which is the entire difference between the two platforms
+// and, below, the entire reason their composition depths differ.
+pred P_openHAB { Cascades = CascGrants }
 
 /* ---- residue probes, PATH-DISCRIMINATING ---------------------------------
    The design's metric instrument (section 1.7) requires that a result localise
@@ -194,3 +202,28 @@ run HA_auto_act     { P_HomeAssistant and resAuto[Operate]    } for 4 but 3 Prin
 run HA_auto_scope6  { P_HomeAssistant and resAuto[Operate] } for 6 but 6 Principal, 4 Device, 6 Grant, 4 Session, 4 Auto, 12 steps
 run HA_auto_scope8  { P_HomeAssistant and resAuto[Operate] } for 8 but 8 Principal, 5 Device, 8 Grant, 5 Session, 5 Auto, 14 steps
 run HA_sessact_scope8 { P_HomeAssistant and resSession[Operate] } for 8 but 8 Principal, 5 Device, 8 Grant, 5 Session, 5 Auto, 14 steps
+
+/* ---- openHAB, and why depth is not an artifact --------------------------
+   Review W1's sceptic says depth two on Home Assistant is an artifact of how
+   that platform happens to deny the direct call. These four runs are the
+   answer, and they are a contrast, not an assertion: the SAME probe over the
+   SAME model returns opposite verdicts on the two platforms, and the only
+   difference between their predicates is SessReadOnly, which is exactly the
+   empirical difference measured at L3.
+
+     HA_sessact_scope8  UNSAT   Home Assistant cannot actuate through the
+                                session alone, so it needs the automation
+                                carrier and its depth is two
+     OH_sess_act          SAT   openHAB actuates through the session alone,
+                                so its minimal sufficient support is one
+                                carrier and its depth is one
+
+   Depth is therefore not an artifact to be explained away. It is the quantity
+   that tracks denial structure, and it takes different values on different
+   platforms for the reason the semantics predict. */
+run OH_sess_read    { P_openHAB and resSession[View]    } for 4 but 3 Principal, 2 Device, 3 Grant, 2 Session, 2 Auto, 10 steps
+run OH_sess_act     { P_openHAB and resSession[Operate] } for 4 but 3 Principal, 2 Device, 3 Grant, 2 Session, 2 Auto, 10 steps
+run OH_sessact_scope8 { P_openHAB and resSession[Operate] } for 8 but 8 Principal, 5 Device, 8 Grant, 5 Session, 5 Auto, 14 steps
+// The contrast run: openHAB does not NEED the deputy carrier. Reported for
+// completeness so the reader can see both channels are open there, unlike HA.
+run OH_auto_act     { P_openHAB and resAuto[Operate]    } for 4 but 3 Principal, 2 Device, 3 Grant, 2 Session, 2 Auto, 10 steps

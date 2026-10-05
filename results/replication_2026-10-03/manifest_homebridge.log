@@ -1,0 +1,33 @@
+[2026-10-03T20:30:03Z] homebridge stream start, reps=1, image homebridge/homebridge@sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-03T20:30:03Z] image id sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-03T20:30:03Z] image manifest:  Release Version: 2026-09-02 |Homebridge UI|5.29.0| |Homebridge|2.4.0| 
+[2026-10-03T20:30:03Z] trial pilot1: start
+[2026-10-03T20:32:20Z] homebridge server status at start: {"status":"ok"}
+[2026-10-03T20:33:34Z] trial pilot1: rc=0
+[2026-10-03T20:33:37Z] homebridge stream done
+[2026-10-03T20:33:51Z] homebridge stream start, reps=1, image homebridge/homebridge@sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-03T20:33:51Z] image id sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-03T20:33:52Z] image manifest:  Release Version: 2026-09-02 |Homebridge UI|5.29.0| |Homebridge|2.4.0| 
+[2026-10-03T20:33:52Z] trial pilot21: start
+[2026-10-03T20:34:12Z] homebridge server status at start: {"status":"ok"}
+[2026-10-03T20:35:26Z] trial pilot21: rc=0
+[2026-10-03T20:35:29Z] homebridge stream done
+[2026-10-03T20:35:49Z] homebridge stream start, reps=5, image homebridge/homebridge@sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-03T20:35:49Z] image id sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-03T20:35:49Z] image manifest:  Release Version: 2026-09-02 |Homebridge UI|5.29.0| |Homebridge|2.4.0| 
+[2026-10-03T20:35:49Z] trial r1: start
+[2026-10-03T20:36:05Z] homebridge server status at start: {"status":"ok"}
+[2026-10-03T20:37:19Z] trial r1: rc=0
+[2026-10-03T20:37:21Z] trial r2: start
+[2026-10-03T20:37:42Z] homebridge server status at start: {"status":"ok"}
+[2026-10-03T20:38:56Z] trial r2: rc=0
+[2026-10-03T20:38:58Z] trial r3: start
+[2026-10-03T20:39:14Z] homebridge server status at start: {"status":"ok"}
+[2026-10-03T20:40:28Z] trial r3: rc=0
+[2026-10-03T20:40:31Z] trial r4: start
+[2026-10-03T20:40:47Z] homebridge server status at start: {"status":"ok"}
+[2026-10-03T20:42:00Z] trial r4: rc=0
+[2026-10-03T20:42:03Z] trial r5: start
+[2026-10-03T20:42:24Z] homebridge server status at start: {"status":"ok"}
+[2026-10-03T20:43:38Z] trial r5: rc=0
+[2026-10-03T20:43:40Z] homebridge stream done

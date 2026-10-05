@@ -111,7 +111,11 @@ up_ha() { # name port [version]
   local name=$1 port=$2 ver=${3:-2026.8.3}
   docker rm -f "$name" >/dev/null 2>&1
   rm -rf "$WORK/cfg-$name"; mkdir -p "$WORK/cfg-$name"
-  docker run -d --name "$name" -p "$port":8123 -v "$WORK/cfg-$name":/config \
+  # Capped. The runner's stated goal is a bounded, predictable footprint, and
+  # an uncapped container is neither: an openHAB JVM tripped the host memory
+  # guard mid-suite and cost a teardown. A Home Assistant instance under this
+  # workload peaks near 550 MB, so 1 GB is generous.
+  docker run -d --name "$name" -m 1g -p "$port":8123 -v "$WORK/cfg-$name":/config \
     -e TZ=UTC "homeassistant/home-assistant:$ver" >/dev/null || return 1
   wait_http "$port" "302 200" || { info "$name did not come up on :$port"; return 1; }
   wait_auth "$port" || { info "$name auth provider never became ready on :$port"; return 1; }
@@ -131,7 +135,9 @@ ohab_console() { docker exec tsohab bash -c "printf '%s\nlogout\n' \"$1\" | /ope
 up_ohab() {
   docker rm -f tsohab >/dev/null 2>&1
   rm -rf "$WORK/ohab"; mkdir -p "$WORK/ohab"/{conf,userdata,addons}
-  docker run -d --name tsohab -p 8150:8080 \
+  # openHAB is a JVM and is the heaviest container the suite starts; it is what
+  # tripped the guard. 1.5 GB is comfortably above what these arms need.
+  docker run -d --name tsohab -m 1500m -p 8150:8080 \
     -v "$WORK/ohab/conf":/openhab/conf -v "$WORK/ohab/userdata":/openhab/userdata \
     -v "$WORK/ohab/addons":/openhab/addons \
     -e CRYPTO_POLICY=unlimited openhab/openhab:4.3.2 >/dev/null || return 1
@@ -164,6 +170,35 @@ up_ohab() {
   local st
   st=$(curl -s -H "Authorization: Bearer $OH_ADM" http://localhost:8150/rest/items/TsProbe | head -c 60)
   case "$st" in *TsProbe*) ;; *) info "openHAB fixture not created"; return 1;; esac
+}
+
+up_homebridge() { # Homebridge UI on 8191, with the admin the probe expects
+  docker rm -f tshb >/dev/null 2>&1
+  rm -rf "$WORK/hb"; mkdir -p "$WORK/hb"
+  docker run -d --name tshb -m 1g -p 8191:8581 -v "$WORK/hb":/homebridge \
+    -e HOMEBRIDGE_CONFIG_UI=1 homebridge/homebridge:latest >/dev/null || return 1
+  for i in $(seq 1 60); do
+    c=$(curl -s -m 3 -o /dev/null -w '%{http_code}' http://localhost:8191/ 2>/dev/null)
+    case "$c" in 200|302) break;; esac
+    sleep 5
+  done
+  # Homebridge UI has NO default credentials on a fresh volume: /api/auth/settings
+  # reports setupWizardComplete=false and a login as admin/admin is refused 403.
+  # The first account is created through the setup wizard, which is also what a
+  # real deployment does. Create tsadmin that way; the probe logs in as it.
+  local code
+  for i in $(seq 1 20); do
+    code=$(curl -s -m 8 -o /dev/null -w '%{http_code}' \
+      -X POST http://localhost:8191/api/setup-wizard/create-first-user \
+      -H 'Content-Type: application/json' \
+      -d '{"username":"tsadmin","password":"AdminPass123","name":"TS Admin","admin":true}')
+    [ "$code" = "201" ] && break
+    sleep 5
+  done
+  [ "$code" = "201" ] || { info "homebridge setup wizard did not create tsadmin (http $code)"; return 1; }
+  curl -s -m 8 -X POST http://localhost:8191/api/auth/login -H 'Content-Type: application/json' \
+    -d '{"username":"tsadmin","password":"AdminPass123"}' | grep -q access_token \
+    || { info "homebridge tsadmin created but cannot log in"; return 1; }
 }
 
 tamarin() { # model-file out-file
@@ -222,6 +257,9 @@ run_one() {
     regression_defA)  up_ha tsregA 8142 && patch_ha tsregA A \
                         && wait_http 8142 "302 200" && wait_auth 8142 \
                         && python3 p1e12_regression.py 8142 "Defense A" ;;
+    regression_defB)  up_ha tsregB 8143 && patch_ha tsregB B \
+                        && wait_http 8143 "302 200" && wait_auth 8143 \
+                        && python3 p1e12_regression.py 8143 "Defense B" ;;
     capability_base)  up_ha tscap 8124 && python3 p0e3_capability_matrix.py baseline ;;
     capability_defB)  up_ha tscap 8124 && patch_ha tscap B \
                         && wait_http 8124 "302 200" && wait_auth 8124 \
@@ -244,6 +282,12 @@ run_one() {
                         && wait_http 8141 "302 200" && wait_http 8142 "302 200" && wait_http 8143 "302 200" \
                         && wait_auth 8141 && wait_auth 8142 && wait_auth 8143 \
                         && python3 p1e11_benchmark.py ;;
+    subscribe_control) up_ha tssubc 8139 && python3 p1e7c_subscribe_control.py 8139 5 ;;
+    restart_modes)     up_ha tsrst 8188 && python3 p1e8c_restart_modes.py 8188 tsrst ;;
+    thirdparty_carrier) up_ha tstpc 8193 && python3 p1e18_thirdparty_carrier.py 8193 ;;
+    homebridge)        up_homebridge && python3 p2e17_homebridge.py http://localhost:8191 ;;
+    openhab_ws)        up_ohab && python3 p2e20_openhab_ws_composed.py "$OH_ADM" "$OH_MEM" ;;
+    openhab_ws_reps)   up_ohab && python3 p2e20b_openhab_ws_reps.py "$OH_ADM" 5 ;;
     lifetime_long)    up_ha tslife 8138 && python3 p1e8b_lifetime_long.py ;;
     *) echo "no runner defined for '$id'"; return 2;;
   esac

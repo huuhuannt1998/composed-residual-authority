@@ -1,0 +1,30 @@
+
+=== LIFECYCLE REGRESSION SUITE :: Defense A ===
+
+  [     ok] 1 onboarding           create user                        expect=allow  got=allow
+  [     ok] 1 onboarding           activate user                      expect=allow  got=allow
+  [     ok] 1 onboarding           authenticate                       expect=allow  got=allow
+  [     ok] 1 onboarding           establish session                  expect=allow  got=allow
+  [     ok] 2 normal member        state read                         expect=allow  got=allow
+  [     ok] 2 normal member        state subscription                 expect=allow  got=allow
+  [     ok] 2 normal member        direct device operation            expect=allow  got=allow
+  [     ok] 2 normal member        script exec (admin-gated)          expect=deny   got=deny
+  [     ok] 3 normal admin         list users                         expect=allow  got=allow
+  [     ok] 3 normal admin         fire events                        expect=allow  got=allow
+  [     ok] 3 normal admin         modify configuration               expect=allow  got=allow
+  [     ok] 4 deactivation         session closes                     expect=deny   got=deny
+  [     ok] 4 deactivation         reconnect denied                   expect=deny   got=deny
+  [     ok] 5 deletion             session closes / ops denied        expect=deny   got=deny
+  [     ok] 5 deletion             indirect actuation denied          expect=deny   got=deny
+  [     ok] 5 deletion             reconnect denied                   expect=deny   got=deny
+  [     ok] 6 owner after removal  owner state read                   expect=allow  got=allow
+  [     ok] 6 owner after removal  owner service call                 expect=allow  got=allow
+  [     ok] 6 owner after removal  owner list users                   expect=allow  got=allow
+  [     ok] 6 owner after removal  owner create user                  expect=allow  got=allow
+  [     ok] 7 automation           legitimate automation triggers     expect=allow  got=allow
+  [     ok] 7 automation           authorized principal trigger path  expect=allow  got=allow
+
+  22 tests
+  22 passed
+  0 security regressions
+  0 functional regressions

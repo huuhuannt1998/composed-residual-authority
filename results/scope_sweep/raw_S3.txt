@@ -16,6 +16,6 @@
 14. run   HA_auto_scope6           0    1/1     SAT
 15. run   HA_auto_scope8           0    1/1     SAT
 16. run   HA_sessact_scope8        0       UNSAT
-real 15.64
+real 15.60
 user 0.01
 sys 0.01

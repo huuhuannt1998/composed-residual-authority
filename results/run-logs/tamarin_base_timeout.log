@@ -1,0 +1,27 @@
+# Stage 0 tool-choice evidence: tenantsafe_base.spthy under a 900s wall clock.
+# The base model is intractable BY DESIGN (unbounded sessions x automations);
+# this log records the non-termination that motivated the bounded Alloy arm.
+# The tractable narrowed model (tenantsafe_dna.spthy) finishes in 0.86s.
+# run 2026-09-02T14:23:41Z  host Darwin arm64
+# tamarin: maude tool: 'maude'
+---
+maude tool: 'maude'
+ checking version: 3.5.1. OK.
+ checking installation: OK.
+[Theory TenantSafeBase] Theory loaded
+[Theory TenantSafeBase] Theory translated
+[Theory TenantSafeBase] Derivation checks started
+[Theory TenantSafeBase] Derivation checks ended
+[Theory TenantSafeBase] Theory closed
+[Saturating Sources] Step 1 (Max 5)
+[Saturating Sources] Done
+---
+elapsed_s=903
+outcome: KILLED at 900s wall clock - no verdict produced
+verdict_lines_found: 0
+
+Interpretation: the prover never left source saturation. No lemma was
+attempted, so this is not a slow proof, it is a proof search that does not
+start. The narrowed model (tenantsafe_dna.spthy) closes all three lemmas in
+0.86s. That gap is the recorded basis for bounding the residue analysis in
+Alloy rather than proving it in Tamarin.

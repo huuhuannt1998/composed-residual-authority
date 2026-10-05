@@ -16,7 +16,7 @@ summary of summaries:
 
 analyzed: /Users/huanbui/Research/TenantSafe-P11/models/tenantsafe_dna.spthy
 
-  processing time: 0.86s
+  processing time: 1.03s
   
   dna_capability_never_widens (all-traces): verified (543 steps)
   dna_device_never_widens (all-traces): falsified - found trace (8 steps)

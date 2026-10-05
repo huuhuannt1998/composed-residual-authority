@@ -1,0 +1,19 @@
+[2026-10-04T07:43:14Z] homebridge stream start, reps=5, image homebridge/homebridge@sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-04T07:43:14Z] image id sha256:77c685a40911b3b95448f3550be0c8b94cd7b4e66daecc1cc39a8285be75b245
+[2026-10-04T07:43:15Z] image manifest:  Release Version: 2026-09-02 |Homebridge UI|5.29.0| |Homebridge|2.4.0| 
+[2026-10-04T07:43:15Z] trial r1: start
+[2026-10-04T07:43:31Z] homebridge server status at start: {"status":"ok"}
+[2026-10-04T07:44:44Z] trial r1: rc=0
+[2026-10-04T07:44:47Z] trial r2: start
+[2026-10-04T07:45:03Z] homebridge server status at start: {"status":"ok"}
+[2026-10-04T07:46:17Z] trial r2: rc=0
+[2026-10-04T07:46:20Z] trial r3: start
+[2026-10-04T07:46:36Z] homebridge server status at start: {"status":"ok"}
+[2026-10-04T07:47:49Z] trial r3: rc=0
+[2026-10-04T07:47:52Z] trial r4: start
+[2026-10-04T07:48:08Z] homebridge server status at start: {"status":"ok"}
+[2026-10-04T07:49:22Z] trial r4: rc=0
+[2026-10-04T07:49:25Z] trial r5: start
+[2026-10-04T07:49:41Z] homebridge server status at start: {"status":"ok"}
+[2026-10-04T07:50:54Z] trial r5: rc=0
+[2026-10-04T07:50:57Z] homebridge stream done

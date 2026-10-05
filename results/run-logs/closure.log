@@ -7,4 +7,4 @@ owner connected (TSMON active)
   >>> E6.3 DEPUTY residue closed : True
   >>> E6.3 READ   residue closed : True
 
-  E6.4 fire_event latency WITH TSMON (n=300): median=0.321 ms  p99=0.548 ms  min=0.230
+  E6.4 fire_event latency WITH TSMON (n=300): median=0.324 ms  p99=0.644 ms  min=0.248

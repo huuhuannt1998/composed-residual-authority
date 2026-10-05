@@ -1,0 +1,979 @@
+
+
+<!doctype html>
+  <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Authentication - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Documentation on authentication in Home Assistant.">
+    
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="canonical" href="https://www.home-assistant.io/docs/authentication/">
+    
+
+    
+
+
+
+
+<meta property="fb:app_id" content="338291289691179">
+<meta property="og:title" content="Authentication">
+<meta property="og:site_name" content="Home Assistant">
+
+<meta property="og:url" content="https://www.home-assistant.io/docs/authentication/">
+
+<meta property="og:type" content="article">
+<meta property="og:description" content="Documentation on authentication in Home Assistant.">
+<meta property="og:image" content="https://www.home-assistant.io/images/default-social.png">
+
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@home_assistant">
+
+<meta name="twitter:title" content="Authentication">
+<meta name="twitter:description" content="Documentation on authentication in Home Assistant.">
+<meta name="twitter:image" content="https://www.home-assistant.io/images/default-social.png">
+
+
+
+<link rel="me" href="https://fosstodon.org/@homeassistant">
+
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.min.css" rel="stylesheet" />
+    <link href="/stylesheets/prism.css?1304e8e8c717584921b418a0a8dca04b" rel="stylesheet">
+    <link href="/stylesheets/photoswipe/photoswipe.css?d8960b9a37d34b26e2dfc8a8991843cc" rel="stylesheet">
+    <link href="/stylesheets/screen.css?815f46d636aae7c68a07a0fe8c8a46de" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/svg+xml' href='/images/favicon.svg' sizes='any' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+    <link rel='apple-touch-icon' href='/images/favicon-192x192.png' sizes='192x192' />
+    <meta name='apple-mobile-web-app-title' content='Home Assistant' />
+    <meta name='theme-color' content='#18bcf2' />
+    <link rel='manifest' href='/site.webmanifest' />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;family=Instrument+Sans:ital,wdth,wght@0,99,400..700;1,99,400..700&amp;" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" integrity="sha384-GPb5RlngihS9H0z1D137JsvzmeZ7tCpWEF4t5YDoTZyMsPP8S7h7vFDh4XhheU83" crossorigin="anonymous"></script>
+
+    <script async src="https://plausible.openhomefoundation.org/js/pa-GblWI1uyqaEhRvQL3NLz5.js"></script>
+<script type="text/javascript">
+  var allowedReferrers = ["01net.com","1140369499-atari-embeds.googleusercontent.com","1ms.run","360.cn","3dmart.com.hk","3dpm.ru","4pda.to","a2t.ro","abfalltermine.de","acciyo.com","adaptive-lighting.nijho.lt","adonno.com","agsi.gie.eu","aio-libs.org","air-q.com","airgradient.com","akamatis.com","akkudoktor.net","alarmy-olomouc.eu","alkly.de","all3dp.com","alvinchen.club","alza.cz","amazon.com","ameridroid.com","amplipi.discourse.group","androidauthority.com","androidpolice.com","api.daily.dev","api.home-connect.com","api.mcs3.miele.com","api.smartthings.com","apolloautomation.com","app.aevocam.com","app.parqet.com","appleid.apple.com","apps.garmin.com","apps.yunohost.org","arstechnica.com","askubuntu.com","asustor.com","atomic14.com","audiosciencereview.com","auth.tesla.com","authelia.com","automatedhome.co.uk","auweb3.isolarcloud.com","avenom.ru","awesome-ha.com","badrpc.net","bafista.ru","baidu.com","baidu.io","banglejs.com","basehim.com","bazmac.me","bbs.hassbian.com","bbs.io-tech.fi","bega.com","berrybase.de","better-thermostat.org","billboard.com.br","bindicator.net","bing.com","bitbucket.org","blog.decryption.net.au","blog.disane.dev","blog.eischmann.cz","blog.fidelramos.net","blog.frankel.ch","blog.fxpblogs.win","blog.iot7m.ru","blog.kastanis.gr","blog.matterxiaomi.com","blog.meyerrj.com","blog.michivonah.ch","blog.oppedahl.com","blog.slabnet.com","blog.tindie.com","blog.tomayac.com","blog.uaid.net.ua","blog.vyoralek.cz","blogspot.com","botland.com.pl","botland.de","braiins.com","brandlogos.org","bricozone.be","broddin.be","bsky.app","bthome.io","buildroot.org","byteoversea.com","card.camera","cb.wjz.im","cdninstagram.com","cgx13.de","chat.novaapp.ai","chat.qwen.ai","chatgpt.com","check.anomify.ai","chip.de","chuck-builds.com","chytrevypinace.cz","ci.computer","claude.ai","clausio.fr","cloud.bemfa.com","cloud.vento.build","cloudfree.shop","clubic.com","cn.d5render.com","cnblogs.com","cnet.com","cnx-software.com","cnx-software.ru","coccoc.com","codeberg.org","codechimp.org","coinforum.de","community-smarthome.com","community.asti.ga","community.evnex.com","community.hubitat.com","community.openhab.org","community.shelly.cloud","community.victronenergy.com","computerbase.de","connexion.hiloenergie.com","coolify.io","copilot.com","copilot.microsoft.com","couto.io","creator-spring.com","credexalarmsystems.eu","crowdsupply.com","dakboard.freshdesk.com","danielmartingonzalez.com","darsycertificationconsumer-wu2.azurewebsites.net","dashieapp.com","dastereo.ru","dc9vq.de","de.aliexpress.com","de.jackery.com","de.wikipedia.org","dealabs.com","deepwiki.com","degroenenerds.nl","derekseaman.com","desdeelreloj.com","dev.to","developer.chrome.com","developer.home-connect.com","developer.tuya.com","developerinsider.co","devotics.fr","devzen.ru","dfrobot.com","dietpi.com","digikey.com","digital-io.de","dinamotech.it","discord.com","discovergit.app","disq.us","diy-smart-home.ei23.de","diyenjoying.com","diyfun.de","diyless.com","diysolarforum.com","doc.embedfire.com","doc.mocreo.com","docker.com","docs.evcc.io","docs.everythingsmart.io","docs.fregata.app","docs.futureproofhomes.net","docs.gl-inet.com","docs.kilowahti.fi","docs.ncnynl.com","docs.openpublictransport.net","docs.paperd.ink","docs.powercalc.nl","docs.sunfounder.com","docs.tandoor.dev","docs.yaha-cloud.ru","docs.zephyrproject.org","documentation.grandstream.com","domadoo.fr","domasist.sk","domocraft.fr","domoticafacile.it","done.land","donetick.com","dopper.de","dou.ua","doubao.com","drive2.ru","duck.ai","duckduckgo.com","duurzamerhand.nl","ecosia.org","edubox.org","efulfillservice.sugarondemand.com","element.io","en.m.nu","en.wikipedia.org","energyforecast.de","engadget.com","esp32.co.uk","espboards.dev","esphome.io","espresense.com","espressif.com","espruino.com","everythingsmarthome.co.uk","ewelinkstore.com","facebook.be","facebook.com","facebook.de","facebook.dk","facebook.es","facebook.fr","facebook.is","facebook.it","facebook.jp","facebook.mx","facebook.nl","facebook.no","facebook.se","facebook.us","faire-ca-soi-meme.fr","fancontroller.arthofer.dev","fb.com","fb.me","fbcdn.com","fbcdn.net","fitbit.com","flasher.site","fleet-auth.prd.vn.cloud.tesla.com","flipboard.com","flow.bosch-ebike.com","flows.blueforcer.de","foro.domoticaencasa.es","forum.arduino.cc","forum.armbian.com","forum.arturhome.pl","forum.ecoflow.com","forum.ewelink.cc","forum.hardware.fr","forum.heimnetz.de","forum.iobroker.net","forum.it.mk","forum.jdtech.pl","forum.keenetic.ru","forum.magicmirror.builders","forum.mikrotik.com","forum.mypower.cz","forum.proxmox.com","forum.sailfishos.org","forum.sessy.nl","forum.wiimhome.com","forum.yunohost.org","forums.dansdeals.com","forums.lyrion.org","forums.pocketcasts.com","forums.raspberrypi.com","forums.truenas.com","fosstodon.org","foxesscommunity.com","fr.aliexpress.com","frandroid.com","frenck.dev","front-page.com","fuzznotes.com","fwd.nl","gadgets.seeed.cc","gea.com","geekxw.top","genbeta.com","getaipilot.com","gethomepage.dev","gigazine.net","git.hubp.de","gitee.com","github.blog","github.com","github.io","gitlab.com","gitlab.io","go.aftvnews.com","golem.de","google.at","google.be","google.bg","google.ca","google.ch","google.co.jp","google.co.kr","google.co.nz","google.co.uk","google.co.za","google.com","google.com.au","google.com.br","google.com.hk","google.com.mx","google.com.my","google.com.pk","google.com.sa","google.com.sg","google.com.tr","google.com.tw","google.com.ua","google.com.vn","google.cz","google.de","google.es","google.fi","google.fr","google.hu","google.io","google.it","google.nl","google.pl","google.pt","google.ro","google.se","gotailwind.com","grokipedia.com","gstatic.com","haade.fr","habr-com.cdn.ampproject.org","habr.com","hacf.fr","hachyderm.io","hackaday.com","hacks.mozilla.org","hackster.io","hacs.dev","hacs.xyz","hadevices.com","hads.smarti.dev","haeo.io","handbook.buildwithmatter.com","hanselman.com","hardware.info","hashop.nl","hass-agent.io","hass-cloud.auth.us-east-1.amazoncognito.com","hass.dev","hasscn.top","hatenablog-parts.com","haus-bus.de","hcker.news","hckrnews.com","healthassistantlink.com","heise.de","helgejohnsen.no","helios-ha.org","help.olarm.com","hiringcafe.com","hjemmeautomasjon.no","home-assistant-guide.com","home-assistant.cloud","home-assistant.dev","home-assistant.io","home-assistant.jp","home-master.eu","homeassistant-cz.cz","homeassistant.cloud","homeassistant.io","homeassistantbrasil.com.br","homeautocentral.com","homebrainz.de","homekitnews.com","homething.io","homey.app","hotmart.com","howtogeek.com","hwupgrade.it","hydrificwater.com","hydroqc.ca","hyotynen.iki.fi","iam.viessmann-climatesolutions.com","ias-lab.de","ibytedtos.com","ictfreak.nl","id.daikin.eu","id.whoop.com","ifa-berlin.com","ig.me","igen.fr","ikriz.nl","improv-wifi.com","indomus.it","industrialshields.com","inet.se","influxdata.com","infosec.exchange","inoreader.com","insiderllm.com","instagr.am","instagram.com","install.wled.me","intellicaai.space","internet.org","interop.ondilo.com","iona-ha.tinohox.de","iot.vivo.com.cn","ipstatp.com","it.makeinlab.fr","ithelp.ithome.com.tw","itmedia.co.jp","itrend24.de","itsfoss.com","jamesachambers.com","jimwillis.org","jiuyv.info","joekarlsson.com","jonashietala.se","jpk.io","jpt.sh","jupiterbroadcasting.com","kagi.com","kb.shelly.cloud","kincony.com","kitchenowl.org","kiwi-warmer.co.nz","kjell.com","knightsoft-net.de","knuspermagier.de","knx-user-forum.de","kofler.info","konnected.io","konnected.readme.io","korben.info","kotyara12.ru","l.meta.ai","lampopumput.info","languagetool.org","lappari.com","legeek.info","leios.consulting","lemmy.lundgrensjostrom.com","lemmy.ml","lemmy.world","libhunt.com","life.taikun.blog","liliputing.com","link.csdn.net","link.gitcode.com","linkedin.com","linkshop.gr","linuxiac.com","linuxmint.com","listenbrainz.org","llmvision.gitbook.io","lnkd.in","lobste.rs","loxwiki.atlassian.net","lunoo.com","luxxle.com","lwn.net","m.me","m.sogou.com","m5stack.com","macrumors.com","mactechnews.de","magicareas.io","mail.gnome.org","mail.qq.com","maison-et-domotique.com","makerworld.com","makeuseof.com","manelrodero.com","manuals.plus","masto.pt","mastodon.me.uk","mastodon.social","mastodon.top","matrix.to","matteoschizzerotto.dev","matteralpha.com","mattgerega.com","mauser.pt","mediarath.de","medievalapple.net","medium.com","meetco.daily.co","meinesmartewelt.de","memory.gmbot.name.vn","mergeo.dev","metabrainz.org","metager.de","michaelsleen.com","mikesolin.com","mistyreverie.org","mobiflip.de","mobile-ma.app","moi.ouraring.com","mojeek.com","mostlychris.com","mqtt.cn","mrdarrengriffin.com","ms0701.tistory.com","msn.com","mu.zpete.de","mushkatyush.com","music-assistant.com","music-assistant.io","musical.ly","mwunderling.com","mypal.wang","mysku.club","nabucasa.com","nachbelichtet.com","nathan.gs","nathanorick.com","nativesprings.com","naver.com","navid.nl","navimow-h5-fra.willand.com","ncot.uk","neilturner.me.uk","netlify.app","nettop.gr","newepisody.com","newinlinux.com","news.hada.io","news.ycombinator.com","newsblur.com","ngocjohn.is-a.dev","norbert.tech","note.com","notebookcheck.net","notenoughtech.com","notify.events","npmjs.com","nspanel.domodreams.it","ntp.msn.cn","nuki.io","numerama.com","oauth.hijuconn.com","oceanhero.today","ogo.live","ohf.to","okosotthon.bolt.hu","olausson.de","olegtarasov.me","omgubuntu.co.uk","openai.com","opendisplay.org","openelab.io","openhasp.com","openhasp.haswitchplate.com","openhomefoundation.org","openthread.io","opera.com","oshwhub.com","osnews.com","ottelo.jimdofree.com","ozsmartthings.com.au","pages.dev","paulusschoutsen.nl","pdx.su","perfectmediaserver.com","perplexity.ai","phanpy.social","phoronix.com","pi-shop.ch","pidiylab.com","pikabu.ru","pinboard.in","pine64.org","pinimg.com","pinterest.at","pinterest.ca","pinterest.co.uk","pinterest.com","pinterest.com.au","pinterest.com.mx","pinterest.de","pinterest.dk","pinterest.es","pinterest.fr","pinterest.ie","pinterest.it","pinterest.jp","pinterest.ph","pinterest.se","pixelstech.net","pluginsolarexplained.co.uk","portal.alarmtrade.ru","powerbaas.nl","powerforum.co.za","printables.com","privacywall.org","prodindego.b2clogin.com","programarfacil.com","protopage.com","psenyukov.ru","psmart.pl","publish.obsidian.md","pushover.net","pypi.org","qiita.com","quark.cn","qwant.com","racemat.de","radio-browser.info","raspberrypi.dk","rbaron.net","read.readwise.io","readthedocs.io","reddit.com","reedah.com","remote-logger.rhizomatics.org.uk","repo.webosbrew.org","rivianforums.com","robbshop.nl","robert.stadsbygd.net","roboter-forum.com","robpickering.com","root.cz","rudd-o.com","runtimeterror.dev","ruuvi.com","safe.menlosecurity.com","search.avastbrowser.com","search.brave.com","search.kafu.ovh","search.nixos.org","search.nortonsafesearch.com","search.yahoo.com","seeedstudio.com","seegel-systeme.de","selectra.info","selfh.st","selorahomes.com","sendspin-audio.com","sequr.be","sergiocarracedo.es","servercan.net","serverfault.com","servethehome.com","seznam.cz","sheekgeek.org","sheets.works","shellagent.io","shop.everythingsmart.io","shop.haus-automatisierung.com","shop.pimoroni.com","signalk.org","signalkraft.com","simon42.com","simplehomelab.com","simplepush.io","sl-alex.net","slack.com","slashdot.org","slimhuisje.nl","smart-home-insights.net","smartdomo.de","smarterhome.sk","smarterkram.de","smarterpapa.de","smartevchargers.co.nz","smartguys.com.au","smarthome-assistant.info","smarthome.com.au","smarthomeassistent.de","smarthomegids.com","smarthomepursuits.com","smarthomescene.com","smarthomesecrets.ca","smarthomesolver.com","smarthomeyourself.de","smartmania.cz","smartnetandhubs.com","smlight.tech","snbforums.com","so.com","social.slat.org","solar-assistant.io","sonocotta.com","sonoff.tech","sourceforge.net","spacen.io","speaktothegeek.co.uk","spfile.heimanhome.com","splitbrain.org","srwiez.com","sso.bluettipower.com","stackexchange.com","stackoverflow.com","stadt-bremerhaven.de","startpage.com","static.xtremeownage.com","steamcommunity.com","steeman.be","student-techlife.com","style.oversubstance.net","substack.com","sunenergyxt.com","superuser.com","support.bbdl.co.uk","support.lightwaverf.com","support.powerfox.energy","support.weheat.nl","svrforum.com","sweclockers.com","swiss-domotique.ch","swisscows.com","symbaloo.com","sysadmin.in.th","t.co","t.me","t3n.de","taiwansensor.com.tw","teams.public.onecdn.static.microsoft","techboys.de","techcrunch.com","techenclair.fr","techfeed.io","technikblock.de","techurls.com","tecnoyfoto.com","telegram.me","telegram.org","terncy.com.tw","teslafacts.nl","teslemetry.com","thecandidstartup.org","themalibucrew.com","theorangeone.net","thepihut.com","theregister.com","thestockpot.net","theverge.com","threads.net","tightloop.io","tiktok.com","tiktokcdn.com","tiktokv.com","tomshardware.com","tomshw.it","tomtut.de","tool.screek.io","toot.community","topgit.dev","toppodcast.com","totaldebug.uk","trello.com","trick.vanstaveren.us","trmnl.com","troyhernandez.com","tutorials-raspberrypi.de","tweakers.net","tweetdeck.com","twingate.com","twitter.com","typingmind.com","uix.lf.technology","ultravehiclecard.com","unfoldedcircle.com","uniuit.com","university.revotion.app","url-opener.com","us.shelly.com","uscardforum.com","ut.buglloc.com","varac.net","vercel.app","verdrahtet.info","verkkokauppa.nurkantakaa.fi","versatile-thermostat.org","web.archive.org","web.max.ru","webhallen.com","webshed.org","westhaver.com","wiert.me","wifishop.ro","wiki.fabianhorst.com","wiki.freshtomato.org","wiki.futo.org","wimme.net","wired.com","wordpress.com","wulu.zone","www-hacs-xyz.translate.goog","www-home--assistant-io.translate.goog","x.com","xataka.com","xda-developers.com","xfinderr.org","xn--80abzsjfcff6fi.xn--p1ai","ya.ru","yahoo.co.jp","yandex.by","yandex.com","yandex.kz","yandex.ru","yandex.uz","yandex.xyz","yetanothersmarthome.com","youtu.be","youtube-nocookie.com","youtube.com","yuanbao.tencent.com","yuque.com","zdnet.com","zenodo.org","zerlo.net","zigbee.blakadder.com","zigbee2mqtt.io","zimaspace.com","zuidwijk.com"];
+  ((window.plausible =
+    window.plausible ||
+    function () {
+      (plausible.q = plausible.q || []).push(arguments);
+    }),
+    (plausible.init =
+      plausible.init ||
+      function (i) {
+        plausible.o = i || {};
+      }));
+  plausible.init({
+    transformRequest: function (payload) {
+      var ref = payload.r;
+      if (!ref) return payload;
+
+      var host = "";
+      try {
+        host = new URL(ref).hostname.replace(/\.$/, "");
+      } catch (e) {
+        // Unparseable referrer: falls through and gets replaced.
+      }
+
+      for (var i = 0; i < allowedReferrers.length; i++) {
+        var d = allowedReferrers[i];
+        if (host === d || (host.length > d.length && host.slice(-(d.length + 1)) === "." + d)) {
+          return payload;
+        }
+      }
+
+      // One aggregate bucket so we can see how much we filter without learning
+      // anything about individual visitors. .invalid is reserved by RFC 2606 and
+      // can never collide with a real domain.
+      payload.r = "https://unlisted.invalid/";
+      return payload;
+    },
+  });
+</script>
+
+  </head>
+
+  <body  class="documentation-page   ">
+    <header class='site-header '>
+      
+
+
+
+<div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+      <a href="/" class="site-title">
+        <div class="logo"></div>
+      </a>
+      <a class="release-date" href="/blog/2026/09/02/release-20269/" title="Latest version 2026.9.0 released September  2, 2026">
+        2026.9.0
+      </a>
+    </div>
+
+    <div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+      <nav>
+        <input type="checkbox" id="toggle" />
+        <label
+          for="toggle"
+          class="toggle"
+          data-open="Main Menu"
+          data-close="⨉"
+        ></label>
+        <ul class="menu pull-right">
+          <li><a  href="/installation/">Getting started</a></li>
+          <li>
+            <a class="active" href="/docs/">Documentation <iconify-icon inline icon='mdi:chevron-down' title='Chevron down'></iconify-icon></a>
+            <ul>
+              <li><a href="/installation/"><iconify-icon inline icon='simple-icons:homeassistant' title='Homeassistant'></iconify-icon> Installation</a></li>
+              <li><a href="/docs/automation/"><iconify-icon inline icon='mdi:robot-happy' title='Robot happy'></iconify-icon> Automations</a></li>
+              <li><a href="/dashboards/"><iconify-icon inline icon='mdi:gauge' title='Gauge'></iconify-icon> Dashboards</a></li>
+              <li><a href="/voice_control/"><iconify-icon inline icon='mdi:comment-processing-outline' title='Comment processing outline'></iconify-icon> Voice assistants</a></li>
+              <li><a href="/docs/organizing/"><iconify-icon inline icon='mdi:view-grid' title='View grid'></iconify-icon> Device organization</a></li>
+              <li><a href="/docs/energy/"><iconify-icon inline icon='mdi:solar-power-variant' title='Solar power variant'></iconify-icon> Energy management</a></li>
+              <li><a href="/docs/templating/"><iconify-icon inline icon='mdi:code-braces' title='Code braces'></iconify-icon> Templating</a></li>
+              <li><a href="/docs/configuration/"><iconify-icon inline icon='mdi:cog' title='Cog'></iconify-icon> Configuration using the YAML file</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Our hardware <iconify-icon inline icon='mdi:chevron-down' title='Chevron down'></iconify-icon></a>
+            <ul>
+              <li><a href="/green/">Home Assistant Green</a></li>
+              <li><a href="/connect/zbt-2/">Connect ZBT-2</a></li>
+              <li><a href="/connect/zwa-2/">Connect ZWA-2</a></li>
+              <li><a href="/voice-pe/">Voice Preview Edition</a></li>
+            </ul>
+          </li>
+          <li><a  href="/integrations/">Integrations</a></li>
+          <li><a  href="/blog/">Blog</a></li>
+          <li><a  href="/help/">Need help?</a></li>
+          <li>
+            <div class="docsearch" id="docsearch"></div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    </header>
+
+    <div class="page-content">
+
+      
+
+      <div class="grid-wrapper">
+        <div class="grid grid-center">
+
+          <aside id="toc-bar" class="grid__item desk-wide-one-sixth">
+                
+                <section class="aside-module grid__item one-whole">
+                  <div class='section'>
+                    <label for="toc-toggle"><span class="title epsilon"><iconify-icon inline icon='mdi:toc' title='Toc'></iconify-icon> On this page</span> <input type="checkbox" id="toc-toggle"/> <span class="toc-current"></span></label>
+                    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#login-screen">Login screen</a></li>
+<li class="toc-entry toc-h2"><a href="#managing-account-access">Managing account access</a></li>
+<li class="toc-entry toc-h2"><a href="#changing-your-account-password">Changing your account password</a></li>
+<li class="toc-entry toc-h2"><a href="#other-authentication-techniques">Other authentication techniques</a></li>
+<li class="toc-entry toc-h2"><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#forgot-username-or-password">Forgot username or password</a></li>
+<li class="toc-entry toc-h3"><a href="#authentication-failures-from-127001">Authentication failures from 127.0.0.1</a></li>
+<li class="toc-entry toc-h3"><a href="#bearer-token-warnings">Bearer token warnings</a></li>
+<li class="toc-entry toc-h3"><a href="#bearer-token-informational-messages">Bearer token informational messages</a></li>
+<li class="toc-entry toc-h3"><a href="#lost-owner-password">Lost owner password</a></li>
+<li class="toc-entry toc-h3"><a href="#error-invalid-client-id-or-redirect-url">Error: invalid client id or redirect URL</a></li>
+<li class="toc-entry toc-h3"><a href="#stuck-on-loading-data">Stuck on loading data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#related-topics">Related topics</a></li>
+</ul>
+                  </div>
+                </section>
+              </aside>
+
+          
+          
+
+          
+          <div class="grid__item two-thirds desk-wide-seven-twelfths lap-one-whole palm-one-whole">
+          
+
+            
+              <article class="page">
+  
+  <header>
+    
+    
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        
+          
+            
+            ▸ <a href="/docs/">Documentation</a>
+          
+        
+          
+        
+      </div>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.home-assistant.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://www.home-assistant.io/docs/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Authentication",
+            "item": "https://www.home-assistant.io/docs/authentication/"
+          }
+        ]
+      }
+      </script>
+    
+    <h1 class="title indent">
+      
+        Authentication
+      
+    </h1>
+  </header>
+  
+  
+  <p>The authentication system secures access to Home Assistant.</p>
+<h2>Login screen <a class="title-link" name="login-screen" href="#login-screen"></a>
+</h2>
+<p>You are greeted with a log in screen, asking you for username and password.</p>
+<img src="/images/docs/authentication/login-outside-local-network.png" alt="Screenshot of the login screen, when logging in from within the local network" style="border: 0;box-shadow: none;">
+<p>For information about user accounts, such as adding people, managing users, and changing display names or usernames, refer to <a href="/docs/configuration/user-configuration/">user configuration</a>.</p>
+<h2>Managing account access <a class="title-link" name="managing-account-access" href="#managing-account-access"></a>
+</h2>
+<p>Your password is the key to your home, so choose a strong, unique one. This matters even more once you access Home Assistant from outside your local network, where others could try to sign in, too. For extra protection, you can also turn on <a href="/docs/authentication/multi-factor-auth/">multi-factor authentication</a>.</p>
+<p>You can manage how you sign in from your own account profile.</p>
+<p>To open it, go to <a href="https://my.home-assistant.io/redirect/profile_security" class="my" target="_blank"><strong>User profile</strong> &gt; <strong>Security</strong> tab </a>. These settings only affect your own account.</p>
+<p>On the <strong>Security</strong> tab, you can:</p>
+<ul>
+<li>
+<a href="#changing-your-account-password">Change your password</a>.</li>
+<li>Turn <a href="/docs/authentication/multi-factor-auth/">multi-factor authentication</a> on or off for an extra level of security.</li>
+<li>Manage your <strong>Refresh tokens</strong>. A refresh token is created each time you sign in from a device. Delete one to force that device to sign out.
+<ul>
+<li>Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a <a href="https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token">long-lived access token</a> instead.</li>
+</ul>
+</li>
+<li>Create <a href="https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token">long-lived access tokens</a> so scripts and apps can securely interact with Home Assistant.</li>
+</ul>
+<h2>Changing your account password <a class="title-link" name="changing-your-account-password" href="#changing-your-account-password"></a>
+</h2>
+<p>To change the password of your own account:</p>
+<ol>
+<li>Go to <a href="https://my.home-assistant.io/redirect/profile" class="my" target="_blank"><strong>User profile</strong></a> and open the <strong>Security</strong> tab.</li>
+<li>In the <strong>Change password</strong> card, enter your <strong>Current password</strong>.</li>
+<li>Enter your <strong>New password</strong>, then enter it again under <strong>Confirm new password</strong>.</li>
+<li>Select <strong>Submit</strong>.</li>
+<li>Home Assistant asks whether you want to sign out of all other sessions. Select <strong>Yes</strong> to force every other device to sign in again with the new password, or <strong>No</strong> to keep them signed in.</li>
+</ol>
+<h2>Other authentication techniques <a class="title-link" name="other-authentication-techniques" href="#other-authentication-techniques"></a>
+</h2>
+<p>Home Assistant provides several ways to authenticate. See the <a href="/docs/authentication/providers/">Auth providers</a> section.</p>
+<h2>Troubleshooting <a class="title-link" name="troubleshooting" href="#troubleshooting"></a>
+</h2>
+<h3>Forgot username or password <a class="title-link" name="forgot-username-or-password" href="#forgot-username-or-password"></a>
+</h3>
+<p>If you can no longer sign in, or you forgot your username or password, refer to <a href="/docs/locked_out/">Help, I’m locked out!</a>.</p>
+<h3>Authentication failures from <code>127.0.0.1</code> <a class="title-link" name="authentication-failures-from-127001" href="#authentication-failures-from-127001"></a>
+</h3>
+<p>If you’re seeing authentication failures from <code>127.0.0.1</code> and you’re using the <code>nmap</code> device tracker, you should <a href="/integrations/nmap_tracker#exclude">exclude the Home Assistant IP</a> from being scanned.</p>
+<h3>Bearer token warnings <a class="title-link" name="bearer-token-warnings" href="#bearer-token-warnings"></a>
+</h3>
+<p>Under the new authentication system you’ll see the following warning logged when the <a href="/docs/authentication/providers/#legacy-api-password">legacy API password</a> is supplied, but not configured in Home Assistant:</p>
+<div class="language-txt highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="txt">WARNING (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
+</code></pre></div></div>
+<p>If you see this, you need to add an <a href="/integrations/http/#api_password"><code>api_password</code></a> to your <code>http:</code> configuration.</p>
+<h3>Bearer token informational messages <a class="title-link" name="bearer-token-informational-messages" href="#bearer-token-informational-messages"></a>
+</h3>
+<p>If you see the following, then this is a message for integration developers, to tell them they need to update how they authenticate to Home Assistant. As an end user you don’t need to do anything:</p>
+<div class="language-txt highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="txt">INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
+</code></pre></div></div>
+<h3>Lost owner password <a class="title-link" name="lost-owner-password" href="#lost-owner-password"></a>
+</h3>
+<p>If you lose the password associated with the owner account, you need to <a href="/docs/locked_out/#to-prepare-the-system-to-start-a-new-onboarding-process">start a new onboarding process</a>.</p>
+<h3>Error: invalid client id or redirect URL <a class="title-link" name="error-invalid-client-id-or-redirect-url" href="#error-invalid-client-id-or-redirect-url"></a>
+</h3>
+<img src="/images/docs/authentication/error-invalid-client-id.png" alt="Screenshot of Error: invalid client id or redirect url">
+<p>You have to use a domain name, not IP address, to remote access Home Assistant otherwise you will get <code>Error: invalid client id or redirect url</code> error on the login form. However, you can use the IP address to access Home Assistant in your home network.</p>
+<p>This is because we only allow an IP address as a client ID when your IP address is an internal network address (such as <code>192.168.0.1</code>) or loopback address (such as <code>127.0.0.1</code>).</p>
+<p>If you don’t have a valid domain name for your Home Assistant instance, you can modify the <code>hosts</code> file on your computer to fake one.
+On Linux edit the <code>/etc/hosts</code> file, and add following entry:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="text">12.34.56.78 homeassistant.home
+</code></pre></div></div>
+<p>Replace <code>12.34.56.78</code> with your Home Assistant’s public IP address.</p>
+<p>This will allow you to open Home Assistant at <code>http://homeassistant.home:8123/</code></p>
+<h3>Stuck on loading data <a class="title-link" name="stuck-on-loading-data" href="#stuck-on-loading-data"></a>
+</h3>
+<p>Some ad blocking software, such as Wipr, also blocks WebSockets. If you’re stuck on the Loading data screen, try disabling your ad blocker.</p>
+
+
+  
+
+<div class="text related-topics">
+  <h2>Related topics<a class="title-link" href="#related-topics" name="related-topics"></a>
+</h2>
+  <ul>
+    
+    
+    
+    
+    
+    <li>
+      <a href="/docs/configuration/user-configuration/" class="topic">
+        People and user configuration
+      </a>
+    </li>
+    
+    
+    
+    
+    
+    
+    <li>
+      <a href="/docs/authentication/multi-factor-auth/" class="topic">
+        Multi factor authentication
+      </a>
+    </li>
+    
+    
+    
+    
+    
+    
+    <li>
+      <a href="/docs/authentication/providers/" class="topic">
+        Authentication providers
+      </a>
+    </li>
+    
+    
+    
+    
+    
+    
+    <li>
+      <a href="/docs/locked_out/" class="topic">
+        I'm locked out!
+      </a>
+    </li>
+    </ul>
+</div>
+
+
+  
+<div class="material-card text feedback">
+  <h4>
+<iconify-icon inline icon="mdi:feedback" title="Feedback"></iconify-icon> <b> Help us improve our documentation</b><a href="#feedback_section" class="title-link" name="feedback_section"></a>
+</h4>
+  Suggest an edit to this page, or provide/view feedback for this page.
+  <div class="links">
+    <ul aria-label="Page feedback options">
+    <li><a href="https://github.com/home-assistant/home-assistant.io/tree/current/source/_docs/authentication.markdown" target="_blank" title="Edit this page" rel="external nofollow"><iconify-icon inline icon="mdi:edit"></iconify-icon> Edit</a></li>
+    
+    <li><a href="https://github.com/home-assistant/home-assistant.io/issues/new?template=feedback.yml&amp;url=https%3A%2F%2Fwww.home-assistant.io%2Fdocs%2Fauthentication%2F&amp;version=2026.9.0&amp;labels=current" target="_blank" title="Provide feedback on this page" rel="external nofollow"><iconify-icon inline icon="mdi:comment-edit-outline"></iconify-icon> Provide feedback</a></li>
+    <li><a href="https://github.com/home-assistant/home-assistant.io/issues?utf8=%E2%9C%93&amp;q=%22%2Fdocs%2Fauthentication%2F%22&amp;in=body" target="_blank" title="View given feedback for this page" rel="external nofollow"><iconify-icon inline icon="mdi:comment-text-multiple-outline"></iconify-icon> View given feedback</a></li>
+    
+  </ul>
+  </div>
+</div>
+
+
+</article>
+
+            
+          </div>
+
+
+          
+          
+          
+          
+            
+              <aside id="sidebar" class="grid__item one-third desk-wide-one-quarter lap-one-whole palm-one-whole">
+            
+            <div class="grid">
+  
+
+
+
+
+  <section class="vertical-nav aside-module grid__item one-whole lap-one-half">
+  <div class="section">
+    <h2 class="h1 title epsilon"><iconify-icon inline icon='mdi:bookshelf' title='Bookshelf'></iconify-icon> Documentation</h2>
+    <ul class="divided sidebar-menu">
+      <li>
+        <a  href='/docs/'>Overview </a>
+        |
+        <a  href='/faq/'>FAQ </a>
+        |
+        <a  href='/docs/glossary/'>Glossary </a>
+      </li>
+
+      <li>
+  <iconify-icon icon="mdi:robot-happy"></iconify-icon> <a  href='/docs/automation/'>Automations </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:gauge' title='Gauge'></iconify-icon> <a  href='/dashboards'>Dashboards </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:microphone' title='Microphone'></iconify-icon> <a  href='/voice_control/'>Voice assistants </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:category' title='Category'></iconify-icon> <a  href='/docs/organizing/'>Organization </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:solar-power-variant' title='Solar power variant'></iconify-icon> <a  href='/docs/energy/'>Home energy management </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:code-braces' title='Code braces'></iconify-icon> <a  href='/docs/templating/'>Templating </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:update' title='Update'></iconify-icon> <a  href='/common-tasks/general/'>Common tasks </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:cogs' title='Cogs'></iconify-icon> <a  href='/docs/configuration/basic'>Configuration </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:account-security' title='Account security'></iconify-icon> <a class='active' href='/docs/authentication/'>Authentication </a>
+  
+  <ul>
+    <li><a  href='/docs/authentication/providers/'>Auth providers </a></li>
+    <li><a  href='/docs/authentication/multi-factor-auth/'>Multi-factor authentication </a></li>
+    <li><a  href='/docs/locked_out/'>I'm locked out </a></li>
+  </ul>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:palette' title='Palette'></iconify-icon> <a  href='/docs/tools/'>Tools and helpers </a>
+  
+</li>
+
+<li>
+  <iconify-icon inline icon='mdi:cellphone' title='Cellphone'></iconify-icon> <a href="https://companion.home-assistant.io/docs">iOS and Android apps</a>
+</li>
+
+<li>
+  <iconify-icon inline icon='bitcoin-icons:node-hardware-filled' title='Node hardware filled'></iconify-icon> Official hardware
+  <ul>
+    <li><a href="https://support.nabucasa.com/hc/categories/24638797677853">Home Assistant Green</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24734620813469">Home Assistant Connect ZBT-1</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/29400540866973">Home Assistant Connect ZBT-2</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/28669861145885">Home Assistant Connect ZWA-2</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24734575925149">Home Assistant Yellow</a></li>
+    <li><a href="https://support.nabucasa.com/hc/categories/24451727188125">Home Assistant Voice Preview Edition</a></li>
+  </ul>
+</li>
+
+    </ul>
+  </div>
+</section>
+
+<section id="toc-module" class="aside-module grid__item one-whole lap-one-half">
+        <div class='section'>
+          <h2 class="h1 title epsilon"><iconify-icon inline icon='mdi:toc' title='Toc'></iconify-icon> On this page</h2>
+          <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#login-screen">Login screen</a></li>
+<li class="toc-entry toc-h2"><a href="#managing-account-access">Managing account access</a></li>
+<li class="toc-entry toc-h2"><a href="#changing-your-account-password">Changing your account password</a></li>
+<li class="toc-entry toc-h2"><a href="#other-authentication-techniques">Other authentication techniques</a></li>
+<li class="toc-entry toc-h2"><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#forgot-username-or-password">Forgot username or password</a></li>
+<li class="toc-entry toc-h3"><a href="#authentication-failures-from-127001">Authentication failures from 127.0.0.1</a></li>
+<li class="toc-entry toc-h3"><a href="#bearer-token-warnings">Bearer token warnings</a></li>
+<li class="toc-entry toc-h3"><a href="#bearer-token-informational-messages">Bearer token informational messages</a></li>
+<li class="toc-entry toc-h3"><a href="#lost-owner-password">Lost owner password</a></li>
+<li class="toc-entry toc-h3"><a href="#error-invalid-client-id-or-redirect-url">Error: invalid client id or redirect URL</a></li>
+<li class="toc-entry toc-h3"><a href="#stuck-on-loading-data">Stuck on loading data</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#related-topics">Related topics</a></li>
+</ul>
+        </div>
+      </section>
+</div>
+
+          </aside>
+          
+        </div>
+      </div>
+
+      
+        <button id="back-to-top-button" type="button" aria-label="Back to top" aria-describedby="back-to-top-tooltip">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <g id="back-to-top">
+              <circle id="background" cx="20" cy="20" r="20" fill="#18BCF2"/>
+              <path id="arrow" d="M20 18.8L15.4 23.4L14 22L20 16L26 22L24.6 23.4L20 18.8Z" fill="white"/>
+              <circle id="depth" cx="20" cy="20.0098" r="17" transform="rotate(-90 20 20.0098)" stroke="white" stroke-width="2"/>
+            </g>
+          </svg>
+
+          <div id="back-to-top-tooltip" class="back-to-top-btn-tooltip">Back to top</div>
+        </button>
+      
+
+      <footer>
+        <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="skyline grid">
+        <div class="skyline grid__item one-whole">
+          <div class="footer-skyline">
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav grid">
+        <div class="company grid__item one-quarter lap-one-half palm-one-whole">
+          <div class="title">
+            <img
+              src="/images/footer-logo-text.svg"
+              height="72"
+              alt="Home Assistant"
+            />
+          </div>
+          <p>
+            Home Assistant is a project from the <a href="https://www.openhomefoundation.org/">Open Home Foundation</a>.
+          </p>
+        </div>
+
+        <div class="grid__item one-quarter lap-one-half palm-one-whole">
+          <h3>Join us and contribute!</h3>
+          <ul>
+            <li><a class="external-link" href="https://github.com/home-assistant/">GitHub repo</a></li>
+            <li><a class="external-link" href="https://developers.home-assistant.io">Developers Portal</a></li>
+            <li><a class="external-link" href="https://design.home-assistant.io">Design Portal</a></li>
+            <li><a class="external-link" href="https://data.home-assistant.io">Data Science Portal</a></li>
+            <li><a class="external-link" href="https://community.home-assistant.io">Community Forum</a></li>
+            <li><a class="external-link" href="https://creators.home-assistant.io/">Creator Network</a></li>
+            <li><a class="external-link" href="https://works-with.home-assistant.io/">Works with Home Assistant</a></li>
+            <li><a href="/community">Our community</a></li>
+            <li><a href="/help/reporting_issues/">Reporting issues</a></li>
+          </ul>
+          <h3>System status</h3>
+          <ul>
+            <li>
+              <a class="external-link"  href="https://alerts.home-assistant.io">Integration Alerts</a>
+            </li>
+            <li><a href="/security/">Security Alerts</a></li>
+            <li>
+              <a class="external-link" href="https://status.home-assistant.io">System Status</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid__item one-quarter lap-one-half palm-one-whole">
+          <h3>Companion apps</h3>
+          <ul>
+            <li><a class="external-link" href="https://apps.apple.com/app/id1099568401">iOS and Apple devices</a></li>
+            <li><a class="external-link" href="https://play.google.com/store/apps/details?id=io.homeassistant.companion.android">Android and Wear OS</a></li>
+            <li><a class="external-link" href="https://companion.home-assistant.io/">...and more!</a></li>
+          </ul>
+
+          <h3>Support us</h3>
+          <ul>
+            <li><a href="https://store.openhomefoundation.org" target="_blank">Merch store</a></li>
+            <li><a href="/cloud/">Home Assistant Cloud</a></li>
+          </ul>
+
+          <h3>Governance</h3>
+          <ul>
+            <li><a href="/privacy/">Privacy Notices</a></li>
+            <li><a href="/developers/cla/">Contributor License Agreement</a></li>
+            <li><a href="/tos/">Terms of Service</a></li>
+            <li><a href="/code_of_conduct/">Code of Conduct</a></li>
+            <li><a href="/developers/credits/">Credits</a></li>
+            <li><a href="/developers/license/">License</a></li>
+          </ul>
+        </div>
+
+        <div class="socials grid__item one-quarter lap-one-half palm-one-whole">
+
+          <h3>Follow us</h3>
+          <p><a class="external-link" href='https://newsletter.openhomefoundation.org/#/portal'>Sign up for our newsletter</a></p>
+          <ul class="icons">
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://youtube.com/@home_assistant"
+                title="YouTube"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:youtube"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://reddit.com/r/homeassistant"
+                title="Reddit"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:reddit"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://github.com/home-assistant"
+                title="GitHub"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:github"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://fosstodon.org/@homeassistant"
+                title="Mastodon"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:mastodon"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://bsky.app/profile/home-assistant.io"
+                title="Bluesky"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:bluesky"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://x.com/home_assistant"
+                title="X (formerly Twitter)"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:x"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://www.facebook.com/homeassistantio"
+                title="Facebook"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:facebook"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://www.instagram.com/homeassistant/"
+                title="Instagram"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:instagram"></iconify-icon></a>
+            </li>
+            
+            <li>
+              <a
+                rel="me noopener noreferrer"
+                href="https://www.linkedin.com/company/home-assistant"
+                title="LinkedIn"
+                target="_blank"
+              ><iconify-icon icon="simple-icons:linkedin"></iconify-icon></a>
+            </li>
+            
+          </ul>
+
+          <div class="web-notice">
+            <p>
+              For partnership inquiries please check out <a href="https://works-with.home-assistant.io/">Works with Home Assistant</a>. For media, <a href="/cdn-cgi/l/email-protection#6c010908050d2c031c0902040301090a031902080d1805030242031e0b">email our team</a>. For other questions, you can <a href="/cdn-cgi/l/email-protection#bad2dfd6d6d5fad2d5d7df97dbc9c9d3c9cedbd4ce94d3d5">contact support</a> (No technical support!)
+            </p>
+            <p class="analytics-notice">
+              This website uses <a href="https://www.openhomefoundation.org/blog/making-our-web-analytics-open-source-with-plausible/" rel="noopener">privacy-first analytics</a> to help us improve the site. You can view all data in our <a href="https://plausible.openhomefoundation.org/home-assistant.io" rel="noopener">public dashboard</a>.
+            </p>
+            <p>
+              Website powered by <a href="https://jekyllrb.com/">Jekyll</a><br />
+              Originally based on the <a href="https://github.com/coogie/oscailte">Oscailte theme</a>
+            </p>
+            <a href="https://www.netlify.com">
+              <img
+                src="/images/frontpage/netlify.svg"
+                alt="Deploys by Netlify Badge"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      </footer>
+
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.3.1/lite-youtube.js" integrity="sha384-7o3d1sg8jSS1LMKzzIEucWtWFI1X4lFCC5gu2ylAgH3KmHcJgjTqp6LWfIvbbmf9" crossorigin="anonymous"></script>
+
+<script src="/javascripts/terminology_tooltip.js?e20ec01246c34f18bd926ceed25bc742" type="text/javascript" defer></script>
+<script src="/javascripts/image-lightbox.js?00347598e26ce4610a1fab8a6ee3ffb4" type="text/javascript" defer></script>
+
+<script src="/javascripts/prism.js?5d6619066a1fc5cd819a93c132b539ac" type="text/javascript" defer></script>
+<script src="/javascripts/prism-signature.js?c46f2dc6f8d4fd987db580bda61368b5" type="text/javascript" defer></script>
+<script src="/javascripts/prism-jinja2.js?b7346561200c43c055e61149a77b3187" type="text/javascript" defer></script>
+<script src="/static/doc-data-9bf4788a6d55.js" type="text/javascript" defer></script>
+<script src="/javascripts/prism-template-links.js?7bedbf54ec266241edb843530c111903" type="text/javascript" defer></script>
+<script src="/javascripts/prism-doc-links.js?aecc2ca96596f960444d87dad9394ee3" type="text/javascript" defer></script>
+<script src="/javascripts/docsearch-options.js?e5a07874723ea642e221f06a88902a18" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js" integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  docsearch({
+    container: '#docsearch',
+    appId: 'FBHBYS3J0U',
+    indexName: 'home-assistant',
+    apiKey: "fcd41bf156f5ee0e390f8b860e3a2489",
+    transformItems(items) {
+      return items.map((item) => ({
+        ...item,
+        url: rewriteDocSearchPreviewUrl(item.url),
+        url_without_anchor: rewriteDocSearchPreviewUrl(item.url_without_anchor),
+      }));
+    },
+  });
+  document.querySelector('.site-title').addEventListener('contextmenu', function (ev) {
+    ev.preventDefault();
+    document.location.assign("https://design.home-assistant.io/#brand/logo")
+  });
+</script>
+
+
+
+
+<script type="text/javascript">
+  {
+    const article = document.querySelector("article.post");
+    if (article) {
+      const iframes = article.querySelectorAll("iframe[data-src]");
+      let loaded = false;
+      if (iframes) {
+        document.addEventListener('mousemove', loadLazyFrames, { passive: true, once: true });
+        document.addEventListener('touchmove', loadLazyFrames, { passive: true, once: true });
+        document.addEventListener('scroll', loadLazyFrames, { passive: true, once: true });
+
+        function loadLazyFrames() {
+          if (loaded) return;
+          loaded = true;
+
+          iframes.forEach((iframe) => {
+            const src = iframe.getAttribute("data-src");
+            if (src) {
+              iframe.setAttribute("src", src);
+              iframe.removeAttribute("data-src");
+            }
+          });
+        }
+      }
+    }
+  }
+</script>
+
+
+<script type="text/javascript">
+  {
+    const scrollButton = document.getElementById("back-to-top-button");
+    const depthCircle = document.getElementById("depth");
+    const footer = document.querySelector("footer");
+
+    if (scrollButton && depthCircle && footer) {
+      const circumference = depthCircle.getTotalLength();
+
+      depthCircle.style.strokeDasharray = circumference;
+      depthCircle.style.strokeDashoffset = circumference;
+
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+
+        const footerTop = footer.offsetTop;
+        const windowHeight = window.innerHeight;
+
+        const scrollStart = 0;
+        const scrollEnd = footerTop - windowHeight;
+        let scrollProgress;
+
+        if (scrollEnd <= scrollStart) {
+          scrollProgress = 1;
+        } else {
+          scrollProgress = Math.min(
+            Math.max((scrollY - scrollStart) / (scrollEnd - scrollStart), 0),
+            1
+          );
+        }
+
+        const footerOffset = -50;
+        const footerIsVisible = scrollY + windowHeight >= footerTop - footerOffset;
+
+        if (scrollY > 100 && !footerIsVisible) {
+          scrollButton.classList.add("visible");
+        } else {
+          scrollButton.classList.remove("visible");
+        }
+
+        const offset = circumference - (scrollProgress * circumference);
+        depthCircle.style.strokeDashoffset = offset;
+      };
+
+      scrollButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      window.addEventListener("scroll", handleScroll, { passive: true });
+
+      handleScroll();
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  // Re-scroll to the hash anchor after page layout has settled.
+  // Browsers attempt the initial scroll before fonts, icons, and deferred
+  // scripts finish loading, so the target position is often wrong.
+  if (window.location.hash) {
+    window.addEventListener("load", function () {
+      requestAnimationFrame(function () {
+        var el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView();
+      });
+    });
+  }
+</script>
+
+<script type="text/javascript">
+  {
+    const tocCurrent = document.querySelector(".toc-current");
+    const blogTocList = document.querySelector("#toc-module #toc");
+
+    if (tocCurrent || blogTocList) {
+      const headings = Array.from(
+        document.querySelectorAll("article h2, article h3")
+      );
+
+      if (headings.length > 0) {
+        const getHeadingText = (heading) =>
+          heading.childNodes[0].textContent.trim();
+
+        if (tocCurrent) {
+          tocCurrent.textContent = getHeadingText(headings[0]);
+        }
+
+        const siteHeader = document.querySelector(".site-header");
+        const tocBar = document.getElementById("toc-bar");
+
+        const getScrollOffset = () => {
+          if (siteHeader && (window.innerWidth > 1280)) {
+            return siteHeader.offsetHeight + 58;
+          } else if (siteHeader && tocBar) {
+            return siteHeader.offsetHeight + tocBar.offsetHeight + 20;
+          }
+
+          return 140;
+        };
+
+        const updateTocCurrent = () => {
+          const scrollY = window.scrollY + getScrollOffset();
+          let current = headings[0];
+
+          for (const heading of headings) {
+            if (heading.offsetTop <= scrollY) {
+              current = heading;
+            } else {
+              break;
+            }
+          }
+
+          if (tocCurrent) {
+            tocCurrent.textContent = getHeadingText(current);
+          }
+
+          const titleLink = current.querySelector("a.title-link");
+          const slug = titleLink && titleLink.getAttribute("name");
+
+          const tocLists = [
+            document.querySelector("#toc-bar #toc"),
+            blogTocList,
+          ].filter(Boolean);
+
+          for (const tocList of tocLists) {
+            tocList.querySelectorAll("a[aria-current]").forEach((a) => {
+              a.removeAttribute("aria-current");
+            });
+            if (slug) {
+              const activeLink = tocList.querySelector(`a[href="#${slug}"]`);
+              if (activeLink) {
+                activeLink.setAttribute("aria-current", "true");
+              }
+            }
+          }
+        };
+
+        window.addEventListener("scroll", updateTocCurrent, { passive: true });
+        updateTocCurrent();
+      }
+
+      const tocToggle = document.getElementById("toc-toggle");
+      const tocList = document.getElementById("toc");
+      if (tocToggle && tocList) {
+        tocList.addEventListener("click", (e) => {
+          if (e.target.closest("a")) {
+            tocToggle.checked = false;
+          }
+        });
+      }
+    }
+  }
+</script>
+
+
+  <script>window.__CF$cv$params={r:'a34ea1243dab4f37',t:'MTc4ODM3NDI4Mg==',u:'01a06369f3ed74f286e0efb0861b0036',ut:'fJAezFimyQNJI8AaMN49l2j0iFefscw4VXhU12WDRmk-1788374283-1.2.1.1-zhyIHu6Gc2RHtGXyGgpXwIDSBuPVCG9ut06wI9.t9rL.w4yTYU3nm9axPg5ULzt82o7VoSL.3DUsECeMaF8cV_mKfBJg2KrhukR3sCNa12w',i:60};(function(){if(!document.body)return;var s=document.createElement('script');s.src='/cdn-cgi/challenge-platform/scripts/precursor/main.js';document.head.appendChild(s);})();</script></body>
+</html>

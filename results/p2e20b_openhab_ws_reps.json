@@ -1,0 +1,52 @@
+[
+ {
+  "trial": 1,
+  "valid": true,
+  "pre": true,
+  "post": true,
+  "read": true,
+  "rest_code": 401,
+  "newconn": "refused",
+  "user_gone": true
+ },
+ {
+  "trial": 2,
+  "valid": true,
+  "pre": true,
+  "post": true,
+  "read": true,
+  "rest_code": 401,
+  "newconn": "refused",
+  "user_gone": true
+ },
+ {
+  "trial": 3,
+  "valid": true,
+  "pre": true,
+  "post": true,
+  "read": true,
+  "rest_code": 401,
+  "newconn": "refused",
+  "user_gone": true
+ },
+ {
+  "trial": 4,
+  "valid": true,
+  "pre": true,
+  "post": true,
+  "read": true,
+  "rest_code": 401,
+  "newconn": "refused",
+  "user_gone": true
+ },
+ {
+  "trial": 5,
+  "valid": true,
+  "pre": true,
+  "post": true,
+  "read": true,
+  "rest_code": 401,
+  "newconn": "refused",
+  "user_gone": true
+ }
+]

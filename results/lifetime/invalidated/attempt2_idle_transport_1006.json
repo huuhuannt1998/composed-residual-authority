@@ -1,0 +1,77 @@
+[
+ {
+  "label": "pre-deletion control",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "immediately",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+30 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 hour",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+2 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent",
+  "container_log_tail": "s6-rc: info: service s6rc-oneshot-runner: starting\ns6-rc: info: service s6rc-oneshot-runner successfully started\ns6-rc: info: service fix-attrs: starting\ns6-rc: info: service fix-attrs successfully started\ns6-rc: info: service legacy-cont-init: starting\ns6-rc: info: service legacy-cont-init successfully started\ns6-rc: info: service legacy-services: starting\nservices-up: info: copying legacy longrun home-assistant (no readiness notification)\ns6-rc: info: service legacy-services successfully started\n\u001b[33m2026-09-03 12:54:27.408 WARNING (ImportExecutor_0) [py.warnings] /usr/local/lib/python3.14/site-packages/rich/segment.py:547: SyntaxWarning: 'return' in a 'finally' block\n  return\n\u001b[0m\n"
+ },
+ {
+  "label": "+3 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent",
+  "container_log_tail": "s6-rc: info: service s6rc-oneshot-runner: starting\ns6-rc: info: service s6rc-oneshot-runner successfully started\ns6-rc: info: service fix-attrs: starting\ns6-rc: info: service fix-attrs successfully started\ns6-rc: info: service legacy-cont-init: starting\ns6-rc: info: service legacy-cont-init successfully started\ns6-rc: info: service legacy-services: starting\nservices-up: info: copying legacy longrun home-assistant (no readiness notification)\ns6-rc: info: service legacy-services successfully started\n\u001b[33m2026-09-03 12:54:27.408 WARNING (ImportExecutor_0) [py.warnings] /usr/local/lib/python3.14/site-packages/rich/segment.py:547: SyntaxWarning: 'return' in a 'finally' block\n  return\n\u001b[0m\n"
+ },
+ {
+  "label": "+4 hours",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1006,
+  "close_reason": null,
+  "exception": "ConnectionClosedError: no close frame received or sent",
+  "container_log_tail": "s6-rc: info: service s6rc-oneshot-runner: starting\ns6-rc: info: service s6rc-oneshot-runner successfully started\ns6-rc: info: service fix-attrs: starting\ns6-rc: info: service fix-attrs successfully started\ns6-rc: info: service legacy-cont-init: starting\ns6-rc: info: service legacy-cont-init successfully started\ns6-rc: info: service legacy-services: starting\nservices-up: info: copying legacy longrun home-assistant (no readiness notification)\ns6-rc: info: service legacy-services successfully started\n\u001b[33m2026-09-03 12:54:27.408 WARNING (ImportExecutor_0) [py.warnings] /usr/local/lib/python3.14/site-packages/rich/segment.py:547: SyntaxWarning: 'return' in a 'finally' block\n  return\n\u001b[0m\n"
+ }
+]

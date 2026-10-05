@@ -1,0 +1,227 @@
+{
+ "SMOKE_TEST_not_a_result": true,
+ "scale": 0.001,
+ "rows": [
+  {
+   "label": "pre-deletion control",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "immediately",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+1 min",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+5 min",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+30 min",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+1 hour",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+2 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+3 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+4 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+5 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+6 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+7 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+8 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+9 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+10 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+11 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+12 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+18 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+24 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+30 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+36 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+42 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+48 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+54 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+60 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+66 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "+72 hours",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "after automation reload",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "after integration reload",
+   "socket": true,
+   "read": true,
+   "stream": true,
+   "actuate": true
+  },
+  {
+   "label": "after in-UI core restart",
+   "socket": false,
+   "read": false,
+   "stream": false,
+   "actuate": false,
+   "close_code": 1000,
+   "close_reason": null,
+   "exception": "ConnectionClosedOK: received 1000 (OK); then sent 1000 (OK)",
+   "container_log_tail": "Unable to find configuration. Creating default one in /config\n[08:14:34] INFO: \u001b[32mHome Assistant Core finish process exit code 100\u001b[0m\ns6-rc: info: service s6rc-oneshot-runner: starting\ns6-rc: info: service s6rc-oneshot-runner successfully started\ns6-rc: info: service fix-attrs: starting\ns6-rc: info: service fix-attrs successfully started\ns6-rc: info: service legacy-cont-init: starting\ns6-rc: info: service legacy-cont-init successfully started\ns6-rc: info: service legacy-services: starting\nservices-up: info: copying legacy longrun home-assistant (no readiness notification)\ns6-rc: info: service legacy-services successfully started\n\u001b[33m2026-09-04 08:07:28.373 WARNING (ImportExecutor_0) [py.warnings] /usr/local/lib/python3.14/site-packages/rich/segment.py:547: SyntaxWarning: 'return' in a 'finally' block\n  return\n\u001b[0m\n"
+  },
+  {
+   "label": "after container restart",
+   "socket": false,
+   "read": false,
+   "stream": false,
+   "actuate": false
+  }
+ ]
+}

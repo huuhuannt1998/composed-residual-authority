@@ -1,0 +1,36 @@
+[07:31:31]   pre-deletion control         1/1/1/1
+[07:31:31] subject DELETED; entering delay schedule
+[07:31:37]   immediately                  1/1/1/1
+[07:32:39]   +1 min                       1/1/1/1
+[07:36:43]   +5 min                       1/1/1/1
+[08:01:46]   +30 min                      1/1/1/1
+[08:31:50]   +1 hour                      1/1/1/1
+[09:31:54]   +2 hours                     1/1/1/1
+[10:31:58]   +3 hours                     1/1/1/1
+[11:32:02]   +4 hours                     1/1/1/1
+[12:32:06]   +5 hours                     1/1/1/1
+[13:32:10]   +6 hours                     1/1/1/1
+[14:32:13]   +7 hours                     1/1/1/1
+[15:32:17]   +8 hours                     1/1/1/1
+[16:32:21]   +9 hours                     1/1/1/1
+[17:32:25]   +10 hours                    1/1/1/1
+[18:32:29]   +11 hours                    1/1/1/1
+[19:32:33]   +12 hours                    1/1/1/1
+[01:32:37]   +18 hours                    1/1/1/1
+[07:32:40]   +24 hours                    1/1/1/1
+[13:32:44]   +30 hours                    1/1/1/1
+[19:32:48]   +36 hours                    1/1/1/1
+[01:32:52]   +42 hours                    1/1/1/1
+[07:32:55]   +48 hours                    1/1/1/1
+[13:33:00]   +54 hours                    1/1/1/1
+[19:33:04]   +60 hours                    1/1/1/1
+[01:33:08]   +66 hours                    1/1/1/1
+[07:33:12]   +72 hours                    1/1/1/1
+[07:33:12] delay schedule complete; termination events
+[07:33:19]   after automation reload      1/1/1/1
+[07:33:29]   after integration reload     1/1/1/1
+[07:35:40]   observer could not reconnect after restart; subject read is still valid
+[07:35:40]   after in-UI core restart     0/0/0/0 (socket dead: close_code=1000 reason='' ConnectionClosedOK)
+[07:35:42] SCHEDULE COMPLETE
+[07:36:27]   after container restart      0/0/0/0 (no socket)
+[07:36:27] DONE

@@ -6,7 +6,7 @@ Every row cites the run or experiment that produced it. Predeclared thresholds
 R = [
  # --- RC: revocation-completeness across `evict` ---
  ("HomeAssistant","evict","RC","documented(L3)","FALSIFIED","E7.6 deputy: fire_event -> automation -> actuation","L3","S3",2),
- ("HomeAssistant","evict","RC","documented(L3)","FALSIFIED","E7.4 read residue: get_states 18/18 + live events","L3","S2",2),
+ ("HomeAssistant","evict","RC","documented(L3)","FALSIFIED","E7.4 read residue: non-empty get_states in 30/30 runs + live events","L3","S2",2),
  ("GoogleHome","evict","RC","A sessions cascade","HOLDS","GHA_sess_act UNSAT","L0/L1","S0",None),
  ("GoogleHome","evict","RC","B sessions persist","FALSIFIED","GHB_sess_act SAT","L0/L1","S3",1),
  ("GoogleHome","evict","RC","documented","FALSIFIED","R1 lock passcode survives removal (documented)","L0","S4",1),

@@ -15,3 +15,7 @@
 14. run   HA_auto_scope6           0    1/1     SAT
 15. run   HA_auto_scope8           0    1/1     SAT
 16. run   HA_sessact_scope8        0       UNSAT
+17. run   OH_sess_read             0    1/1     SAT
+18. run   OH_sess_act              0    1/1     SAT
+19. run   OH_sessact_scope8        0    1/1     SAT
+20. run   OH_auto_act              0    1/1     SAT

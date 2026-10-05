@@ -4,6 +4,3 @@
 03. run   E66_binding_cascaded     0       UNSAT
 04. run   E66_both_cascaded_pc     0       UNSAT
 05. run   E66_both_cascaded_bind     0       UNSAT
-Warning
-  0. line 39, column 30 (39,33), filename=/w/models/tenantsafe_channels.als Implicit in-line conjunction between two formulas:
-(Owner !in Evicted) and (always (Cascades)' = Cascades)

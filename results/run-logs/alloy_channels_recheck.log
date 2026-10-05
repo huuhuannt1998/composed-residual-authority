@@ -1,0 +1,14 @@
+# m8 re-check: models/tenantsafe_channels.als line 39 implicit in-line
+# conjunction made explicit (Owner not in Evicted AND always ...).
+# Semantically identical in Alloy; re-run to prove the verdicts did not move.
+# run 2026-09-02T14:24:26Z
+---
+00. run   E28_passcode_documented     0    1/1     SAT
+01. run   E29_binding_documented     0    1/1     SAT
+02. run   E66_passcode_cascaded     0       UNSAT
+03. run   E66_binding_cascaded     0       UNSAT
+04. run   E66_both_cascaded_pc     0       UNSAT
+05. run   E66_both_cascaded_bind     0       UNSAT
+---
+diff vs alloy_channels.log verdicts: IDENTICAL (6/6)
+warnings: 0 (was 1)

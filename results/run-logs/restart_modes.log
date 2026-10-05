@@ -1,0 +1,16 @@
+
+=== RESTART MODES: what actually ends the residue ===
+  columns: socket/read/induced-actuation
+
+  pre-deletion control     1/1/1
+  after deletion           1/1/1
+
+  issuing homeassistant.restart (the in-UI action)...
+  after CORE restart       0/0/0   (socket dead: ConnectionClosedOK)
+
+  issuing docker restart (the arm already in the paper)...
+  after CONTAINER restart  0/0/0   (socket dead: ConnectionClosedOK)
+
+  VERDICT: the in-UI restart ENDS the residue. The remedy is one the
+  interface offers, and Section 7.9 must say so: the exposure window is
+  bounded by the next core restart, not by the next container restart.

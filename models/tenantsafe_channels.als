@@ -36,7 +36,7 @@ one sig Owner in Principal {}
 abstract sig Flag {}
 one sig CascPasscodes, CascBindings extends Flag {}
 sig Cascades in Flag {}
-fact wf { Owner not in Evicted  always (Cascades' = Cascades) }
+fact wf { Owner not in Evicted and always (Cascades' = Cascades) }
 
 // A passcode opens the lock regardless of membership; a binding actuates via the
 // other ecosystem regardless of this one's member list.

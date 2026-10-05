@@ -1,0 +1,11 @@
+
+=== SESSION-CONDITION ARMS (role=admin, deputy present) ===
+  arm                                               pre s/r/a     post s/r/a
+  A1 two sockets / socket #1                            1/1/1          1/1/1
+  A1 two sockets / socket #2                            1/1/1          1/1/1
+  A2 fresh socket after delete [auth_invalid]           1/1/1          0/0/0
+  A3 long-lived tok / original socket                   1/1/1          1/1/1
+  A3 long-lived tok / fresh socket [auth_invalid]        1/1/1          0/0/0
+  A4 refresh-token revoked (killed=err:received 1000 (OK); then sent 1000 (OK))        1/1/1          0/0/0
+  A5 deactivate / original socket                       1/1/1          0/0/0
+  A5 deactivate / fresh socket [auth_invalid]           1/1/1          0/0/0

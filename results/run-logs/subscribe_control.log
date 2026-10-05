@@ -1,0 +1,15 @@
+
+=== SUBSCRIBE CONTROL: role restriction vs removal effect ===
+
+  arm                                accepted  error code(s)
+  live_member_custom                  0/5      unauthorized
+  live_member_state_changed           5/5      -
+  deleted_member_custom               0/5      unauthorized
+  live_admin_custom                   5/5      -
+
+  VERDICT: the denial is the ROLE, not the removal.
+  A live member is refused a custom event type exactly as a deleted one is,
+  while the same live member is allowed state_changed and an admin is allowed
+  the custom type. Table 7's member new_subscribe cell therefore measures a
+  pre-existing role restriction, and its pre-transition control was taken on a
+  different operation (state_changed), so it was never like-for-like.

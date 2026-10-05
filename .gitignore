@@ -1,5 +1,12 @@
 # The manuscript is deliberately not in this repository.
 manuscripts/
+# Square brackets are glob metacharacters in gitignore -- an unescaped
+# [READY] would be read as the character class R,E,A,D,Y and match nothing
+# here. The trailing space in the real directory name is also significant,
+# so match on the stable tail instead of reproducing the name exactly.
+\[READY\]*
+*P11 /
+*(S&P*)*
 tenantsafe_draft.pdf
 *.pdf
 
@@ -31,3 +38,9 @@ cfg-*/
 .env.*
 *.pat
 smartthings-token*
+
+# Manuscript-bearing archives. prepare_upload.sh writes its bundle to the
+# parent of the manuscript directory, which after the 2026-09-17 move is the
+# repository root rather than the ignored manuscripts/ tree, so the upload ZIP
+# now lands here. Both of these carry main.tex, refs.bib and sections/.
+*.zip

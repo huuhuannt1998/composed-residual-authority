@@ -1,0 +1,9 @@
+[03:49:41] member created (id=2) and authenticated
+[03:49:41] namespaces connected: status=True log=True
+[03:50:18] BASELINE before removal: delivered status=4 log=20 (restart HTTP 200)
+[03:50:18] DELETE /api/users/2 -> HTTP 200
+[03:50:51] AFTER removal (subject silent): delivered status=4 log=20; sockets alive {'status': True, 'log': True}
+[03:50:54] request path after removal: HTTP 401; request-response ack after removal: False; alive after incoming message: {'status': False, 'log': True}
+[03:50:54] CONTENT before removal: {'status': {'events': 4, 'with_setup_code': 4, 'with_setup_uri': 4, 'matching_code_pattern': 4, 'matching_uri_pattern': 4, 'status_pin_nonempty': 4, 'status_pin_equals_code': 4}, 'log': {'events': 20, 'with_setup_code': 1, 'with_setup_uri': 1, 'matching_code_pattern': 1, 'matching_uri_pattern': 1, 'status_pin_nonempty': 0, 'status_pin_equals_code': 0}}
+[03:50:54] CONTENT after removal:  {'status': {'events': 4, 'with_setup_code': 4, 'with_setup_uri': 4, 'matching_code_pattern': 4, 'matching_uri_pattern': 4, 'status_pin_nonempty': 4, 'status_pin_equals_code': 4}, 'log': {'events': 20, 'with_setup_code': 1, 'with_setup_uri': 1, 'matching_code_pattern': 1, 'matching_uri_pattern': 1, 'status_pin_nonempty': 0, 'status_pin_equals_code': 0}}
+[03:50:54] VERDICT per channel: {'status': 'DELIVERS AFTER REMOVAL', 'log': 'DELIVERS AFTER REMOVAL'}

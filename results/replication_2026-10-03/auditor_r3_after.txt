@@ -1,0 +1,25 @@
+
+  configuration audit for principal: 33abdf74b23c46ccafdff7c43fafabc2
+  resolved: NOT PRESENT (already removed)
+
+  NAMED - objects a per-object search would find (0)
+    (none: nothing in the configuration names this principal)
+
+  CARRIERS - relay authority without naming anyone (8)
+    automation     ts deputy probe                      does NOT name the principal
+    integration    Sun                                  does NOT name the principal
+    integration    go2rtc                               does NOT name the principal
+    integration    Analytics                            does NOT name the principal
+    integration    Backup                               does NOT name the principal
+    integration    Shopping list                        does NOT name the principal
+    integration    Radio Browser                        does NOT name the principal
+    integration    Google Translate text-to-speech      does NOT name the principal
+
+  UNSEEN - carriers absent from the configuration entirely (1)
+    websocket session authenticated at connection setup; not represented in any file under the configuration directory, so no configuration audit can enumerate it
+
+  READING
+    A per-object audit is clean: nothing in the configuration names this
+    principal. 8 object(s) can still relay authority they supply, and
+    the connection that supplies it is not in the configuration at all.
+    A configuration audit cannot answer the question this paper asks.

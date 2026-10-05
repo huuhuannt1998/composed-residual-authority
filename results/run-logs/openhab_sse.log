@@ -5,8 +5,8 @@
   PRE-removal   : 4 state events delivered to the member's stream
 
   --- transition: openhab:users remove ohmember2 ---
-  POST-removal  : 4 state events delivered   (stream alive=True err=None)
+  POST-removal  : 3 state events delivered   (stream alive=True err=None)
 
 === VERDICT ===
-  RESIDUAL: the established SSE stream kept delivering 4 events after removal.
+  RESIDUAL: the established SSE stream kept delivering 3 events after removal.
   openHAB reproduces the Home Assistant pattern on the persistent-connection path.

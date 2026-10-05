@@ -1,0 +1,223 @@
+[
+ {
+  "label": "pre-deletion control",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "immediately",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+30 min",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+1 hour",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+2 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+3 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+4 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+5 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+6 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+7 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+8 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+9 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+10 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+11 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+12 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+18 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+24 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+30 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+36 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+42 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+48 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+54 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+60 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+66 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "+72 hours",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "after automation reload",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "after integration reload",
+  "socket": true,
+  "read": true,
+  "stream": true,
+  "actuate": true
+ },
+ {
+  "label": "after in-UI core restart",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false,
+  "close_code": 1000,
+  "close_reason": null,
+  "exception": "ConnectionClosedOK: received 1000 (OK); then sent 1000 (OK)",
+  "container_log_tail": "ponents.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:34:44.931 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:34:49.948 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:34:54.970 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:34:59.992 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:05.021 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:10.045 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:15.058 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:20.077 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:25.096 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:30.123 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:35.139 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n\u001b[33m2026-09-09 07:35:40.165 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 172.17.0.3 (172.17.0.3). Requested URL: '/api/websocket'. (Python/3.12 websockets/17.1)\u001b[0m\n"
+ },
+ {
+  "label": "after container restart",
+  "socket": false,
+  "read": false,
+  "stream": false,
+  "actuate": false
+ }
+]

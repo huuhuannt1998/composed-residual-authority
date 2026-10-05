@@ -1,0 +1,94 @@
+{
+ "principal": "def8afb9b0e64748bab61547e309ba70",
+ "resolved_user_id": "def8afb9b0e64748bab61547e309ba70",
+ "resolved_name": "audit subj",
+ "named": [
+  [
+   "user",
+   "def8afb9b0e64748bab61547e309ba70",
+   "user record 'audit subj' still present"
+  ],
+  [
+   "refresh_token",
+   "6b1563e7a1924c87bc942b418ed955e5",
+   "normal token, client=None"
+  ],
+  [
+   "credential",
+   "73f634d2b5a94cc8ba26fd06834f5ea0",
+   "homeassistant"
+  ]
+ ],
+ "carriers": [
+  {
+   "kind": "automation",
+   "id": "tsdeputy",
+   "alias": "ts deputy probe",
+   "trigger": "event",
+   "names_principal": false,
+   "note": "fires on an event any authenticated client may emit"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QB69TD2Y1DJNPZMD5FHGK",
+   "alias": "Sun",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QB6B14QTZCTZBFHBFSMBW",
+   "alias": "Analytics",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QB6B2FSSJ8NJ10RVY0JV2",
+   "alias": "go2rtc",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QB6B3KTB7AP9W5TGECTJT",
+   "alias": "Backup",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QB8EZRVGD8KKWC5EPDJPB",
+   "alias": "Shopping list",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QB8F3YBZRSR8GRG5SNDBY",
+   "alias": "Google Translate text-to-speech",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  },
+  {
+   "kind": "integration",
+   "id": "01M41QB8J88RJRF7SYW49SGBY4",
+   "alias": "Radio Browser",
+   "trigger": "-",
+   "names_principal": false,
+   "note": "holds its own credentials, independent of the principal"
+  }
+ ],
+ "unseen": [
+  {
+   "kind": "websocket session",
+   "note": "authenticated at connection setup; not represented in any file under the configuration directory, so no configuration audit can enumerate it"
+  }
+ ]
+}

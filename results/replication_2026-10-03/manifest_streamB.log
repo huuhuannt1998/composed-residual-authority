@@ -1,0 +1,49 @@
+[2026-10-03T20:27:35Z] stream B start, reps=5, image homeassistant/home-assistant:2026.8.3
+[2026-10-03T20:27:35Z] image id sha256:14931c6b13756317849f46da1d01b45937a1150db66c081cfe529d48215943fe
+[2026-10-03T20:27:35Z] python Python 3.13.11; websockets 10.4 aiohttp 3.13.3
+[2026-10-03T20:27:35Z] rep 1 capability baseline: start
+[2026-10-03T20:28:03Z] rep 1 capability baseline: rc=0
+[2026-10-03T20:28:04Z] rep 1 capability defenseB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:28:38Z] rep 1 capability defenseB: rc=0
+[2026-10-03T20:28:38Z] rep 1 capability defenseA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:29:07Z] rep 1 capability defenseA: rc=0
+[2026-10-03T20:29:07Z] rep 2 capability defenseB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:29:42Z] rep 2 capability defenseB: rc=0
+[2026-10-03T20:29:42Z] rep 2 capability defenseA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:30:11Z] rep 2 capability defenseA: rc=0
+[2026-10-03T20:30:11Z] rep 2 capability baseline: start
+[2026-10-03T20:30:39Z] rep 2 capability baseline: rc=0
+[2026-10-03T20:30:40Z] rep 3 capability defenseA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:31:09Z] rep 3 capability defenseA: rc=0
+[2026-10-03T20:31:09Z] rep 3 capability baseline: start
+[2026-10-03T20:31:37Z] rep 3 capability baseline: rc=0
+[2026-10-03T20:31:37Z] rep 3 capability defenseB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:32:11Z] rep 3 capability defenseB: rc=0
+[2026-10-03T20:32:12Z] rep 4 capability baseline: start
+[2026-10-03T20:32:39Z] rep 4 capability baseline: rc=0
+[2026-10-03T20:32:40Z] rep 4 capability defenseB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:33:14Z] rep 4 capability defenseB: rc=0
+[2026-10-03T20:33:14Z] rep 4 capability defenseA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:33:44Z] rep 4 capability defenseA: rc=0
+[2026-10-03T20:33:44Z] rep 5 capability defenseB: start
+decorators.py : ok
+commands.py   : ok
+[2026-10-03T20:34:19Z] rep 5 capability defenseB: rc=0
+[2026-10-03T20:34:19Z] rep 5 capability defenseA: start
+Defense A applied to async_remove_user
+[2026-10-03T20:34:48Z] rep 5 capability defenseA: rc=0
+[2026-10-03T20:34:48Z] rep 5 capability baseline: start
+[2026-10-03T20:35:16Z] rep 5 capability baseline: rc=0
+[2026-10-03T20:35:16Z] stream B done

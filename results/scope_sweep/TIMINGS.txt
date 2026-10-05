@@ -1,0 +1,11 @@
+Valid scope sweep, 2026-09-02, Alloy 6.2.0 (sha256 6b8c1cb5...), containerised JRE.
+Wall-clock per scope, including container start (~0.5s):
+  S1  for 4 but 3P 2D 3G 2S 2A, 10 steps    3.46 s   17 verdicts
+  S2  for 5 but 4P 3D 4G 3S 3A, 12 steps    6.37 s   17 verdicts
+  S3  for 6 but 5P 4D 5G 4S 4A, 14 steps   15.64 s   17 verdicts
+  S4  for 7 but 6P 4D 6G 5S 5A, 16 steps   58.04 s   17 verdicts
+Ratio S4/S1 = 16.8x. Verdicts identical across all four scopes.
+
+NOTE: an earlier run of this experiment appeared to succeed in ~0.8s per scope
+while solving nothing (wrong mount path; the error was swallowed by a grep).
+That log is superseded by this one. The script now asserts on the verdict count.

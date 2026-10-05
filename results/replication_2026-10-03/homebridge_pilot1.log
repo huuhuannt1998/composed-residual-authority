@@ -1,0 +1,7 @@
+[16:32:21] member created (id=2) and authenticated
+[16:32:21] namespaces connected: status=True log=True
+[16:32:58] BASELINE before removal: delivered status=0 log=0 (restart HTTP 415)
+[16:32:58] DELETE /api/users/2 -> HTTP 200
+[16:33:31] AFTER removal (subject silent): delivered status=0 log=0; sockets alive {'status': True, 'log': True}
+[16:33:34] request path after removal: HTTP 401; request-response ack after removal: False; alive after incoming message: {'status': False, 'log': True}
+[16:33:34] VERDICT per channel: {'status': 'INVALID (no delivered-event baseline)', 'log': 'INVALID (no delivered-event baseline)'}

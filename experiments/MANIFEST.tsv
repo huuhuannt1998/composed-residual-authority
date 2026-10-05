@@ -17,6 +17,7 @@ severity	p2e19_severity.py	1	0	1	y	/tmp/p2e19_severity.json	severity classificat
 sessions	p1e7b_sessions.py	1	1	4	y	/tmp/p1e7b.json	session conditions
 regression_base	p1e12_regression.py	1	1	4	y	/tmp/p1e12_8141.json	lifecycle suite, unpatched baseline
 regression_defA	p1e12_regression.py	1	1	4	y	/tmp/p1e12_8142.json	lifecycle suite, Defense A
+regression_defB	p1e12_regression.py	1	1	4	y	-	lifecycle suite, Defense B (re-resolution)
 capability_base	p0e3_capability_matrix.py	1	1	6	y	-	defense completeness, unpatched baseline (expect 8)
 capability_defB	p0e3_capability_matrix.py	1	1	7	y	-	defense completeness, re-resolution (expect 2)
 capability_defA	p0e3_capability_matrix.py	1	1	7	y	-	defense completeness, session termination (expect 0)
@@ -36,10 +37,19 @@ deputy_confirm	e76_deputy.py	1	1	6	y	-	E7.6 deputy path confirmed at actuation
 admin_surface	e76b_admin_surface.py	1	1	6	y	-	E7.6b admin-surface blast radius
 closure	e63_closure.py	1	1	7	y	-	E6.3 monitor closes both residues (needs Defense B)
 false_positive	e66_false_positive.py	1	1	7	y	-	E6.6 monitor denies nothing legitimate (needs Defense B)
+subscribe_control	p1e7c_subscribe_control.py	1	1	5	y	-	member-cell control: does the cell measure role or removal
+restart_modes	p1e8c_restart_modes.py	1	1	6	y	-	in-UI restart vs container restart as termination events
+thirdparty_carrier	p1e18_thirdparty_carrier.py	1	1	5	y	-	long-lived token held outside the platform (negative result)
+homebridge	p2e17_homebridge.py	1	1	8	y	-	Homebridge UI request path and socket.io (negative result)
+openhab_ws	p2e20_openhab_ws_composed.py	1	1	6	y	results/p2e20_openhab_ws_composed.json	openHAB established websocket: direct and composed arms
+openhab_ws_reps	p2e20b_openhab_ws_reps.py	1	1	8	y	results/p2e20b_openhab_ws_reps.json	openHAB websocket residue, 5 trials with both controls
+lifetime_72h	p1e8d_lifetime_72h.py	2	1	4360	n	results/lifetime/p1e8d_rows_72h.json	LONGEST: 72h schedule; supersedes lifetime_long
 #
 # DELIBERATELY NOT RUN, with reasons:
 #   p1e6_version_study.py   invoked by run_version_study.sh, which is an entry above
 #   p1e8_lifetime.py        strict subset of p1e8b (delays +1m/+5m and 2 of 3 events)
+#   p1e8b_lifetime_long.py  kept as entry 'lifetime_long' for the record, but
+#                           superseded by lifetime_72h; run one or the other
 #   r3_probe.py             strict subset of matrix (get_states, call_service; single-shot)
 #   r3_read_probe.py        strict subset of matrix (adds subscribe_events; single-shot)
 #   tenantsafe_base.spthy   intractable BY DESIGN; cited as the tool-choice evidence

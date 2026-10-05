@@ -1,0 +1,13 @@
+RUN3.log contains two SUPERSEDED failures, kept for the audit trail:
+
+  A5 NECESSITY: FAIL / CRD = 2 confirmed: False
+     The probe entity input_boolean.ts_probe did not exist on that fresh
+     container, so actuation could not be observed and the arm reported "no
+     residue" when it had made no measurement. The script now creates the
+     entity. Superseded by 30 trials, 30/30 PASS (results/necessity_reps.tsv).
+
+  NameError: name 'tokc' is not defined
+     An onboarding helper was added referencing the wrong token-exchange
+     function name. Fixed; the experiment then reproduced its recorded result.
+
+Neither is a platform finding. Both are instrumentation faults in our harness.

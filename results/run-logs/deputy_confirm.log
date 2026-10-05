@@ -1,6 +1,6 @@
 owner connected
   automation installed: HTTP 200
-  member connected (uid=d4f99d0b3d934ae49896d77f96194d02)
+  member connected (uid=6a0fcbeff1e3405ba9a72e93eae8765a)
   member long-lived token minted: True
   CONTROL pre-removal long-lived token: ACCEPTED
   CONTROL pre-removal: fire_event success=True -> input_boolean.ts_probe=on

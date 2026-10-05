@@ -1,0 +1,25 @@
+
+  configuration audit for principal: c1402079b0164dd4ac403877de004c29
+  resolved: c1402079b0164dd4ac403877de004c29
+
+  NAMED - objects a per-object search would find (3)
+    user           c1402079b0164dd4ac403877de004c29     user record 'audit subj' still present
+    refresh_token  7e47b3b0dcc04414846dfa54527e05c2     normal token, client=None
+    credential     abf710063bd049f1938ac5da406e4bc5     homeassistant
+
+  CARRIERS - relay authority without naming anyone (8)
+    automation     ts deputy probe                      does NOT name the principal
+    integration    Sun                                  does NOT name the principal
+    integration    Analytics                            does NOT name the principal
+    integration    go2rtc                               does NOT name the principal
+    integration    Backup                               does NOT name the principal
+    integration    Shopping list                        does NOT name the principal
+    integration    Google Translate text-to-speech      does NOT name the principal
+    integration    Radio Browser                        does NOT name the principal
+
+  UNSEEN - carriers absent from the configuration entirely (1)
+    websocket session authenticated at connection setup; not represented in any file under the configuration directory, so no configuration audit can enumerate it
+
+  READING
+    3 object(s) still name the principal; removal is incomplete at the
+    object level and a per-object audit would find them.
